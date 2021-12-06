@@ -129,6 +129,7 @@
 				<ul>
 					<li><a href="UserInformationTutors.php?LectID=<?php echo $userid ?>">Profile</a></li>
 					<li><a href="Search.php">Search</a></li>
+					<li><a href="Announcement.php">Announcement</a></li>
 					<li><a href="Loginpage.php">Log Out</a></li>
 				</ul>
 

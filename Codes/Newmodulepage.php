@@ -14,9 +14,8 @@
 	$add = $_POST['add'];
 	$edit = $_POST['edit'];
 	$delete = $_POST['delete'];
-	
 	$oldcode = $_POST['modulecode'];
-	
+	$_SESSION['error']=0;
 	$code = $_POST['code'];
 	$acadplan = $_POST['acadplan'];
 	$school = $_POST['school'];
@@ -31,15 +30,44 @@
 	
 	if(isset($add))
 	{
-		$modulequery = mysqli_query($conn, 'INSERT INTO `academic plan codes` (`Code`, `Academic Plan`, `School`) VALUES ("'.$code.'", "'.$acadplan.'", "'.$school.'")') or die('Add Modules error');
+		if(!($modulequery = mysqli_query($conn, 'INSERT INTO `academic plan codes` (`Code`, `Academic Plan`, `School`) VALUES ("'.$code.'", "'.$acadplan.'", "'.$school.'")')))
+		{
+			$_SESSION['error']=1;
+			header("Location:AfterEdit.php");
+		}
+		else
+		{
+			$_SESSION['error']=2;
+			header("Location:AfterEdit.php");
+		}
+		
 	}
 	else if(isset($edit))
 	{
-		$modulequery = mysqli_query($conn, 'UPDATE `academic plan codes` SET `Code` = "'.$code.'", `Academic Plan` = "'.$acadplan.'", `School` = "'.$school.'" WHERE Code LIKE "'.$codebeforeedit.'"') or die('Edit Modules error');
+		if(!($modulequery = mysqli_query($conn, 'UPDATE `academic plan codes` SET `Code` ="'.$code.'",`Academic Plan` = "'.$acadplan.'", `School` = "'.$school.'" WHERE Code LIKE "'.$codebeforeedit.'"')))	
+		{
+			$_SESSION['error']=3;
+			header("Location:AfterEdit.php");
+		}
+		else
+		{
+			$_SESSION['error']=4;
+			header("Location:AfterEdit.php");
+		}		
+
 	}
 	else if(isset($delete))
 	{
-		$modulequery = mysqli_query($conn, 'DELETE FROM `academic plan codes` WHERE `Code` LIKE "'.$codebeforeedit.'"') or die('Module may be in use by students');
+		if(!($modulequery = mysqli_query($conn, 'DELETE FROM `academic plan codes` WHERE `Code` LIKE "'.$codebeforeedit.'"')))
+		{
+			$_SESSION['error']=5;
+			header("Location:AfterEdit.php");
+		}
+		else
+		{
+			$_SESSION['error']=6;
+			header("Location:AfterEdit.php");	
+		}
 	}
 
 ?>
@@ -83,27 +111,31 @@
 			<input type="text" id="code" name="code" value="<?php echo $oldmoduledata['Code'] ?>" />
 			<input type="hidden" name="codebeforeedit" value="<?php echo $oldmoduledata['Code'] ?>" />
 			<br /><br />
-			
 			<span><b>Academic Plan:</b></span>
 			<input type="text" id="acadplan" name="acadplan" value="<?php echo $oldmoduledata['Academic Plan'] ?>" />
 			<br /><br />
-			
 			<span><b>School:</b></span>
 			<input type="text" id="school" name="school" value="<?php echo $oldmoduledata['School'] ?>" />
 			<br /><br />
+			<input type="button" value="Back" onclick="location.href='Modulespage.php';" />
+
 			
 			
-			<input type="button" value="Back" onclick="goback()" />
+	
 		
 			<?php
 				if($oldcode == null)
 				{
+						
+
 					echo '<input type="hidden" name="add" value="1" />';
 					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<input type="button" value="Add module" onclick="toadd()" />';
 				}
 				else
 				{
+						
+					
 					echo '<input type="hidden" id="editordelete" name="" value="1" />';
 					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<input type="button" value="Edit module" onclick="toedit()" />';
@@ -160,18 +192,10 @@ function toedit()
 	{
 		window.alert("Error: Code cannot be empty");
 	}
-	else if (document.getElementById("acadplan").value == "")
-	{
-		window.alert("Error: Academic plan cannot be empty");
-	}
-	else if (document.getElementById("school").value == "")
-	{
-		window.alert("Error: School cannot be empty");
-	}
 	else
 	{
-		document.getElementById("editordelete").name = "edit";
-		document.getElementById("modulesform").submit();
+	document.getElementById("editordelete").name = "edit";
+	document.getElementById("modulesform").submit();	
 	}
 }
 </script>

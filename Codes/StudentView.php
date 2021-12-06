@@ -80,6 +80,7 @@
 				<a href="#">Notts<span>Tutor</span></a>
 				<ul>
 					<li><a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">Profile</a></li>
+					<li><a href="Notification.php?studentID=<?php echo $userid ?>">Notification</a></li>
 					<li><a href="Loginpage.php">Log Out</a></li>
 				</ul>
 
