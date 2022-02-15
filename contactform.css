@@ -1,0 +1,65 @@
+/*CSS for the send button*/
+.send-btn {
+  padding: 5px;
+  font-family: monospace;
+  font-size: 16px;
+  width: 100px;
+  border: 3px solid whitesmoke;
+  background-color: #5c7cfa;
+  border-radius: 10px;
+  color: white;
+}
+
+/*css for notify messages*/
+.notify-success {
+  z-index: 1;
+  background: #d7f0ff;
+  font-size: 18px;
+  padding: 20px 40px;
+  min-width: 420px;
+  position: fixed;
+  right: 0;
+  top: 10px;
+  border-left: 8px solid #71c9ff;
+  border-radius: 4px;
+  -webkit-animation: cssAnimation 4s forwards;
+  animation: cssAnimation 4s forwards;
+}
+/*Disappear animation for the success message*/
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.notify-error {
+  z-index: 1;
+  background: #ffe0e3;
+  font-size: 18px;
+  padding: 20px 40px;
+  min-width: 420px;
+  position: fixed;
+  right: 0;
+  top: 10px;
+  border-left: 8px solid #f01b2d;
+  border-radius: 4px;
+  -webkit-animation: cssAnimation 4s forwards;
+  animation: cssAnimation 4s forwards;
+}
