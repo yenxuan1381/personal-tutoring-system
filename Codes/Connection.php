@@ -4,6 +4,8 @@ $host = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
 $dbname = "csv_db 15";
+date_default_timezone_set("Asia/Kuala_Lumpur"); //Use date time in Malaysia
+$date=date('F j, Y g:i:a');
 
 $conn = new mysqli ($host,$dbUsername,$dbPassword,$dbname);
 
