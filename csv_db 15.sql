@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2022 at 10:37 AM
+-- Generation Time: Mar 10, 2022 at 01:34 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- PHP Version: 8.0.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -656,7 +656,7 @@ INSERT INTO `students` (`Student Id`, `Full Name`, `First Name`, `Last Name`, `N
 (20012708, 'Ismail,Ahmad Nabil', 'Ahmad Nabil', 'Ismail', 'Malaysia', 'Male', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfyai1@nottingham.edu.my', '14-Sep-19', 'Yes', '', '', 50000038, '1234', NULL),
 (20012961, 'Shim,Bryan Sze Siang', 'Bryan Sze Siang', 'Shim', 'Malaysia', 'Male', 'M6USWENG', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'efybs1@nottingham.edu.my', '13-Sep-19', 'Yes', '', '', 50000037, '1234', NULL),
 (20040136, 'Chong,Nicholas Wei Chen', 'Nicholas', 'Chong', 'Malaysia', 'Male', 'M6USWENG', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfync1@nottingham.edu.my', '14-Sep-19', 'Yes', '', '', 50000038, '1234', NULL),
-(20050927, 'Elsaid,Salma Tamer Fathy Ahmed', 'Salma Tamer Fathy Ahmed', 'Elsaid', 'Egypt', 'Female', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfyse1@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', NULL),
+(20050927, 'Elsaid,Salma Tamer Fathy Ahmed', 'Salma Tamer Fathy Ahmed', 'Elsaid', 'Egypt', 'Female', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfyse1@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', 'get good grades'),
 (20052342, 'Wan Hanna Monisha Binti Wan Nurnizam', 'Wan Hanna Monisha', 'Wan Nurnizam', 'Malaysia', 'Female', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfww1@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', NULL),
 (20063426, 'Khaled Alazem', 'Khaled', 'Alazem', 'Syrian Arab Republic', 'Male', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'ecyka1@nottingham.edu.my', '17-Sep-19', 'Yes', '', '', 50000041, '1234', NULL),
 (20063592, 'Nik Nufayl Daniel Bin Md Nezam', 'Nik Nufayl Daniel', 'Md Nezam', 'Malaysia', 'Male', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfynm7@nottingham.edu.my', '15-Sep-19', 'Yes', '', '', 50000039, '1234', NULL),
