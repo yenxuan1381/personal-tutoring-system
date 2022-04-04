@@ -44,7 +44,7 @@
 				else{
 					$sql1 = "UPDATE `$day` SET `$timeslot`='$name' WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
 					if(mysqli_query($conn, $sql1)){
-    						header("Location:Studentview.php");
+    						header("Location:Timeslot.php");
 					} 
 					else {
     						echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
