@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
     $query = "UPDATE `$day` SET timeslot1 = NULL, timeslot2 = NULL, timeslot3 = NULL, timeslot4 = NULL";
     if (mysqli_query($conn, $query)) {
-      header("Location:Tutorpage.php");
+      header("Location:TutorTimeslot.php");
     } else {
       echo "ERROR: Could not execute $sql. " . mysqli_error($link);
     }
