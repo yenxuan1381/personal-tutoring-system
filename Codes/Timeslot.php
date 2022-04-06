@@ -55,12 +55,160 @@
 				
 	}
 	
-
+//end of PHP script
 ?>
 
-<html>
+<!-- start of the HTML script for the student view page  -->
+
+<!DOCTYPE html>
+ <html>
   <head>
-    <style>
+	<link rel="stylesheet" href="default.css">
+    <title> Student Page </title>
+  </head>
+
+<body>
+<!-- Start Menu -->
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+		<div class="sidebar">
+
+			<nav>
+				<a href="#">Notts<span>Tutor</span></a>
+				<ul>
+				<li><a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">Profile</a></li>
+					<li><a href="Notification.php?studentID=<?php echo $userid ?>">Notification</a></li>
+					<li><a href="Timeslot.php">Make Appointment</a></li>
+					<li><a href="ContactTuteepage.php">Contact Us</a></li>
+					<li><a href="Loginpage.php">Log Out</a></li>
+				</ul>
+
+			</nav>
+
+		</div>
+	<!-- End Menu -->
+
+		<div class="main-content">
+			<h1> Timetable </h1>
+			<table id="days">
+			<tr>
+				<th class="special_cell1"></th>
+				<th>09:00 - 10:00</th>
+				<th>10:00 - 11:00</th>
+				<th>11:00 - 12:00</th>
+				<th>14:00 - 15:00</th>
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Monday
+				</td>
+				<?php
+				$sql2 = "SELECT * FROM `monday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql2);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Tuesday
+				</td>
+				<?php
+				$sql3 = "SELECT * FROM `tuesday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql3);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Wednesday
+				</td>
+				<?php
+				$sql4 = "SELECT * FROM `wednesday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql4);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+
+			<tr>
+				<td class="special_cell">
+				Thursday
+				</td>
+				<?php
+				$sql5 = "SELECT * FROM `thursday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql5);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Friday
+				</td>
+				<?php
+				$sql6 = "SELECT * FROM `friday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql6);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Saturday
+				</td>
+				<?php
+				$sql7 = "SELECT * FROM `saturday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql7);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			<tr>
+				<td class="special_cell">
+				Sunday
+				</td>
+				<?php
+				$sql8 = "SELECT * FROM `sunday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
+				$result = $conn->query($sql8);
+				while($row = $result->fetch_assoc()) {
+					echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
+				}
+			?> 
+			</tr>
+			</table>
+
+			<form name="form1" id="form1" method="post">
+			Day: <select name="day" id="day">
+			<option value="" >Select day</option>
+			<option value="monday timeslot" >Monday</option>
+			<option value="tuesday timeslot" >Tuesday</option>
+			<option value="wednesday timeslot" >Wednesday</option>
+			<option value="thursday timeslot" >Thursday</option>
+			<option value="friday timeslot" >Friday</option>
+			<option value="saturday timeslot" >Saturday</option>
+			<option value="sunday timeslot" >Sunday</option>
+			</select>
+			<br><br>
+			Timeslot: <select name="timeslot" id="timeslot">
+				<option value="" selected="selected">Select timeslot</option>
+			<option value="timeslot1" >09:00 - 10:00</option>
+			<option value="timeslot2" >10:00 - 11:00</option>
+			<option value="timeslot3" >11:00 - 12:00</option>
+			<option value="timeslot4" >14:00 - 15:00</option>	
+			</select>
+			<br><br>
+			<input type="submit" value="Book now">
+		</form>
+	</body>
+  <style>
       
       #days {
         font-family: Arial, Helvetica, sans-serif;
@@ -94,128 +242,6 @@
 
     
     </style>
-
-  </head>
-  <body>
-    <h1> Timetable </h1>
-    <table id="days">
-      <tr>
-        <th class="special_cell1"></th>
-        <th>09:00 - 10:00</th>
-        <th>10:00 - 11:00</th>
-        <th>11:00 - 12:00</th>
-        <th>14:00 - 15:00</th>
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Monday
-        </td>
-        <?php
-		$sql2 = "SELECT * FROM `monday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql2);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Tuesday
-        </td>
-        <?php
-		$sql3 = "SELECT * FROM `tuesday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql3);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Wednesday
-        </td>
-        <?php
-		$sql4 = "SELECT * FROM `wednesday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql4);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-
-      <tr>
-        <td class="special_cell">
-          Thursday
-        </td>
-        <?php
-		$sql5 = "SELECT * FROM `thursday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql5);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Friday
-        </td>
-        <?php
-		$sql6 = "SELECT * FROM `friday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql6);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Saturday
-        </td>
-        <?php
-		$sql7 = "SELECT * FROM `saturday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql7);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-      <tr>
-        <td class="special_cell">
-          Sunday
-        </td>
-        <?php
-		$sql8 = "SELECT * FROM `sunday timeslot` WHERE appointment_id=(SELECT appointment_id FROM appointment WHERE `Lect ID` = '$tutorid')";
-		$result = $conn->query($sql8);
-		while($row = $result->fetch_assoc()) {
-   			echo "<td>".$row["timeslot1"]."</td><td>".$row["timeslot2"]."</td><td>".$row["timeslot3"]."</td><td>".$row["timeslot4"]."</td>";
-		}
-	?> 
-      </tr>
-    </table>
-
-    <form name="form1" id="form1" method="post">
-    Day: <select name="day" id="day">
-	<option value="" >Select day</option>
-	<option value="monday timeslot" >Monday</option>
-	<option value="tuesday timeslot" >Tuesday</option>
-	<option value="wednesday timeslot" >Wednesday</option>
-	<option value="thursday timeslot" >Thursday</option>
-	<option value="friday timeslot" >Friday</option>
-	<option value="saturday timeslot" >Saturday</option>
-	<option value="sunday timeslot" >Sunday</option>
-      </select>
-    <br><br>
-    Timeslot: <select name="timeslot" id="timeslot">
-    	<option value="" selected="selected">Select timeslot</option>
-	<option value="timeslot1" >09:00 - 10:00</option>
-	<option value="timeslot2" >10:00 - 11:00</option>
-	<option value="timeslot3" >11:00 - 12:00</option>
-	<option value="timeslot4" >14:00 - 15:00</option>	
-      </select>
-    <br><br>
-    <input type="submit" value="Book now">
-   </form>
-  </body>
 </html>
 
 

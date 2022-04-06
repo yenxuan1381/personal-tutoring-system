@@ -24,6 +24,7 @@
 				// sanitise user input
 				$sanitized_userid = mysqli_real_escape_string($conn, $userid);
 				$sanitized_password = mysqli_real_escape_string($conn, $userpassword);
+				//$hash = password_hash($sanitized_password, PASSWORD_DEFAULT); // Secure password hash
 
 				$administratorstable = "SELECT * FROM `administrators` WHERE `Admin ID` = ".$sanitized_userid;
 				$seniortutorstable = "SELECT * FROM `senior tutors` WHERE `Lect ID` = ".$sanitized_userid;
