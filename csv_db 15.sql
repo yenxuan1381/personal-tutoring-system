@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2022 at 03:18 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Apr 05, 2022 at 04:32 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `csv_db 15`
+-- Database: `csv_db 16`
 --
 
 -- --------------------------------------------------------
@@ -158,6 +158,19 @@ INSERT INTO `administrators` (`Admin ID`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `announcement`
+--
+
+CREATE TABLE `announcement` (
+  `announcement_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `tutor_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `appointment`
 --
 
@@ -252,6 +265,19 @@ INSERT INTO `appointment` (`Appointment_ID`, `Lect ID`, `Monday`, `Tuesday`, `We
 (72, 50000072, 72, 72, 72, 72, 72, 72, 72),
 (73, 50000073, 73, 73, 73, 73, 73, 73, 73),
 (74, 50000074, 74, 74, 74, 74, 74, 74, 74);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `announcement_id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1410,11 +1436,23 @@ ALTER TABLE `administrators`
   ADD PRIMARY KEY (`Admin ID`);
 
 --
+-- Indexes for table `announcement`
+--
+ALTER TABLE `announcement`
+  ADD PRIMARY KEY (`announcement_id`);
+
+--
 -- Indexes for table `appointment`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`Appointment_ID`),
   ADD KEY `Lect ID` (`Lect ID`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `general_chat`
@@ -1472,6 +1510,18 @@ ALTER TABLE `tutors`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `announcement`
+--
+ALTER TABLE `announcement`
+  MODIFY `announcement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `general_chat`
