@@ -10,6 +10,10 @@
 	}
 
     $id = $_GET['id'];
+
+	$sql1 = "SELECT * FROM announcement WHERE announcement_id='$id'";
+	$result1 = $conn->query($sql1);	
+
     if(isset($_POST['text'])){
 		$title = $_POST['title'];
 		$announcement = $_POST['text'];
@@ -26,99 +30,88 @@
 
 ?>
 <!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="default.css">
+<html lang="en">
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="announcement_new.css">
+    </head>
+    <body>
+        <aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="person"></ion-icon>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span class="title">Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Announcement.php">
+                            <ion-icon name="mail"></ion-icon>
+                            <span class="title">Announcement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="chatbubble-ellipses"></ion-icon>
+                            <span class="title">Message</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="#">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="background">
+                <div class="background-image"></div>
+                <div class="title-container">
+                    <span class="title">Edit Announcement</span>
+                </div>
+                <div class="content-container">
+				<?php
+					while($rows=$result1->fetch_assoc())
+					{
+				?>
+                    <form id="announcementform"  method="POST" >
+                        <label for="title">New Title:</label><br>
+                        <input type="text" id="title" name="title" value="<?php echo $rows['title'];?>"><br></br>
+                        <label for="Content">New Content:</label><br>
+                        <textarea id="announcement" name="text"><?php echo $rows['content'];?></textarea>
+						<input type="submit" value="Submit">
+                    </form>
+				<?php } ?>
 
-		<title>
-			Tutors
-		</title>
-
-		<style>
-		.close
-		{
-			position:absolute;
-			transition:all 500ms;
-			top:20px;
-			right:30px;
-			font-size:30px;
-			font-weight:bold;
-			text-decoration:none;
-			color:black;
-		}
-
-		.overlay
-		{
-			position:fixed;
-			top:0;
-			bottom:0;
-			left:0;
-			right:0;
-			background:rgba(0,50,75,0.7);
-			transition:all 500ms;
-			visibility:hidden;
-			opacity:0;
-		}
-
-		.overlay:target
-		{
-			visibility:visible;
-			opacity:1;
-		}
-
-		.popupchange
-		{
-			margin:225px auto;
-			padding:15 30 30;
-			background:white;
-			border-radius:5px;
-			width:19%;
-			height:25%;
-			position:relative;
-			transition:all 5s ease-in-out;
-		}
-
-		.popupconfirm
-		{
-			margin:225px auto;
-			padding:15 30 30;
-			background:white;
-			border-radius:5px;
-			width:17%;
-			height:25%;
-			position:relative;
-			transition:all 5s ease-in-out;
-		}
-		</style>
-
-	</head>
-	<!-- Start Menu -->
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-		<div class="sidebar">
-
-			<nav>
-				<a href="#">Nottingham <span>Tutor System</span></a>
-				<ul>
-					<li><a href="tutorpage.php">Tutees</a></li>
-					<li><a href="Search.php">Search</a></li>
-					<li><a href="Loginpage.php">Log Out</a></li>
-				</ul>
-
-			</nav>
-		</div>
-
-	<!-- End Menu -->
-    <div class="main-content">
-	<h3>Edit Announcment</h3>
-	<br><br>
-	<form id="announcementform"  method="POST" >
-		<label for="title">New Title:</label><br>
-		<input type="text" id="title" name="title" size="78"><br>
-		<label for="announcement">New Content:</label><br>
-		<textarea id="announcement" name="text" rows="10" cols="100"></textarea><br>
-		<input type="submit" value="Confirm Changes" >
-
-	</form>
-
+                </div>
+                <div class="back-button">
+                    <a href="announcement.php">
+                        <ion-icon name="arrow-back"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>

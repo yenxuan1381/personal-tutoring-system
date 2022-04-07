@@ -1,0 +1,168 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica', sans-serif;
+    font-size: 18px;
+	letter-spacing: 1px;
+}
+
+section
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.background
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.background-image
+{
+    position: fixed;
+    width: calc(100% - 350px);
+    height: 100%;
+    background-image: url(image/background2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title-container
+{
+    position: relative;
+    width: 100%;
+    padding: 20px 70px;
+}
+
+.title-container .title
+{
+    font-size: 50px;
+    color: var(--white);
+    font-weight: bold;
+    height: 10%;
+}
+
+.search-container
+{
+    position: fixed;
+    width: 70%;
+    height: 60%;
+    left: 23%;
+    top: 17%;
+    background: rgba(255,255,255,.8);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+}
+
+.search-container .search-bar-year select
+{
+    background-color: var(--blue3);
+    color: var(--white);
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 1200px){
+    .background-image{
+        width: calc(100% - 100px);
+    }
+}
+
+.nav-btn {
+	width: 100%;
+	height: 35px;
+	padding-top: 4px;
+	color: #D5D3D3;
+	background-color: #212121;
+	text-align: center;
+	cursor: pointer;
+	display: none;
+}
+.nav-btn:active {
+	background-color: #090909; 
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.sidebar {
+	width: 250px;
+	background: #1B507F;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	box-shadow: 1px 0px 10px #777;
+}
+
+.sidebar nav > a {
+	font-size: 150%;
+	display: inline-block;
+	padding: 30px 0px;
+	padding-left: 20px;
+	opacity: 0.7;
+	transition: all 0.2s;
+}
+.sidebar nav > a:hover {
+	opacity: 1;
+}
+
+.sidebar nav a span {
+	font-weight: 300;
+}
+
+.sidebar nav ul {
+	list-style: none;
+}
+
+.sidebar nav ul li {
+	font-size: 90%;
+	padding: 19px 0;	
+	padding-left: 20px;
+	border: collapse;
+}
+
+.sidebar nav ul li:hover {
+	background-color: #2c6f99;
+}
+
+.sidebar nav ul li:active {
+	background-color: #2c6f99;
+}
+
+.sidebar nav ul li a {
+	color: #D7D5D5;
+}
+
+.sidebar nav ul li:hover a{
+	color: #fff;
+}
+
+.main-content {
+	width: calc(100% - 150px);
+	height: 100%;
+	margin-left: 2px;
+	padding: 20px 30px;
+    font-size: 15px;
+}
+
+.main-content .panel-wrapper .panel-head {
+	padding: 30px 5px;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none; 
+}
+
+img 
+{
+	width: 220px;
+	margin-top: 50px;
+}

@@ -40,138 +40,112 @@
 
 
 ?>
-<!-- start of the HTML script for the student view page  -->
 
- <!DOCTYPE html>
- <html>
-	<style>
-		.inline {
-		display: inline;
-		}
 
-		.link-button {
-		background: none;
-		border: none;
-		color: blue;
-		text-decoration: underline;
-		cursor: pointer;
-		font-size: 1em;
-		font-family: serif;
-		}
-		.link-button:focus {
-		outline: none;
-		}
-		.link-button:active {
-		color:red;
-		}
 
-	</style>
-  <head>
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="default.css">
-    <title> Announcements </title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
 
-<body>
-<!-- Start Menu -->
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-	<div class="sidebar">
-			<?php
-				if($_SESSION['category']=="Tutor"){
-					echo '<nav>
-					<a href="#">Nottingham <span>Tutor System</span></a>
-					<ul>
-						<li><a href="tutorpage.php">Tutees</a></li>
-						<li><a href="Search.php">Search</a></li>
-						<li><a href="Loginpage.php">Log Out</a></li>
-					</ul>
-	
-					</nav>';
-				}
-				elseif($_SESSION['category']=="Student"){
-					echo '<nav>
-					<a href="#">Notts<span>Tutor</span></a>
-					<ul>
-						<li><a href="StudentView.php">List</a></li>
-						<li><a href="Loginpage.php">Log Out</a></li>
-					</ul>
-	
-					</nav>';
-				}
-			?>
-		</div>
-
-		<div class="main-content">
-
-			<!-- Start Panel -->
-			<div class="panel-wrapper">
-				<div class="panel-head">
-				<!-- Start Table -->
-
-		<table class="fl-table">
-			<thead>
-				  <tr>
-					<th><strong>Tutor Name</strong></th>
-					<th><strong>Title</strong></th>
-					<?php 
-						if($_SESSION['category']=="Tutor"){
-							echo "<th><strong>Action</strong></th>";
-						}
-					?>
-				  </tr>
-			</thead>
-			<tbody>
-				<?php if($result->num_rows > 0){while($row = $result->fetch_assoc()) { ?>
-				<tr>
-				  <td><?php echo $row["tutor_name"] ?></td>
-				  <td>
-				  	<form method="post" action="announcementview.php" class="inline">
-						<input type="hidden" name="id" value=<?php echo $row["announcement_id"] ?>>
-						<button type="submit" name="submit_param" value="submit_value" class="link-button">
-							<?php echo $row["title"] ?>
-						</button>
-					</form>
-				  </td>
-				  <?php 
-						if($_SESSION['category']=="Tutor"){
-							echo '
-							<td> 
-								<a href="AnnouncementEdit.php?id=',$row["announcement_id"],'"class="btn btn-info btn-block" >
-									<span class="glyphicon glyphicon-edit"></span>  Edit
-						  		</a>
-								<form method="post" onsubmit="return confirm(\'Are you sure you want to delete this announcement?\');">
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="announcement.css">
+    </head>
+    <body>
+        <aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="person"></ion-icon>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span class="title">Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="mail"></ion-icon>
+                            <span class="title">Announcement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="chatbubble-ellipses"></ion-icon>
+                            <span class="title">Message</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="background">
+                <div class="background-image"></div>
+                <div class="title-container">
+                    <span class="title">Announcement</span>
+                </div>
+                <div class="content-container">
+                    <ul>
+                        <?php if($result->num_rows > 0){while($row = $result->fetch_assoc()) { ?>
+                        <li>
+                            <div class="Announcement-info">
+                                <a href="AnnouncementView.php?announcementid=<?php echo $row["announcement_id"] ?>">
+                                    <span class="detail">Title: <?php echo $row["title"] ?></span>
+                                    <span class="from">From: <?php echo $row["tutor_name"] ?></span>
+                                </a>
+                            </div>
+                        <?php if($_SESSION['category']=="Tutor"){ ?>
+                            <div class="edit-announcement">
+                                <a href="announcementedit.php?id=<?php echo $row["announcement_id"]?>">
+                                    <ion-icon name="create"></ion-icon>
+                                </a>
+                            </div>
+                            <div class="delete-announcement">
+                                <form method="post" onsubmit="return confirm('Are you sure you want to delete this announcement?');">
 									<input type="hidden" name="delete">
-									<input type="hidden" name="id" value="',$row["announcement_id"],'">
-									<button type="submit" class="btn btn-danger btn-block">
-										<span class="glyphicon glyphicon-trash"></span> Delete 
-									</button>
+									<input type="hidden" name="id" value="<?php echo $row["announcement_id"]?>">
+									<button type="submit" >
+                                        <ion-icon name="trash"></ion-icon>
+                                    </input>
 								</form> 
-								
-								  
-							</td>';
-						}
-					?>
-				</tr>
-				<?php } } ?>
-			</tbody>
-		 </table>
-		 <br>
-		 <?php 
-		 	if($_SESSION['category']=="Tutor"){
-				 echo '<a href="AddAnnouncement.php" class="btn btn-primary btn-lg">
-				 <span class="glyphicon glyphicon-plus"></span> Add a New Announcement
-			   </a>';
-			 }
-		 ?>
-		 
-
-
-				<!-- End Table -->
-				</div>
-			</div>
-		<!-- End Panel -->
-		</div>
-	</body>
+                                    
+                                
+                            </div>
+                        <?php } ?>
+                        </li> 
+                        <?php } } ?>                
+                    </ul>
+                </div>
+                <?php if($_SESSION['category']=="Tutor"){ ?>
+                <div class="function-icon">
+                    <a href="AddAnnouncement.php">
+                        <ion-icon name="add-circle"></ion-icon>
+                    </a>
+                </div>
+                <?php } ?>
+            </div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
-<!-- End of HTML script -->

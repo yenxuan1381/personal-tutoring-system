@@ -15,8 +15,10 @@
 		$_SESSION['announcementid'] = $_POST['id'];
 	}
 
-
-	$announcementid = $_SESSION['announcementid'];
+	
+	$announcementid = $_GET['announcementid'];
+	
+	
 
 	
     $sql = "SELECT * FROM announcement WHERE announcement_id = '$announcementid';";
@@ -52,7 +54,7 @@
 		
 				
 		if(mysqli_query($conn, $sql)){
-			header("Location:Announcementview.php");
+			header("Location:Announcementview.php?announcementid=$announcementid");
 		} 
 		else {
     			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
@@ -62,191 +64,147 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-<link rel="stylesheet" href="default.css">
-
-		<title>
-			Tutors
-		</title>
-
-		<style>
-		.close
-		{
-			position:absolute;
-			transition:all 500ms;
-			top:20px;
-			right:30px;
-			font-size:30px;
-			font-weight:bold;
-			text-decoration:none;
-			color:black;
+<html lang="en">
+	
+	<style>
+		button.primaryContained {
+			position: absolute;
+			width: 100%;
+			top: calc(140px + 75%);
+			background: #016ba8;
+			color: #fff;
+			padding: 10px 10px;
+			border: none;
+			margin-top: 0px;
+			cursor: pointer;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+			transition: 1s all;
+			font-size: 10px;
+			border-radius: 15px;
 		}
-
-		.overlay
-		{
-			position:fixed;
-			top:0;
-			bottom:0;
-			left:0;
-			right:0;
-			background:rgba(0,50,75,0.7);
-			transition:all 500ms;
-			visibility:hidden;
-			opacity:0;
-		}
-
-		.overlay:target
-		{
-			visibility:visible;
-			opacity:1;
-		}
-
-		.popupchange
-		{
-			margin:225px auto;
-			padding:15 30 30;
-			background:white;
-			border-radius:5px;
-			width:19%;
-			height:25%;
-			position:relative;
-			transition:all 5s ease-in-out;
-		}
-
-		.popupconfirm
-		{
-			margin:225px auto;
-			padding:15 30 30;
-			background:white;
-			border-radius:5px;
-			width:17%;
-			height:25%;
-			position:relative;
-			transition:all 5s ease-in-out;
-		}
-        .container1 {
-            position:absolute;
-	        max-width: 900px;
-	        top:400px;
-            left:260px;
-	        background: #fff;
-	        border-radius: 8px;
-	        padding: 20px;
-        }
-        .comment {
-            display: block;
-			min-height: 0px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 5px 10px
-            
-        }
-        .container1 textarea {
-            width: 100%;
-            border: none;
-            background: #E8E8E8;
-            padding: 5px 10px;
-            height: 50%;
-            border-radius: 5px 5px 0px 0px;
-            border-bottom: 2px solid #016BA8;
-            transition: all 0.5s;
-            margin-top: 15px;
-        }
-        button.primaryContained {
-            background: #016ba8;
-            color: #fff;
-            padding: 10px 10px;
-            border: none;
-            margin-top: 0px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-            transition: 1s all;
-            font-size: 10px;
-            border-radius: 5px;
-        }
 		button.primaryContained:hover {
 			background: #9201A8;
 		}
-
-		pre.ex1 {
-  			margin-left: 275px;
-		}
-		</style>
-
-	</head>
-	<!-- Start Menu -->
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-		<div class="sidebar">
-			<?php
-				if($_SESSION['category']=="Tutor"){
-					echo '<nav>
-					<a href="#">Nottingham <span>Tutor System</span></a>
-					<ul>
-						<li><a href="tutorpage.php">Tutees</a></li>
-						<li><a href="Search.php">Search</a></li>
-						<li><a href="Loginpage.php">Log Out</a></li>
-					</ul>
+		.container1 textarea {
+			position: absolute;
+			top: calc(40px + 75%);
+			width: 100%;
+			border: none;
+			background: #E8E8E8;
+			padding: 5px 10px;
+			height: 15%;
+			border-radius: 20px;
+			border-bottom: 2px solid #016BA8;
+			transition: all 0.5s;
+			margin-top: 15px;
+		}		
+	</style>
+	<head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="Announcement_view.css">
+    </head>
 	
-					</nav>';
-				}
-				elseif($_SESSION['category']=="Student"){
-					echo '<nav>
-					<a href="#">Notts<span>Tutor</span></a>
-					<ul>
-						<li><a href="StudentView.php">List</a></li>
-						<li><a href="Loginpage.php">Log Out</a></li>
-					</ul>
-	
-					</nav>';
-				}
-			?>
-		</div>
-
-	<!-- End Menu -->
-
-    <body>
-        <?php
+	<body>
+		<aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="profile.html">
+                            <ion-icon name="person"></ion-icon>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="appointment.html">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span class="title">Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Announcement.php">
+                            <ion-icon name="mail"></ion-icon>
+                            <span class="title">Annoucement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="message.html">
+                            <ion-icon name="chatbubble-ellipses"></ion-icon>
+                            <span class="title">Message</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+		<main>
+		<?php 
             while($rows=$result->fetch_assoc())
             {   
-                echo str_repeat('&nbsp;', 57);
-                echo "<u>",$rows['title'],"</u>";
-                echo "<br><br>"; 
-                echo str_repeat('&nbsp;', 57);
-                echo "-by ",$rows['tutor_name'];
-                echo str_repeat('<br>', 6);
-                echo str_repeat('&nbsp;', 57);
-                echo "<pre class='ex1'>",$rows['content'],"</pre>";
-                    
-            } 
-        ?>
-    </body>
-    <section id="app">
-    <div class="container1">
-      <div class="row">
-        <div class="col-6">
-          <div class="comment">
-        	<p>
-				<?php
-					while($rows=$result1->fetch_assoc())
-					{   
-						echo "<span style='color:blue;font-weight:bold;font-size:25px'>",$rows['user_name'],"</span>: ",$rows['content'],"<br><br>";	
-					} 
-				?> 
-			</p>
-          </div>
-        </div>
-      <div class="row">
-        <div class="col-6">
-			<form  method="POST" onsubmit="return confirm('Are you sure you want to comment?');">	
-      			<textarea type="text" id="text_id" name="text" class="input" placeholder="Write a comment"></textarea>
-          		<button  class='primaryContained float-right' type="submit">Add Comment</button>
-			</form>
-        </div>
-      </div>
-    </div>
-  </section>
+		?>
+			<div class="background">
+					<div class="background-image"></div>
+					<div class="title-container">
+						<span class="title"><?php echo $rows['title']?></span>
+					</div>
+					<div class="Annoucement-container">
+						<div class="from-container">
+							<span class="from">From:</span>
+							<span class="tutor"><?php echo $rows['tutor_name']?></span>
+						</div>
+						<div class="Annoucement-info">
+							<h3><pre><?php echo $rows['content']?></pre></h3>
+						</div>
+					</div>
+					<div class="Comment-container">
+						<div class="comment">
+							<p>
+							<?php
+								while($rows=$result1->fetch_assoc())
+								{   
+									echo "<span style='color:blue;font-weight:bold;font-size:25px'>",$rows['user_name'],"</span>: ",$rows['content'],"<br><br>";	
+								} 
+							?> 
+							</p>
+						</div>
+							<div class="container1">
+								<form  method="POST" onsubmit="return confirm('Are you sure you want to comment?');">	
+								<textarea type="text" id="text_id" name="text" class="input" placeholder="Write a comment"></textarea>							
+								<button  class='primaryContained float-right' type="submit">Add Comment</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="back-button">
+						<a href="announcement.php">
+							<ion-icon name="arrow-back"></ion-icon>
+						</a>
+					</div>
+			</div>
+			<?php } ?>
+		</main>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</body>
+
+    
+    
     </html>
 
