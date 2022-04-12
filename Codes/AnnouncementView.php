@@ -101,7 +101,7 @@
                     <li>
                         <a href="Announcement.php">
                             <ion-icon name="mail"></ion-icon>
-                            <span class="title">Annoucement</span>
+                            <span class="title">Announcement</span>
                         </a>
                     </li>
                     <li>
