@@ -64,95 +64,106 @@
 
 <!-- start of the HTML script for the student view page  -->
 
- <!DOCTYPE html>
- <html>
-  <head>
-	<link rel="stylesheet" href="default.css">
-    <title> Student Information </title>
-  </head>
-
-<body>
-<!-- Start Menu -->
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-		<div class="sidebar">
-
-			<nav>
-				<a href="#">Nottingham <span>Tutor System</span></a>
-				<ul>
-					<li><a href="StudentView.php">List</a></li>
-					<li><a href="Loginpage.php">Log Out</a></li>
-				</ul>
-
-			</nav>
-
-		</div>
-	<!-- End Menu -->
-
-	  <div class="main-content">
-				<h3><b>Profile Page of <?php echo $firstName['First Name']. ' '. $lastName['Last Name'] ?> </b></h3>
-				<br>
-			<!--	<div class="search-container">
-					<form action="" method="post">
-						Search: <input type="text" name="search" placeholder="Student ID or Name" onkeyup="showRows(this.value)">
-					</form>
-				 </div>
-				<br> -->
-				<br>
-				<!-- Start Panel -->
-				<div class="panel-wrapper">
-					<div class="panel-head">
-				<!-- Start Table -->
-
-
-		<!-- displaying students information -->
-
-
-<table class="fl-table">
-  <thead>
-   <tr><th> <p><strong> My Profile </strong> </br> </p></th></tr>
-  </thead>
-  </table>
-  <p><strong><u> Personal Information </u></strong></br></p>
-		<p>
-
-       <strong>Student ID: </strong> <?php echo $getStudentID ?> </br>
-       <strong>First Name: </strong> <?php echo $firstName['First Name'] ?> </br>
-       <strong>Last Name: </strong> <?php echo $lastName['Last Name'] ?> </br>
-       <strong>Nationality: </strong> <?php echo $nationality['Nationality'] ?> </br>
-       <strong>Email: </strong> <?php echo $email['Email Address'] ?> </br>
-
-       <br>
-       <br>
-
-     </p>
-
-     <p><strong> <u> Academic Information </u> </strong></br></p>
- 		<p>
-
-        <strong>Academic Plan Code: </strong> <?php echo $academicPlanCode['Academic Plan Code'] ?> </br>
-        <strong>Academic Plan: </strong> <?php echo $academicPlan['Academic Plan'] ?> </br>
-        <strong>Level: </strong> <?php echo $level['Level'] ?> </br>
-        <strong>Current Year: </strong> <?php echo $currentYear['Current Year'] ?> </br>
-        <strong>Registration Date: </strong> <?php echo $registrationDate['Registration Date'] ?> </br>
-
-      </p>
-
-		<br>
-		<br>
-
-
-	<!-- Hidden form that echoes (returns) the user id -->
-		 <form>
-       <input type="button" value="Back" onclick="history.back()">
-     </form>
-
-
-					<!-- End Table -->
-					</div>
-				</div>
-				<!-- End Panel -->
-				</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style1.css">
+        <link rel="stylesheet" type="text/css" href="profile.css">
+    </head>
+    <body>
+	<aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
+                            <ion-icon name="person"></ion-icon>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Timeslot.php">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span class="title">Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Announcement.php?studentID=<?php echo $userid ?>">
+                            <ion-icon name="mail"></ion-icon>
+                            <span class="title">Announcement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="chatbubble-ellipses"></ion-icon>
+                            <span class="title">Message</span>
+                        </a>
+                    </li>
+					<li>
+                        <a href="ContactTuteepage.php">
+							<ion-icon name="help-circle"></ion-icon>
+                            <span class="title">Contact Us</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="upper_profile">
+                <div class="profile_detail">
+                    <div class="profile_name">
+                        <h3>My Profile:</h3>
+                        <h1><?php echo $firstName['First Name']?></h1>
+                        <h4><?php echo $lastName['Last Name']?></h4>
+                    </div>
+                    <span class="role">Student</span>
+                </div>
+            </div>
+            <div class="profile">
+                <div class="photo">
+                    <img src="./image/profile.jpeg" alt="">
+                </div>
+                <div class="info">
+                    <p>Personal Information</p>
+					<strong>Student ID: </strong> <?php echo $getStudentID ?> </br>
+					<strong>First Name: </strong> <?php echo $firstName['First Name'] ?> </br>
+					<strong>Last Name: </strong> <?php echo $lastName['Last Name'] ?> </br>
+					<strong>Nationality: </strong> <?php echo $nationality['Nationality'] ?> </br>
+					<strong>Email: </strong> <?php echo $email['Email Address'] ?> </br>
+                </div>
+            </div>
+            <div class="lower_profile">
+                <div class="academic">
+                    <p>Academic Information</p>
+					<strong>Academic Plan Code: </strong> <?php echo $academicPlanCode['Academic Plan Code'] ?> </br>
+					<strong>Academic Plan: </strong> <?php echo $academicPlan['Academic Plan'] ?> </br>
+					<strong>Level: </strong> <?php echo $level['Level'] ?> </br>
+					<strong>Current Year: </strong> <?php echo $currentYear['Current Year'] ?> </br>
+					<strong>Registration Date: </strong> <?php echo $registrationDate['Registration Date'] ?> </br>
+                </div>
+                <div class="personal-goal">
+                    <span class="title">Personal Goal</span>
+                </div>
+            </div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
 <!-- End of HTML script -->

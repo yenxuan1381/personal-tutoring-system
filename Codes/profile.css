@@ -1,0 +1,85 @@
+/*profile*/
+.upper_profile
+{
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    background-image: url(image/profile_background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid var(--blue1);
+}
+
+.profile_detail
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_name
+{
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    font-size: 30px;
+}
+.profile_detail .role
+{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+.profile
+{
+    position: absolute;
+    height: 70%;
+    width: 21%;
+    left: 11%;
+    top: 15%;
+    border: 3px solid var(--blue1);
+}
+
+.profile .photo img
+{
+    position: relative;
+    width: 100%;
+    border-bottom: 3px solid var(--blue2);
+}
+
+.info
+{
+    position: relative;
+    font-size: 20px;
+}
+
+.lower_profile
+{
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    top: 45%;
+}
+
+.academic
+{
+    position: relative;
+    margin-top: 2%;
+    left: 40%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lower_profile .personal-goal
+{
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    height: 50%;
+}

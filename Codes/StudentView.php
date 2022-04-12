@@ -63,101 +63,130 @@
 
 <!-- start of the HTML script for the student view page  -->
 
- <!DOCTYPE html>
- <html>
-  <head>
-	<link rel="stylesheet" href="default.css">
-    <title> Student Page </title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style1.css">
+        <link rel="stylesheet" type="text/css" href="home.css">
+    </head>
+    <body>
+        <aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
+                            <ion-icon name="person"></ion-icon>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Timeslot.php">
+                            <ion-icon name="calendar"></ion-icon>
+                            <span class="title">Appointment</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Announcement.php?studentID=<?php echo $userid ?>">
+                            <ion-icon name="mail"></ion-icon>
+                            <span class="title">Announcement</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="chatbubble-ellipses"></ion-icon>
+                            <span class="title">Message</span>
+                        </a>
+                    </li>
+					<li>
+                        <a href="ContactTuteepage.php">
+							<ion-icon name="help-circle"></ion-icon>
+                            <span class="title">Contact Us</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="upper">
+                <div class="Tutor">
+                    <div class="Tutor_picture">
+                        <img src="./image/profile.jpeg" alt="">
+                    </div>
+                    <div class="Tutor_detail">
+                        <h3>Your Tutor:</h3>
+                        <h1><?php echo $tutorName['Name'] ?></h1>
+                        <h3><?php echo $tutorEmail['email'] ?></h3>
+                        <h3><?php echo $tutorSchool['School'] ?></h3>
+                        <h3><?php echo $tutorOffice['office'] ?></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <span class="title">Book Appoinment</span>
+                <span class="title">Send Message</span>
+            </div>
+            <div class="lower">
+                <div class="search">
+                    <input type="text" placeholder="Search Student...">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+                <div class="table">
+                    <h4>List of students under the same tutor</h4>
+					<table class="fl-table">
+						<thead>
+							<tr>
+								<th><strong>ID</strong></th>
+								<th><strong>First Name</strong></th>
+								<th><strong>Last Name</strong></th>
+								<th><strong>Academic Plan</strong></th>
+							</tr>
+						</thead>
+						<!--Placing the student data into the rows of the table -->
+						<tbody>
+						<?php
+						$studentsList = $studentsUnderSameTutor;
+						while ($rows = mysqli_fetch_array($studentsList,MYSQLI_ASSOC)) {
+							?>
 
-<body>
-<!-- Start Menu -->
-	<div class="nav-btn">Menu</div>
-	<div class="container">
-		<div class="sidebar">
+							<tr>
+							<?php
+							echo '<td>'.$rows['Student Id'].'</td>';
+							echo '<td>'.$rows['First Name'].'</td>';
+							echo '<td>'.$rows['Last Name'].'</td>';
+							echo '<td>'.$rows['Academic Plan'].'</td>';
+							?>
+							</tr>
+							<?php
+						}
+						?>
+						</tbody>
+					</table>
 
-			<nav>
-				<a href="#">Notts<span>Tutor</span></a>
-				<ul>
-				<li><a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">Profile</a></li>
-					<li><a href="Announcement.php?studentID=<?php echo $userid ?>">Announcement</a></li>
-					<li><a href="Timeslot.php">Make Appointment</a></li>
-					<li><a href="ContactTuteepage.php">Contact Us</a></li>
-					<li><a href="Loginpage.php">Log Out</a></li>
-				</ul>
-
-			</nav>
-
-		</div>
-	<!-- End Menu -->
-
-	  <div class="main-content">
-				<h3><b>Student Page of <?php echo $firstName['First Name']. ' '.$lastName['Last Name'] ?>
-				</b></h3>
-				<h3> <b> Your Academic Plan: </b> <?php echo $academicPlan['Academic Plan'] ?> <h3>
-				<br>
-				<div class="search-container">
-					<form action="" method="post">
-						Search: <input type="text" name="search" placeholder="Student ID or Name" onkeyup="showRows(this.value)">
+					<!-- Hidden form that echoes (returns) the user id -->
+					<form method="post" action="UserInformationStudent.php">
+						<input type="hidden" name="studentID" id="studentID" value="<?php echo $userid; ?>" />
 					</form>
-				 </div>
-				<br>
-				<br>
-				<!-- Start Panel -->
-				<div class="panel-wrapper">
-					<div class="panel-head">
-				<!-- Start Table -->
-
-		<!-- Displaying the tutor's information received from the queries -->
-		<p><u> <strong> Your Tutor: </strong> </br> </u> </p>
-		<p><strong>Tutor's Name: </strong> <?php echo $tutorName['Name'] ?> </br> <strong>Tutor's Email: </strong> <?php echo $tutorEmail['email'] ?> </br>
-		<strong>Tutor's School: </strong> <?php echo $tutorSchool['School'] ?> </br> <strong>Tutor's Office: </strong> <?php echo $tutorOffice['office'] ?> </br></p>
-
-	<!--Displaying the list of students under the same tutor and their information -->
-		<br>
-		<p> <strong> List of students under the same tutor: </strong> </p>
-		<br>
-		<!-- Creating the table and its rows -->
-		<table class="fl-table">
-			<thead>
-				  <tr>
-					<th><strong>ID</strong></th>
-					<th><strong>First Name</strong></th>
-					<th><strong>Last Name</strong></th>
-					<th><strong>Academic Plan</strong></th>
-				  </tr>
-			</thead>
-		<!--Placing the student data into the rows of the table -->
-			<tbody>
-			  <?php
-			  $studentsList = $studentsUnderSameTutor;
-			  while ($rows = mysqli_fetch_array($studentsList,MYSQLI_ASSOC)) {
-				?>
-
-				<tr>
-				  <?php
-				   echo '<td>'.$rows['Student Id'].'</td>';
-				   echo '<td>'.$rows['First Name'].'</td>';
-				   echo '<td>'.$rows['Last Name'].'</td>';
-				   echo '<td>'.$rows['Academic Plan'].'</td>';
-				  ?>
-				</tr>
-				<?php
-			  }
-			   ?>
-			</tbody>
-		 </table>
-
-	<!-- Hidden form that echoes (returns) the user id -->
-		 <form method="post" action="UserInformationStudent.php">
-		   <input type="hidden" name="studentID" id="studentID" value="<?php echo $userid; ?>" />
-			</form>
-
-					<!-- End Table -->
-					</div>
 				</div>
-				<!-- End Panel -->
-				</div>
-	</body>
+			</div>
+		</main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
-<!-- End of HTML script -->

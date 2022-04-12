@@ -1,0 +1,158 @@
+/* table got problem */
+.upper
+{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-image: url(image/background1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid var(--blue1);
+}
+
+.Tutor
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.7);
+}
+.Tutor .Tutor_picture
+{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.Tutor .Tutor_picture img
+{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    width: 250px;
+    clip-path: circle();
+    border-radius: 125px;
+    border:5px solid var(--grey);
+    text-align: center;
+}
+
+.Tutor_detail
+{
+    position: absolute;
+    width: 50%;
+    top: 25%;
+    left: 50%;
+    font-size: x-large;
+}
+.nav
+{
+    position:relative;
+    display: flex;
+    top: 45%;
+    left: 60%;
+    width: 30%;
+}
+
+.nav .title
+{
+    padding: 10px 30px;
+    text-align: center;
+    justify-content: center;
+    border: 3px solid var(--blue1);
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--white);
+}
+
+.lower
+{
+    position: relative;
+    width: 100%;
+    height: 50%;
+    top: 50%;
+}
+
+.search
+{
+    position: relative;
+    width: 100%;
+    height: 20%;
+}
+
+.search input
+{
+    position: absolute;
+    height: 20%;
+    width: 70%;
+    left: 15%;
+    padding: 20px 10px;
+    border: 2px solid var(--blue1);
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.search ion-icon
+{
+    position: relative;
+    left:81%;
+    top: 10%;
+    font-size: 25px;
+}
+
+.table
+{
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.table .fl-table
+{	
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+	border: 1px solid;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+td a
+{
+	color: #000;
+}
+
+.fl-table td, .fl-table th
+{
+    text-align: center;
+    padding: 4px;
+	font-size: 15px;
+}
+
+.fl-table thead:hover
+{
+	background-color: #f2f2f2;
+}
+
+.fl-table td
+{
+    border-right: 1px solid #f8f8f8;
+	border: 1px solid;
+}
+
+.fl-table thead th
+{
+    color: #ffffff;
+	border: 2px solid black;
+    background: #324960;
+}
+
+
+.fl-table thead th:nth-child(odd)
+{
+    color: #ffffff;
+    background: #324960;
+}
