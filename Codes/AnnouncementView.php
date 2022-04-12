@@ -66,41 +66,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	
-	<style>
-		button.primaryContained {
-			position: absolute;
-			width: 100%;
-			top: calc(140px + 75%);
-			background: #016ba8;
-			color: #fff;
-			padding: 10px 10px;
-			border: none;
-			margin-top: 0px;
-			cursor: pointer;
-			text-transform: uppercase;
-			letter-spacing: 4px;
-			box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-			transition: 1s all;
-			font-size: 10px;
-			border-radius: 15px;
-		}
-		button.primaryContained:hover {
-			background: #9201A8;
-		}
-		.container1 textarea {
-			position: absolute;
-			top: calc(40px + 75%);
-			width: 100%;
-			border: none;
-			background: #E8E8E8;
-			padding: 5px 10px;
-			height: 15%;
-			border-radius: 20px;
-			border-bottom: 2px solid #016BA8;
-			transition: all 0.5s;
-			margin-top: 15px;
-		}		
-	</style>
 	<head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <title>Nottingham Tutor 2.0</title>
