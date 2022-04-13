@@ -20,6 +20,24 @@
     align-items: center;
 }
 
+.profile_detail .photo
+{
+    position: absolute;
+    width: 40%;
+    height: 100%;
+}
+.profile_detail .photo img
+{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    width: 250px;
+    clip-path: circle();
+    border-radius: 125px;
+    border:5px solid var(--grey);
+    text-align: center;
+}
+
 .profile_name
 {
     position: absolute;
@@ -36,50 +54,137 @@
     font-weight: bold;
     font-style: italic;
 }
-.profile
+
+.edit_goal 
 {
     position: absolute;
-    height: 70%;
-    width: 21%;
-    left: 11%;
-    top: 15%;
-    border: 3px solid var(--blue1);
+    width: 100%;
+    height: 100%;
 }
 
-.profile .photo img
+.edit_goal .edit
+{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit:hover
+{
+    font-size:40px;
+}
+
+#pop-out
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+}
+
+#pop-out form
 {
     position: relative;
     width: 100%;
-    border-bottom: 3px solid var(--blue2);
+    height: 100%;
 }
-
-.info
+#pop-out form label
 {
-    position: relative;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
-
+#pop-out form textarea
+{
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+    resize: none;
+    font-size: 15px;
+}
 .lower_profile
 {
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
     width: 100%;
-    height: 200%;
+    height: 55%;
     top: 45%;
 }
 
-.academic
+.lower_profile .info
 {
     position: relative;
-    margin-top: 2%;
-    left: 40%;
+    width: 30%;
+    height: 80%;
     font-size: 20px;
+    border: 3px solid var(--blue1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower_profile .info p
+{
+    font-size: 25px;
     font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.lower_profile .academic
+{
+    position: relative;
+    width: 30%;
+    height: 80%;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower_profile .academic p
+{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5px;
 }
 
 .lower_profile .personal-goal
 {
-    position: absolute;
-    top: 30%;
-    width: 100%;
-    height: 50%;
+    position: relative;
+    width: 30%;
+    height: 80%;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower_profile .personal-goal p
+{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5px;
 }

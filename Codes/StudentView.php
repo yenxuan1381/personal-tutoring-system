@@ -68,7 +68,7 @@
     <head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <title>Nottingham Tutor 2.0</title>
-        <link rel="stylesheet" type="text/css" href="style1.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="home.css">
     </head>
     <body>
@@ -85,13 +85,19 @@
             <div class="menu">
                 <ul>
                     <li>
+                        <a href="StudentView.php">
+                        <ion-icon name="home"></ion-icon>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
                             <ion-icon name="person"></ion-icon>
                             <span class="title">Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="Timeslot.php">
+                        <a href="Appointmentview.php">
                             <ion-icon name="calendar"></ion-icon>
                             <span class="title">Appointment</span>
                         </a>
@@ -110,7 +116,7 @@
                     </li>
 					<li>
                         <a href="ContactTuteepage.php">
-							<ion-icon name="help-circle"></ion-icon>
+                            <ion-icon name="help-circle"></ion-icon>
                             <span class="title">Contact Us</span>
                         </a>
                     </li>
@@ -139,8 +145,12 @@
                 </div>
             </div>
             <div class="nav">
-                <span class="title">Book Appoinment</span>
-                <span class="title">Send Message</span>
+                <a href="Appointmentview.php">
+                    <span class="title">Appointment</span>
+                </a>
+                <a href="#">
+                    <span class="title">Send Message</span>
+                </a>
             </div>
             <div class="lower">
                 <div class="search">

@@ -4,6 +4,16 @@ use PHPMailer\PHPMailer\PHPMailer;
 require_once 'phpmailer/Exception.php';
 require_once 'phpmailer/PHPMailer.php';
 require_once 'phpmailer/SMTP.php';
+include_once('Connection.php');
+session_start();
+	// If haven't login, then change to login page
+if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Student"))
+{
+		header("Location:Loginpage.php");
+}
+
+	//storing the student ID that the student entered at the log in page in the studentid variable
+$userid = $_SESSION['userid'];
 
 $mail = new PHPMailer(true);
 
