@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 04:32 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th4 15, 2022 lúc 06:09 AM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `csv_db 16`
+-- Cơ sở dữ liệu: `csv_db 15`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `academic plan codes`
+-- Cấu trúc bảng cho bảng `academic plan codes`
 --
 
 CREATE TABLE `academic plan codes` (
@@ -34,7 +34,7 @@ CREATE TABLE `academic plan codes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `academic plan codes`
+-- Đang đổ dữ liệu cho bảng `academic plan codes`
 --
 
 INSERT INTO `academic plan codes` (`Code`, `Academic Plan`, `School`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `academic plan codes` (`Code`, `Academic Plan`, `School`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `administrators`
+-- Cấu trúc bảng cho bảng `administrators`
 --
 
 CREATE TABLE `administrators` (
@@ -149,7 +149,7 @@ CREATE TABLE `administrators` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `administrators`
+-- Đang đổ dữ liệu cho bảng `administrators`
 --
 
 INSERT INTO `administrators` (`Admin ID`, `Password`) VALUES
@@ -158,7 +158,7 @@ INSERT INTO `administrators` (`Admin ID`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `announcement`
+-- Cấu trúc bảng cho bảng `announcement`
 --
 
 CREATE TABLE `announcement` (
@@ -171,7 +171,7 @@ CREATE TABLE `announcement` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
+-- Cấu trúc bảng cho bảng `appointment`
 --
 
 CREATE TABLE `appointment` (
@@ -187,7 +187,7 @@ CREATE TABLE `appointment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `appointment`
+-- Đang đổ dữ liệu cho bảng `appointment`
 --
 
 INSERT INTO `appointment` (`Appointment_ID`, `Lect ID`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
@@ -269,7 +269,7 @@ INSERT INTO `appointment` (`Appointment_ID`, `Lect ID`, `Monday`, `Tuesday`, `We
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -282,7 +282,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `friday timeslot`
+-- Cấu trúc bảng cho bảng `friday timeslot`
 --
 
 CREATE TABLE `friday timeslot` (
@@ -294,7 +294,7 @@ CREATE TABLE `friday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `friday timeslot`
+-- Đang đổ dữ liệu cho bảng `friday timeslot`
 --
 
 INSERT INTO `friday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -376,7 +376,7 @@ INSERT INTO `friday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `time
 -- --------------------------------------------------------
 
 --
--- Table structure for table `general_chat`
+-- Cấu trúc bảng cho bảng `general_chat`
 --
 
 CREATE TABLE `general_chat` (
@@ -387,19 +387,37 @@ CREATE TABLE `general_chat` (
   `chat_date` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `general_chat`
+-- Cấu trúc bảng cho bảng `meeting`
 --
 
-INSERT INTO `general_chat` (`chatid`, `chat_room_id`, `chat_msg`, `username`, `chat_date`) VALUES
-(15, 1, 'Hi', 'Tomas Maul', 'March 11, 2022 3:04:pm'),
-(16, 1, 'Hello', 'KR Selvaraj', 'March 11, 2022 3:05:pm'),
-(17, 2, 'This is Cs chat room', 'KR Selvaraj', 'March 11, 2022 3:05:pm');
+CREATE TABLE `meeting` (
+  `meeting_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `tutor_name` varchar(255) NOT NULL,
+  `student_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `meeting`
+--
+
+INSERT INTO `meeting` (`meeting_id`, `date`, `start_time`, `end_time`, `tutor_name`, `student_name`) VALUES
+(2, '2022-04-13', '14:30:00', '15:30:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(5, '2022-04-15', '14:09:00', '17:07:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(6, '2022-04-13', '14:16:00', '19:17:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(7, '2022-04-06', '14:43:00', '14:43:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(8, '2022-04-13', '14:59:00', '19:00:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(9, '2022-07-01', '11:50:00', '11:51:00', 'Tomas Maul', 'Choo Ming Ze');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monday timeslot`
+-- Cấu trúc bảng cho bảng `monday timeslot`
 --
 
 CREATE TABLE `monday timeslot` (
@@ -411,7 +429,7 @@ CREATE TABLE `monday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `monday timeslot`
+-- Đang đổ dữ liệu cho bảng `monday timeslot`
 --
 
 INSERT INTO `monday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -493,7 +511,7 @@ INSERT INTO `monday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `time
 -- --------------------------------------------------------
 
 --
--- Table structure for table `remarks`
+-- Cấu trúc bảng cho bảng `remarks`
 --
 
 CREATE TABLE `remarks` (
@@ -506,7 +524,7 @@ CREATE TABLE `remarks` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `saturday timeslot`
+-- Cấu trúc bảng cho bảng `saturday timeslot`
 --
 
 CREATE TABLE `saturday timeslot` (
@@ -518,7 +536,7 @@ CREATE TABLE `saturday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `saturday timeslot`
+-- Đang đổ dữ liệu cho bảng `saturday timeslot`
 --
 
 INSERT INTO `saturday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -600,7 +618,7 @@ INSERT INTO `saturday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `ti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `senior tutors`
+-- Cấu trúc bảng cho bảng `senior tutors`
 --
 
 CREATE TABLE `senior tutors` (
@@ -608,7 +626,7 @@ CREATE TABLE `senior tutors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `senior tutors`
+-- Đang đổ dữ liệu cho bảng `senior tutors`
 --
 
 INSERT INTO `senior tutors` (`Lect ID`) VALUES
@@ -638,7 +656,7 @@ INSERT INTO `senior tutors` (`Lect ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- Cấu trúc bảng cho bảng `students`
 --
 
 CREATE TABLE `students` (
@@ -666,7 +684,7 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `students`
+-- Đang đổ dữ liệu cho bảng `students`
 --
 
 INSERT INTO `students` (`Student Id`, `Full Name`, `First Name`, `Last Name`, `Nationality`, `Gender`, `Academic Plan Code`, `Intake`, `Year of Entry (UG)`, `Current Year`, `Fnd 2-sem or 3-sem?`, `New`, `Level`, `Email Address`, `Registration Date`, `Registered`, `Remarks`, `Remarks 2`, `Tutor Id`, `Password`, `Personal Goals`) VALUES
@@ -809,7 +827,7 @@ INSERT INTO `students` (`Student Id`, `Full Name`, `First Name`, `Last Name`, `N
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sunday timeslot`
+-- Cấu trúc bảng cho bảng `sunday timeslot`
 --
 
 CREATE TABLE `sunday timeslot` (
@@ -821,7 +839,7 @@ CREATE TABLE `sunday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `sunday timeslot`
+-- Đang đổ dữ liệu cho bảng `sunday timeslot`
 --
 
 INSERT INTO `sunday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -903,7 +921,7 @@ INSERT INTO `sunday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `time
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task`
+-- Cấu trúc bảng cho bảng `task`
 --
 
 CREATE TABLE `task` (
@@ -914,16 +932,17 @@ CREATE TABLE `task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `task`
+-- Đang đổ dữ liệu cho bảng `task`
 --
 
 INSERT INTO `task` (`task_id`, `Lect ID`, `task`, `status`) VALUES
-(16, 0, 'Get a job', '');
+(16, 0, 'Get a job', ''),
+(22, 50000033, 'Get a job', 'Completed');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `temp`
+-- Cấu trúc bảng cho bảng `temp`
 --
 
 CREATE TABLE `temp` (
@@ -949,7 +968,7 @@ CREATE TABLE `temp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tempemails`
+-- Cấu trúc bảng cho bảng `tempemails`
 --
 
 CREATE TABLE `tempemails` (
@@ -959,7 +978,7 @@ CREATE TABLE `tempemails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tempemails`
+-- Đang đổ dữ liệu cho bảng `tempemails`
 --
 
 INSERT INTO `tempemails` (`email`, `LECTID`, `office`) VALUES
@@ -1033,7 +1052,7 @@ INSERT INTO `tempemails` (`email`, `LECTID`, `office`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thursday timeslot`
+-- Cấu trúc bảng cho bảng `thursday timeslot`
 --
 
 CREATE TABLE `thursday timeslot` (
@@ -1045,7 +1064,7 @@ CREATE TABLE `thursday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `thursday timeslot`
+-- Đang đổ dữ liệu cho bảng `thursday timeslot`
 --
 
 INSERT INTO `thursday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -1127,7 +1146,7 @@ INSERT INTO `thursday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `ti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tuesday timeslot`
+-- Cấu trúc bảng cho bảng `tuesday timeslot`
 --
 
 CREATE TABLE `tuesday timeslot` (
@@ -1139,7 +1158,7 @@ CREATE TABLE `tuesday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tuesday timeslot`
+-- Đang đổ dữ liệu cho bảng `tuesday timeslot`
 --
 
 INSERT INTO `tuesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -1221,7 +1240,7 @@ INSERT INTO `tuesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `tim
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tutors`
+-- Cấu trúc bảng cho bảng `tutors`
 --
 
 CREATE TABLE `tutors` (
@@ -1234,7 +1253,7 @@ CREATE TABLE `tutors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tutors`
+-- Đang đổ dữ liệu cho bảng `tutors`
 --
 
 INSERT INTO `tutors` (`Lect ID`, `Name`, `School`, `Password`, `email`, `office`) VALUES
@@ -1316,7 +1335,7 @@ INSERT INTO `tutors` (`Lect ID`, `Name`, `School`, `Password`, `email`, `office`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -1328,7 +1347,7 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wednesday timeslot`
+-- Cấu trúc bảng cho bảng `wednesday timeslot`
 --
 
 CREATE TABLE `wednesday timeslot` (
@@ -1340,7 +1359,7 @@ CREATE TABLE `wednesday timeslot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `wednesday timeslot`
+-- Đang đổ dữ liệu cho bảng `wednesday timeslot`
 --
 
 INSERT INTO `wednesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
@@ -1420,67 +1439,73 @@ INSERT INTO `wednesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `t
 (74, NULL, NULL, NULL, NULL);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `academic plan codes`
+-- Chỉ mục cho bảng `academic plan codes`
 --
 ALTER TABLE `academic plan codes`
   ADD PRIMARY KEY (`Code`);
 
 --
--- Indexes for table `administrators`
+-- Chỉ mục cho bảng `administrators`
 --
 ALTER TABLE `administrators`
   ADD PRIMARY KEY (`Admin ID`);
 
 --
--- Indexes for table `announcement`
+-- Chỉ mục cho bảng `announcement`
 --
 ALTER TABLE `announcement`
   ADD PRIMARY KEY (`announcement_id`);
 
 --
--- Indexes for table `appointment`
+-- Chỉ mục cho bảng `appointment`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`Appointment_ID`),
   ADD KEY `Lect ID` (`Lect ID`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`);
 
 --
--- Indexes for table `general_chat`
+-- Chỉ mục cho bảng `general_chat`
 --
 ALTER TABLE `general_chat`
   ADD PRIMARY KEY (`chatid`);
 
 --
--- Indexes for table `monday timeslot`
+-- Chỉ mục cho bảng `meeting`
+--
+ALTER TABLE `meeting`
+  ADD PRIMARY KEY (`meeting_id`);
+
+--
+-- Chỉ mục cho bảng `monday timeslot`
 --
 ALTER TABLE `monday timeslot`
   ADD PRIMARY KEY (`appointment_id`);
 
 --
--- Indexes for table `remarks`
+-- Chỉ mục cho bảng `remarks`
 --
 ALTER TABLE `remarks`
   ADD KEY `Student Id` (`Student Id`),
   ADD KEY `Lect Id` (`Lect Id`);
 
 --
--- Indexes for table `senior tutors`
+-- Chỉ mục cho bảng `senior tutors`
 --
 ALTER TABLE `senior tutors`
   ADD KEY `Lect ID` (`Lect ID`);
 
 --
--- Indexes for table `students`
+-- Chỉ mục cho bảng `students`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`Student Id`),
@@ -1488,84 +1513,90 @@ ALTER TABLE `students`
   ADD KEY `Academic Plan Code` (`Academic Plan Code`);
 
 --
--- Indexes for table `task`
+-- Chỉ mục cho bảng `task`
 --
 ALTER TABLE `task`
   ADD PRIMARY KEY (`task_id`);
 
 --
--- Indexes for table `tempemails`
+-- Chỉ mục cho bảng `tempemails`
 --
 ALTER TABLE `tempemails`
   ADD PRIMARY KEY (`LECTID`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `tutors`
+-- Chỉ mục cho bảng `tutors`
 --
 ALTER TABLE `tutors`
   ADD PRIMARY KEY (`Lect ID`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `announcement`
+-- AUTO_INCREMENT cho bảng `announcement`
 --
 ALTER TABLE `announcement`
   MODIFY `announcement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `general_chat`
+-- AUTO_INCREMENT cho bảng `general_chat`
 --
 ALTER TABLE `general_chat`
-  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `task`
+-- AUTO_INCREMENT cho bảng `meeting`
+--
+ALTER TABLE `meeting`
+  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT cho bảng `task`
 --
 ALTER TABLE `task`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `tempemails`
+-- AUTO_INCREMENT cho bảng `tempemails`
 --
 ALTER TABLE `tempemails`
   MODIFY `LECTID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20000068;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `appointment`
+-- Các ràng buộc cho bảng `appointment`
 --
 ALTER TABLE `appointment`
   ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`Lect ID`) REFERENCES `tutors` (`Lect ID`);
 
 --
--- Constraints for table `remarks`
+-- Các ràng buộc cho bảng `remarks`
 --
 ALTER TABLE `remarks`
   ADD CONSTRAINT `student_remarks` FOREIGN KEY (`Student Id`) REFERENCES `students` (`Student Id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `tutor_remarks` FOREIGN KEY (`Lect Id`) REFERENCES `tutors` (`Lect ID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `senior tutors`
+-- Các ràng buộc cho bảng `senior tutors`
 --
 ALTER TABLE `senior tutors`
   ADD CONSTRAINT `senior_tutors` FOREIGN KEY (`Lect ID`) REFERENCES `tutors` (`Lect ID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `students`
+-- Các ràng buộc cho bảng `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `course` FOREIGN KEY (`Academic Plan Code`) REFERENCES `academic plan codes` (`Code`) ON UPDATE CASCADE,
