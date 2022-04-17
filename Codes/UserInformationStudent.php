@@ -64,7 +64,10 @@
     $personalGoalsQuery = 'SELECT students.`Personal Goals` FROM `students` WHERE `Student Id` = '.$userid.'';
 	$getPersonalGoals = mysqli_query($conn, $personalGoalsQuery) or die("Error fetching student's personal goals.");
 	$personalGoals = mysqli_fetch_array($getPersonalGoals,MYSQLI_ASSOC);
-	
+
+	$remarksquery = mysqli_query($conn, 'SELECT * FROM remarks WHERE `Student Id` = '.$userid) or die('Remarks error');
+	$remarksrows = mysqli_num_rows($remarksquery);
+
 	$query = 'ALTER TABLE students ADD COLUMN `Personal Goals` VARCHAR(145) NULL';
 	if($conn->query($query)) 
     {
@@ -94,44 +97,14 @@
                 </div>
             </div>
             <div class="menu">
-                <ul>
-                    <li>
-                        <a href="StudentView.php">
-                        <ion-icon name="home"></ion-icon>
-                            <span class="title">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
-                            <ion-icon name="person"></ion-icon>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Appointmentview.php">
-                            <ion-icon name="calendar"></ion-icon>
-                            <span class="title">Appointment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Announcement.php?studentID=<?php echo $userid ?>">
-                            <ion-icon name="mail"></ion-icon>
-                            <span class="title">Announcement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            <span class="title">Message</span>
-                        </a>
-                    </li>
-					<li>
-                        <a href="ContactTuteepage.php">
-							<ion-icon name="help-circle"></ion-icon>
-                            <span class="title">Contact Us</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                ?>
             </div>
             <div class="logout">
                 <a href="Loginpage.php">
@@ -182,9 +155,15 @@
 					<strong>Current Year: <br></strong> <?php echo $currentYear['Current Year'] ?> </br>
 					<strong>Registration Date: <br></strong> <?php echo $registrationDate['Registration Date'] ?> </br>
                 </div>
-                <div class="personal-goal">
-                    <p>Personal Goal</p>
-                    <?php echo $personalGoals['Personal Goals'] ?>
+                <div class="goal_and_remark">
+                    <div class="personal-goal">
+                        <span class="small-title">Personal Goal</span><br>
+                        <?php echo $personalGoals['Personal Goals'] ?>
+                    </div>
+                    <div class="remark">
+                        <span class="small-title">Remark</span><br>
+                        <?php echo 'heelo'?>
+                    </div>
                 </div>
             </div>
         </main>

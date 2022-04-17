@@ -1,7 +1,10 @@
 <?php
-
+session_start();
 include_once('Connection.php');
-
+if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Tutor"))
+{
+    header("Location:Loginpage.php");
+}
 // Info to be passed around, holds the tutor ID
 $userid = $_GET['LectID'];
 
@@ -37,93 +40,76 @@ while($data = mysqli_fetch_array($getSeniorTutors, MYSQLI_NUM)){
 
 
  ?>
- <!-- start of the HTML script for the student view page  -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="profile_tutor.css">
 
-  <!DOCTYPE html>
-  <html>
-   <head>
- 	<link rel="stylesheet" href="default.css">
-     <title> Student Information </title>
-   </head>
-
- <body>
- <!-- Start Menu -->
- 	<div class="nav-btn">Menu</div>
- 	<div class="container">
- 		<div class="sidebar">
-
- 			<nav>
- 				<a href="#">Nottingham <span>Tutor System</span></a>
- 				<ul>
-					<li><a href="Tutorpage.php">Tutees</a></li>
- 					<li><a href="loginpage.php">Log Out</a></li>
- 				</ul>
-
- 			</nav>
-
- 		</div>
- 	<!-- End Menu -->
-
- 	  <div class="main-content">
- 				<h3><b>Profile Page of <?php echo $name['Name'] ?> </b></h3>
- 				<br>
- 			<!--	<div class="search-container">
- 					<form action="" method="post">
- 						Search: <input type="text" name="search" placeholder="Student ID or Name" onkeyup="showRows(this.value)">
- 					</form>
- 				 </div>
- 				<br> -->
- 				<br>
- 				<!-- Start Panel -->
- 				<div class="panel-wrapper">
- 					<div class="panel-head">
- 				<!-- Start Table -->
-
-
- 		<!-- displaying students information -->
-
-
- <table class="fl-table">
-   <thead>
-    <tr><th> <p><strong> My Profile </strong> </br> </p></th></tr>
-   </thead>
-   </table>
-   <p><strong><u> Personal Information </u></strong></br></p>
- 		<p>
-
-        <strong>Lecturer ID: </strong> <?php echo $getTutorID ?> </br>
-        <strong>Name: </strong> <?php echo $name['Name'] ?> </br>
-        <strong>Email: </strong> <?php echo $email['email'] ?> </br>
-
-        <br>
-        <br>
-
-      </p>
-
-      <p><strong> <u> Academic Information </u> </strong></br></p>
-  		<p>
-
-         <strong>School: </strong> <?php echo $school['School'] ?> </br>
-         <strong>Office Location: </strong> <?php echo $office['office'] ?> </br>
-         <strong>Tutor Position: </strong> <?php echo $tutorPosition ?> </br>
-
-       </p>
-
- 		<br>
- 		<br>
-
-
- 	<!-- Hidden form that echoes (returns) the user id -->
- 	<form action="Tutorpage.php">
-        <input type="submit" value="Back">
-    </form>
-
-
- 					<!-- End Table -->
- 					</div>
- 				</div>
- 				<!-- End Panel -->
- 				</div>
- 	</body>
- </html>
- <!-- End of HTML script -->
+    </head>
+    <body>
+	<aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                
+                ?>
+            </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="upper_profile">
+                <div class="profile_detail">
+                    <div class="photo">
+                        <img src="./image/profile.jpeg" alt="">
+                    </div>
+                    <div class="profile_name">
+                        <h3>My Profile:</h3>
+                        <h1><?php echo $name['Name']?></h1>
+                    </div>
+                    <span class="role">Tutor</span>
+                </div>
+            </div>
+            <div class="lower_profile">
+                <div class="info">
+                    <p>Personal Information</p>
+					<strong>Lecturer ID: </strong> <?php echo $getTutorID ?> </br>
+        			<strong>Name: </strong> <?php echo $name['Name'] ?> </br>
+        			<strong>Email: </strong> <?php echo $email['email'] ?> </br>
+                </div>
+                <div class="academic">
+                    <p>Academic Information</p>
+					<strong>School: </strong> <?php echo $school['School'] ?> </br>
+         			<strong>Office Location: </strong> <?php echo $office['office'] ?> </br>
+         			<strong>Tutor Position: </strong> <?php echo $tutorPosition ?> </br>
+                </div>
+            </div>
+		</div>
+			</div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+</html>
+<!-- End of HTML script -->

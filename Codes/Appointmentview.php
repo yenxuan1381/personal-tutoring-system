@@ -100,12 +100,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            <span class="title">Message</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="ContactTuteepage.php">
 							<ion-icon name="help-circle"></ion-icon>
                             <span class="title">Contact Us</span>

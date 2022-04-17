@@ -7,7 +7,7 @@ require_once 'phpmailer/SMTP.php';
 include_once('Connection.php');
 session_start();
 	// If haven't login, then change to login page
-if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Student"))
+if((!(isset($_SESSION['userid']))))
 {
 		header("Location:Loginpage.php");
 }

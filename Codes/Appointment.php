@@ -8,7 +8,7 @@
 	{
 		header("Location:Loginpage.php");
 	}
-
+    $userid = $_SESSION['userid'];
 
 
 ?>
@@ -30,49 +30,31 @@
     </head>
     <body>
         <aside>
-          <div class="header">
-            <div class="logo">
-                <img src="./image/logo1.png" alt="" >
-                <span class="title">Nottingham Tutor 2.0</span>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
             </div>
-            <div class="hidden">
-                <img src="./image/icon.png" alt="">
+            <div class="menu">
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                ?>
             </div>
-        </div>
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="#">
-                        <ion-icon name="person"></ion-icon>
-                        <span class="title">Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Appointment.php">
-                        <ion-icon name="calendar"></ion-icon>
-                        <span class="title">Appointment</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="Announcement.php">
-                        <ion-icon name="mail"></ion-icon>
-                        <span class="title">Announcement</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <ion-icon name="chatbubble-ellipses"></ion-icon>
-                        <span class="title">Message</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="logout">
-            <a href="Loginpage.php">
-                <span class="title">Logout</span>
-                <ion-icon name="log-out"></ion-icon>
-            </a>
-        </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
         </aside>
         <!-- change any thing you want in main -->
         <main>
@@ -102,17 +84,12 @@
                       <div class="days">
                       
                       </div>
-                      
-          
-
-
+   
                     </div>
                   </div>
           
                 </div>
               </div>
-            </div>
-            <div class="right">
             </div>
             </div>
         </main>

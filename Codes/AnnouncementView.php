@@ -85,32 +85,15 @@
                 </div>
             </div>
             <div class="menu">
-                <ul>
-                    <li>
-                        <a href="profile.html">
-                            <ion-icon name="person"></ion-icon>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="appointment.html">
-                            <ion-icon name="calendar"></ion-icon>
-                            <span class="title">Appointment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Announcement.php">
-                            <ion-icon name="mail"></ion-icon>
-                            <span class="title">Announcement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="message.html">
-                            <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            <span class="title">Message</span>
-                        </a>
-                    </li>
-                </ul>
+				<?php 
+					if($_SESSION['category'] == "Student") {
+						require_once "sidebar_student.php";
+					}
+					else if($_SESSION['category'] == "Tutor"){
+						require_once "sidebar_tutor.php";
+					}
+					
+				?>
             </div>
             <div class="logout">
                 <a href="loginpage.php">

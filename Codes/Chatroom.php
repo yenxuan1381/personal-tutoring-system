@@ -1,12 +1,25 @@
-<!DOCTYPE html>
-<html>
+<?php
+	session_start();
 
-<head>
-    <link rel="stylesheet" href="default.css">
-    <link rel="stylesheet" href="ChatRoom.css">
-    <!-- Add jquery to get response from user -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
+	include_once('Connection.php');
+
+	// If haven't login, then change to login page
+	if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Tutor"))
+	{
+		header("Location:Loginpage.php");
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nottingham Tutor 2.0</title>
+        <!-- Add jquery to get response from user -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="tutorchat.css">
+        <script type="text/javascript">
        
         $(document).ready(function() { //using send button
             displayResult();
@@ -51,56 +64,75 @@
             });
         }
     </script>
-    <title> Tutor Messenger </title>
-</head>
-
-<body>
-    <!-- Start Menu -->
-    <div class="nav-btn">Menu</div>
-    <div class="container">
-        <div class="sidebar">
-
-            <nav>
-                <a href="#">Nottingham <span>Tutor System</span></a>
-                <ul>
-                    <li><a href="tutorpage.php">Tutees</a></li>
-                    <li><a href="Search.php">Search</a></li>
-                    <li><a href="Loginpage.php">Log Out</a></li>
-                </ul>
-
-            </nav>
-        </div>
-
-        <!-- End Menu -->
-        <!-- Star of Chat Room -->
-        <div class="main-content">
-            <h3><b>Tutor Chat Rooms</b></h3><br>
-            <b>Available Chat Rooms<b><br>
+    </head>
+    <body>
+        <aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">Nottingham Tutor 2.0</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                
+                ?>
+            </div>
+            <div class="logout">
+                <a href="#">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="background">
+                <div class="background-image"></div>
+                <div class="title-container">
+                    <span class="title">Tutor Messenger</span>
+                </div>
+                <div class="content-container">
+                    <form class="form">
+                        <div id="result"></div>
+                        
+                        <input type="text" id="msg" name="title" placeholder="Write your message..."><br></br>
+                        <input type="hidden" value="<?php echo $row['chat_room_id']; ?>" id= 1>
+                        <button type="button" id="send_msg">Send</button>
+                    </form>
+                    
+                </div>
+                <div class="dropdown">
+                    <ion-icon name="chatbubbles"></ion-icon>
+                    <div class="dropdown-content">
                     <select name="selectroom" onchange="location = this.value;">
                         <option value="#">General Tutors</option>
-                        <option value="#">Computer Science Tutors</option>
+                        <option value="CSChatRoom.php">Computer Science Tutors</option>
                     </select>
-                    <br><br>
-                    <table id="chat_room">
-
-                        <tr>
-                            <td>
-                                <div id="result" style="overflow-y:scroll; height:300px; width: 720px;"></div>
-                                <form class="form">
-                                    <!--<input type="text" id="msg">--><br />
-                                    <textarea id="msg" rows="5" cols="80" style="font-size: 12pt"></textarea><br />
-                                    <input type="hidden" value="<?php echo $row['chat_room_id']; ?>" id= 1>
-                                    <button type="button" id="send_msg">Send</button>
-                                </form>
-                            </td>
-                        </tr>
-
-                    </table>
-
-        </div>
-    </div>
-    <!-- End of Chat room -->
-
-</body>
-
+                    </div>
+                </div>
+            </div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
