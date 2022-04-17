@@ -1,6 +1,17 @@
 <?php
 
 	session_start();
+	// echo isset($_SESSION['attempt']) ? $_SESSION['attempt'] : '';
+
+	if(isset($_SESSION['attempt_again']))
+    	{
+    	    $now = time();
+    	    if($now >= $_SESSION['attempt_again'])
+    	    {
+    	        unset($_SESSION['attempt']);
+    	        unset($_SESSION['attempt_again']);
+    	    }
+        }
 	$st = -1;
 	
 	include('Login.php');
@@ -46,6 +57,26 @@
 
 <?php
 
+    if(isset($_SESSION['error']))
+    	{
+    	    ?>
+        	<div class="alert alert-danger text-center" style="">
+        	<?php echo '<script>window.alert("'.$_SESSION['error'].'");</script>';?>
+        	</div>
+        	<?php
+        	unset($_SESSION['error']);
+        }
+
+    if(isset($_SESSION['success']))
+        {
+            ?>
+            <div class="alert alert-success text-center" style="">
+        	<?php echo '<script>window.alert("'.$_SESSION['success'].'");</script>';?>
+        	</div>
+            <?php
+            unset($_SESSION['success']);
+        }
+
 	if($st != -1)
 	{
 		$_SESSION['userid'] = $_POST['id'];
@@ -70,7 +101,7 @@
 	}
 	else
 	{
-		session_unset();
+		// session_unset();
 	}
 
 ?>

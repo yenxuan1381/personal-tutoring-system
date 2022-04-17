@@ -121,20 +121,18 @@
             </div>
             <div class="lower">
                 <div class="search">
-                    <input type="text" placeholder="Search Student...">
+                    <input type="text" id="myInput" onkeyup="filterSearch()" placeholder="Search Student...">
                     <ion-icon name="search-outline"></ion-icon>
                 </div>
                 <div class="table">
                     <h4>List of students under the same tutor</h4>
-					<table class="fl-table">
-						<thead>
-							<tr>
-								<th><strong>ID</strong></th>
-								<th><strong>First Name</strong></th>
-								<th><strong>Last Name</strong></th>
-								<th><strong>Academic Plan</strong></th>
-							</tr>
-						</thead>
+					<table id="myTable" class="fl-table">
+                        <tr class="top" height="40px">
+							<th><strong>ID</strong></th>
+							<th><strong>First Name</strong></th>
+							<th><strong>Last Name</strong></th>
+							<th><strong>Academic Plan</strong></th>
+						</tr>
 						<!--Placing the student data into the rows of the table -->
 						<tbody>
 						<?php
@@ -167,3 +165,32 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
+
+<script>
+function filterSearch() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        // td = tr[i].getElementsByTagName("td")[0];
+        alltags = tr[i].getElementsByTagName("td");
+        isFound = false;
+        for(j=0; j< alltags.length; j++) {
+          td = alltags[j];
+          if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                  j = alltags.length;
+                  isFound = true;
+              }
+            }       
+          }
+          if(!isFound && tr[i].className !== "top") {
+            tr[i].style.display = "none";
+          }
+        }
+    }
+</script>

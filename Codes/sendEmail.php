@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
       $mail->Host = 'smtp.gmail.com'; 
       $mail->SMTPAuth = true;
       $mail->Username = 'segroup2b.contact@gmail.com'; // Gmail address for SMTP server
-      $mail->Password = 'segroup20212022'; // Gmail address Password
+      $mail->Password = 'ljrvlegossrqwfhw'; // Gmail address Password
       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
       $mail->Port = '587';
 

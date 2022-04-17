@@ -77,32 +77,16 @@
                 </div>
             </div>
             <div class="menu">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="person"></ion-icon>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="calendar"></ion-icon>
-                            <span class="title">Appointment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Announcement.php">
-                            <ion-icon name="mail"></ion-icon>
-                            <span class="title">Announcement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Chatroom.php">
-                            <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            <span class="title">Message</span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="menu">
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                ?>
+                </div>
             </div>
             <div class="logout">
                 <a href="#">
@@ -147,14 +131,5 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 

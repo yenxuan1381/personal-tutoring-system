@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2022 at 04:32 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Apr 15, 2022 at 06:34 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `csv_db 16`
+-- Database: `csv_db 15`
 --
 
 -- --------------------------------------------------------
@@ -171,104 +171,6 @@ CREATE TABLE `announcement` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appointment`
---
-
-CREATE TABLE `appointment` (
-  `Appointment_ID` int(11) NOT NULL,
-  `Lect ID` int(11) NOT NULL,
-  `Monday` int(11) NOT NULL,
-  `Tuesday` int(11) NOT NULL,
-  `Wednesday` int(11) NOT NULL,
-  `Thursday` int(11) NOT NULL,
-  `Friday` int(11) NOT NULL,
-  `Saturday` int(11) NOT NULL,
-  `Sunday` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `appointment`
---
-
-INSERT INTO `appointment` (`Appointment_ID`, `Lect ID`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`) VALUES
-(1, 50000001, 1, 1, 1, 1, 1, 1, 1),
-(2, 50000002, 2, 2, 2, 2, 2, 2, 2),
-(3, 50000003, 3, 3, 3, 3, 3, 3, 3),
-(4, 50000004, 4, 4, 4, 4, 4, 4, 4),
-(5, 50000005, 5, 5, 5, 5, 5, 5, 5),
-(6, 50000006, 6, 6, 6, 6, 6, 6, 6),
-(7, 50000007, 7, 7, 7, 7, 7, 7, 7),
-(8, 50000008, 8, 8, 8, 8, 8, 8, 8),
-(9, 50000009, 9, 9, 9, 9, 9, 9, 9),
-(10, 50000010, 10, 10, 10, 10, 10, 10, 10),
-(11, 50000011, 11, 11, 11, 11, 11, 11, 11),
-(12, 50000012, 12, 12, 12, 12, 12, 12, 12),
-(13, 50000013, 13, 13, 13, 13, 13, 13, 13),
-(14, 50000014, 14, 14, 14, 14, 14, 14, 14),
-(15, 50000015, 15, 15, 15, 15, 15, 15, 15),
-(16, 50000016, 16, 16, 16, 16, 16, 16, 16),
-(17, 50000017, 17, 17, 17, 17, 17, 17, 17),
-(18, 50000018, 18, 18, 18, 18, 18, 18, 18),
-(19, 50000019, 19, 19, 19, 19, 19, 19, 19),
-(20, 50000020, 20, 20, 20, 20, 20, 20, 20),
-(21, 50000021, 21, 21, 21, 21, 21, 21, 21),
-(22, 50000022, 22, 22, 22, 22, 22, 22, 22),
-(23, 50000023, 23, 23, 23, 23, 23, 23, 23),
-(24, 50000024, 24, 24, 24, 24, 24, 24, 24),
-(25, 50000025, 25, 25, 25, 25, 25, 25, 25),
-(26, 50000026, 26, 26, 26, 26, 26, 26, 26),
-(27, 50000027, 27, 27, 27, 27, 27, 27, 27),
-(28, 50000028, 28, 28, 28, 28, 28, 28, 28),
-(29, 50000029, 29, 29, 29, 29, 29, 29, 29),
-(30, 50000030, 30, 30, 30, 30, 30, 30, 30),
-(31, 50000031, 31, 31, 31, 31, 31, 31, 31),
-(32, 50000032, 32, 32, 32, 32, 32, 32, 32),
-(33, 50000033, 33, 33, 33, 33, 33, 33, 33),
-(34, 50000034, 34, 34, 34, 34, 34, 34, 34),
-(35, 50000035, 35, 35, 35, 35, 35, 35, 35),
-(36, 50000036, 36, 36, 36, 36, 36, 36, 36),
-(37, 50000037, 37, 37, 37, 37, 37, 37, 37),
-(38, 50000038, 38, 38, 38, 38, 38, 38, 38),
-(39, 50000039, 39, 39, 39, 39, 39, 39, 39),
-(40, 50000040, 40, 40, 40, 40, 40, 40, 40),
-(41, 50000041, 41, 41, 41, 41, 41, 41, 41),
-(42, 50000042, 42, 42, 42, 42, 42, 42, 42),
-(43, 50000043, 43, 43, 43, 43, 43, 43, 43),
-(44, 50000044, 44, 44, 44, 44, 44, 44, 44),
-(45, 50000045, 45, 45, 45, 45, 45, 45, 45),
-(46, 50000046, 46, 46, 46, 46, 46, 46, 46),
-(47, 50000047, 47, 47, 47, 47, 47, 47, 47),
-(48, 50000048, 48, 48, 48, 48, 48, 48, 48),
-(49, 50000049, 49, 49, 49, 49, 49, 49, 49),
-(50, 50000050, 50, 50, 50, 50, 50, 50, 50),
-(51, 50000051, 51, 51, 51, 51, 51, 51, 51),
-(52, 50000052, 52, 52, 52, 52, 52, 52, 52),
-(53, 50000053, 53, 53, 53, 53, 53, 53, 53),
-(54, 50000054, 54, 54, 54, 54, 54, 54, 54),
-(55, 50000055, 55, 55, 55, 55, 55, 55, 55),
-(56, 50000056, 56, 56, 56, 56, 56, 56, 56),
-(57, 50000057, 57, 57, 57, 57, 57, 57, 57),
-(58, 50000058, 58, 58, 58, 58, 58, 58, 58),
-(59, 50000059, 59, 59, 59, 59, 59, 59, 59),
-(60, 50000060, 60, 60, 60, 60, 60, 60, 60),
-(61, 50000061, 61, 61, 61, 61, 61, 61, 61),
-(62, 50000062, 62, 62, 62, 62, 62, 62, 62),
-(63, 50000063, 63, 63, 63, 63, 63, 63, 63),
-(64, 50000064, 64, 64, 64, 64, 64, 64, 64),
-(65, 50000065, 65, 65, 65, 65, 65, 65, 65),
-(66, 50000066, 66, 66, 66, 66, 66, 66, 66),
-(67, 50000067, 67, 67, 67, 67, 67, 67, 67),
-(68, 50000068, 68, 68, 68, 68, 68, 68, 68),
-(69, 50000069, 69, 69, 69, 69, 69, 69, 69),
-(70, 50000070, 70, 70, 70, 70, 70, 70, 70),
-(71, 50000071, 71, 71, 71, 71, 71, 71, 71),
-(72, 50000072, 72, 72, 72, 72, 72, 72, 72),
-(73, 50000073, 73, 73, 73, 73, 73, 73, 73),
-(74, 50000074, 74, 74, 74, 74, 74, 74, 74);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `comment`
 --
 
@@ -278,100 +180,6 @@ CREATE TABLE `comment` (
   `announcement_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `friday timeslot`
---
-
-CREATE TABLE `friday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `friday timeslot`
---
-
-INSERT INTO `friday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, 'Elsaid,Salma Tamer Fathy Ahmed', NULL, NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -387,108 +195,31 @@ CREATE TABLE `general_chat` (
   `chat_date` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `general_chat`
---
-
-INSERT INTO `general_chat` (`chatid`, `chat_room_id`, `chat_msg`, `username`, `chat_date`) VALUES
-(15, 1, 'Hi', 'Tomas Maul', 'March 11, 2022 3:04:pm'),
-(16, 1, 'Hello', 'KR Selvaraj', 'March 11, 2022 3:05:pm'),
-(17, 2, 'This is Cs chat room', 'KR Selvaraj', 'March 11, 2022 3:05:pm');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monday timeslot`
+-- Table structure for table `meeting`
 --
 
-CREATE TABLE `monday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
+CREATE TABLE `meeting` (
+  `meeting_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `tutor_name` varchar(255) NOT NULL,
+  `student_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `monday timeslot`
+-- Dumping data for table `meeting`
 --
 
-INSERT INTO `monday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, '', NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, 'Dania Imanina Binti Kamarul Bahrin', '', NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, 'Choo Ming Ze', NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
+INSERT INTO `meeting` (`meeting_id`, `date`, `start_time`, `end_time`, `tutor_name`, `student_name`) VALUES
+(2, '2022-04-13', '14:30:00', '15:30:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(5, '2022-04-15', '14:09:00', '17:07:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(6, '2022-04-13', '14:16:00', '19:17:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(7, '2022-04-06', '14:43:00', '14:43:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin'),
+(8, '2022-04-13', '14:59:00', '19:00:00', 'KR Selvaraj', 'Dania Imanina Binti Kamarul Bahrin');
 
 -- --------------------------------------------------------
 
@@ -502,100 +233,6 @@ CREATE TABLE `remarks` (
   `Remarks` text NOT NULL,
   `Lect Id` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `saturday timeslot`
---
-
-CREATE TABLE `saturday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `saturday timeslot`
---
-
-INSERT INTO `saturday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, NULL, NULL, NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -670,8 +307,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`Student Id`, `Full Name`, `First Name`, `Last Name`, `Nationality`, `Gender`, `Academic Plan Code`, `Intake`, `Year of Entry (UG)`, `Current Year`, `Fnd 2-sem or 3-sem?`, `New`, `Level`, `Email Address`, `Registration Date`, `Registered`, `Remarks`, `Remarks 2`, `Tutor Id`, `Password`, `Personal Goals`) VALUES
-(10268107, 'Dania Imanina Binti Kamarul Bahrin', 'Dania Imanina', 'Kamarul Bahrin', 'Malaysia', 'Female', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'efydk1@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', NULL),
-(10268818, 'Wong Qing Joe', 'Qing Joe', 'Wong', 'Malaysia', 'Male', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hcyqw1@nottingham.edu.my', '14-Sep-19', 'Yes', '', '', 50000038, '1234', NULL),
+(10268107, 'Dania Imanina Binti Kamarul Bahrin', 'Dania Imanina', 'Kamarul Bahrin', 'Malaysia', 'Female', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'efydk1@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', 'Graduate successfully'),
+(10268818, 'Wong Qing Joe', 'Qing Joe', 'Wong', 'Malaysia', 'Male', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hcyqw1@nottingham.edu.my', '14-Sep-19', 'Yes', '', '', 50000038, '1234', 'Get better in maths'),
 (10280587, 'Yap,Uen Hsieh', 'Uen Hsieh', 'Yap', 'Malaysia', 'Male', 'M6UCMPSC', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hcyuy1@nottingham.edu.my', '8-Sep-19', 'Yes', '', '', 50000032, '1234', NULL),
 (10286955, 'Mariyam Imtha Shafeeu', 'Mariyam Imtha', 'Shafeeu', 'Maldives', 'Female', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hfyms2@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', NULL),
 (10342346, 'Lau Yu Xuan', 'Yu Xuan', 'Lau', 'Malaysia', 'Male', 'M6UCMPAI', '2019 / 09', 1, 2, '', 'Progressing', 'Undergraduate', 'hcyyl3@nottingham.edu.my', '7-Sep-19', 'Yes', '', '', 50000031, '1234', NULL),
@@ -809,100 +446,6 @@ INSERT INTO `students` (`Student Id`, `Full Name`, `First Name`, `Last Name`, `N
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sunday timeslot`
---
-
-CREATE TABLE `sunday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `sunday timeslot`
---
-
-INSERT INTO `sunday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, NULL, NULL, NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `task`
 --
 
@@ -912,13 +455,6 @@ CREATE TABLE `task` (
   `task` varchar(150) NOT NULL,
   `status` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `task`
---
-
-INSERT INTO `task` (`task_id`, `Lect ID`, `task`, `status`) VALUES
-(16, 0, 'Get a job', '');
 
 -- --------------------------------------------------------
 
@@ -1033,194 +569,6 @@ INSERT INTO `tempemails` (`email`, `LECTID`, `office`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thursday timeslot`
---
-
-CREATE TABLE `thursday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `thursday timeslot`
---
-
-INSERT INTO `thursday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, 'Mariyam Imtha Shafeeu', 'Dania Imanina Binti Kamarul Bahrin', NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tuesday timeslot`
---
-
-CREATE TABLE `tuesday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tuesday timeslot`
---
-
-INSERT INTO `tuesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, NULL, 'Dania Imanina Binti Kamarul Bahrin', NULL, NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tutors`
 --
 
@@ -1325,100 +673,6 @@ CREATE TABLE `users` (
   `user_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `wednesday timeslot`
---
-
-CREATE TABLE `wednesday timeslot` (
-  `appointment_id` int(11) NOT NULL,
-  `timeslot1` varchar(255) DEFAULT NULL,
-  `timeslot2` varchar(255) DEFAULT NULL,
-  `timeslot3` varchar(255) DEFAULT NULL,
-  `timeslot4` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `wednesday timeslot`
---
-
-INSERT INTO `wednesday timeslot` (`appointment_id`, `timeslot1`, `timeslot2`, `timeslot3`, `timeslot4`) VALUES
-(1, NULL, NULL, NULL, NULL),
-(2, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL),
-(4, NULL, NULL, NULL, NULL),
-(5, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL),
-(8, NULL, NULL, NULL, NULL),
-(9, NULL, NULL, NULL, NULL),
-(10, NULL, NULL, NULL, NULL),
-(11, NULL, NULL, NULL, NULL),
-(12, NULL, NULL, NULL, NULL),
-(13, NULL, NULL, NULL, NULL),
-(14, NULL, NULL, NULL, NULL),
-(15, NULL, NULL, NULL, NULL),
-(16, NULL, NULL, NULL, NULL),
-(17, NULL, NULL, NULL, NULL),
-(18, NULL, NULL, NULL, NULL),
-(19, NULL, NULL, NULL, NULL),
-(20, NULL, NULL, NULL, NULL),
-(21, NULL, NULL, NULL, NULL),
-(22, NULL, NULL, NULL, NULL),
-(23, NULL, NULL, NULL, NULL),
-(24, NULL, NULL, NULL, NULL),
-(25, NULL, NULL, NULL, NULL),
-(26, NULL, NULL, NULL, NULL),
-(27, NULL, NULL, NULL, NULL),
-(28, NULL, NULL, NULL, NULL),
-(29, NULL, NULL, NULL, NULL),
-(30, NULL, NULL, NULL, NULL),
-(31, 'Dania Imanina Binti Kamarul Bahrin', 'Dania Imanina Binti Kamarul Bahrin', 'Dania Imanina Binti Kamarul Bahrin', NULL),
-(32, NULL, NULL, NULL, NULL),
-(33, NULL, NULL, NULL, NULL),
-(34, NULL, NULL, NULL, NULL),
-(35, NULL, NULL, NULL, NULL),
-(36, NULL, NULL, NULL, NULL),
-(37, NULL, NULL, NULL, NULL),
-(38, NULL, NULL, NULL, NULL),
-(39, NULL, NULL, NULL, NULL),
-(40, NULL, NULL, NULL, NULL),
-(41, NULL, NULL, NULL, NULL),
-(42, NULL, NULL, NULL, NULL),
-(43, NULL, NULL, NULL, NULL),
-(44, NULL, NULL, NULL, NULL),
-(45, NULL, NULL, NULL, NULL),
-(46, NULL, NULL, NULL, NULL),
-(47, NULL, NULL, NULL, NULL),
-(48, NULL, NULL, NULL, NULL),
-(49, NULL, NULL, NULL, NULL),
-(50, NULL, NULL, NULL, NULL),
-(51, NULL, NULL, NULL, NULL),
-(52, NULL, NULL, NULL, NULL),
-(53, NULL, NULL, NULL, NULL),
-(54, NULL, NULL, NULL, NULL),
-(55, NULL, NULL, NULL, NULL),
-(56, NULL, NULL, NULL, NULL),
-(57, NULL, NULL, NULL, NULL),
-(58, NULL, NULL, NULL, NULL),
-(59, NULL, NULL, NULL, NULL),
-(60, NULL, NULL, NULL, NULL),
-(61, NULL, NULL, NULL, NULL),
-(62, NULL, NULL, NULL, NULL),
-(63, NULL, NULL, NULL, NULL),
-(64, NULL, NULL, NULL, NULL),
-(65, NULL, NULL, NULL, NULL),
-(66, NULL, NULL, NULL, NULL),
-(67, NULL, NULL, NULL, NULL),
-(68, NULL, NULL, NULL, NULL),
-(69, NULL, NULL, NULL, NULL),
-(70, NULL, NULL, NULL, NULL),
-(71, NULL, NULL, NULL, NULL),
-(72, NULL, NULL, NULL, NULL),
-(73, NULL, NULL, NULL, NULL),
-(74, NULL, NULL, NULL, NULL);
-
 --
 -- Indexes for dumped tables
 --
@@ -1442,13 +696,6 @@ ALTER TABLE `announcement`
   ADD PRIMARY KEY (`announcement_id`);
 
 --
--- Indexes for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD PRIMARY KEY (`Appointment_ID`),
-  ADD KEY `Lect ID` (`Lect ID`);
-
---
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
@@ -1461,10 +708,10 @@ ALTER TABLE `general_chat`
   ADD PRIMARY KEY (`chatid`);
 
 --
--- Indexes for table `monday timeslot`
+-- Indexes for table `meeting`
 --
-ALTER TABLE `monday timeslot`
-  ADD PRIMARY KEY (`appointment_id`);
+ALTER TABLE `meeting`
+  ADD PRIMARY KEY (`meeting_id`);
 
 --
 -- Indexes for table `remarks`
@@ -1530,6 +777,12 @@ ALTER TABLE `general_chat`
   MODIFY `chatid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `meeting`
+--
+ALTER TABLE `meeting`
+  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `task`
 --
 ALTER TABLE `task`
@@ -1544,12 +797,6 @@ ALTER TABLE `tempemails`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `appointment`
---
-ALTER TABLE `appointment`
-  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`Lect ID`) REFERENCES `tutors` (`Lect ID`);
 
 --
 -- Constraints for table `remarks`

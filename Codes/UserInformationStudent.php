@@ -61,6 +61,17 @@
 	$getStudentRegistrationDate = mysqli_query($conn, $registrationDateQuery) or die("Error fetching student's registration date.");
 	$registrationDate = mysqli_fetch_array($getStudentRegistrationDate,MYSQLI_ASSOC);
 
+
+    if(isset($_POST['Personal_Goal'])){
+        $personalGoals = $_POST['Personal_Goal'];
+        $editPersonalGoalsQuery = "UPDATE students SET `Personal Goals` = '$personalGoals' WHERE `Student Id` = '$userid'";
+        if(mysqli_query($conn, $editPersonalGoalsQuery)){
+    		header("Location: UserInformationStudent.php?studentID=".$userid);
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+    }
+
     $personalGoalsQuery = 'SELECT students.`Personal Goals` FROM `students` WHERE `Student Id` = '.$userid.'';
 	$getPersonalGoals = mysqli_query($conn, $personalGoalsQuery) or die("Error fetching student's personal goals.");
 	$personalGoals = mysqli_fetch_array($getPersonalGoals,MYSQLI_ASSOC);
@@ -130,10 +141,10 @@
             <div class="edit_goal">
                 <button class="edit" onclick="pop()"><ion-icon name="create"></ion-icon></button>
                 <div id="pop-out">
-                    <form>
+                    <form method="post">
                         <label for="Personal_Goal">Edit Personal Goal</label><br>
                         <textarea name="Personal_Goal" placeholder="Your Personal Goal.."></textarea><br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Confirm">
                     </form>
                     <button class="edit" onclick="remove()"><ion-icon name="close"></ion-icon></button>
                 </div>
