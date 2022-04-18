@@ -65,8 +65,20 @@
 .edit_goal .edit
 {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 40px;
+    bottom: 98px;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit1
+{
+    position: absolute;
+    right: 30px;
+    bottom: 260px;
     border: none;
     background-color: transparent;
     font-size: 30px;
@@ -75,6 +87,11 @@
 }
 
 .edit_goal .edit:hover
+{
+    font-size:40px;
+}
+
+.edit_goal .edit1:hover
 {
     font-size:40px;
 }
@@ -114,6 +131,41 @@
     resize: none;
     font-size: 15px;
 }
+
+#pop-out1
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 60%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+}
+
+#pop-out1 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#pop-out1 form label
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
 .lower_profile
 {
     position: absolute;

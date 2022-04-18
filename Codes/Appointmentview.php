@@ -76,7 +76,12 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <a href="StudentView.php">
+                        <?php if($_SESSION['category']=="Student"){?>
+                            <a href="StudentView.php">
+                        <?php }
+                            elseif($_SESSION['category']=="Tutor"){?>
+                            <a href="Tutorpage.php">
+                        <?php }?>
                         <ion-icon name="home"></ion-icon>
                             <span class="title">Home</span>
                         </a>

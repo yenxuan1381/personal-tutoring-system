@@ -57,13 +57,15 @@ a.link{
 
 .current-date h1 {
 position: absolute;
-left: 190px;
+left: 35%;
 color: #dfebed;
 font-size: 1.4em;
 font-weight: 300;
 }
 
 .current-date h2 {
+    position: absolute;
+    left: 60%;
     color: #dfebed;
     font-size: 1.4em;
     font-weight: 300;
@@ -206,4 +208,15 @@ margin: 5%;
     color: var(--white);
     padding: 10px;
     font-size: 1.5rem;
+}
+
+p1.prev
+{
+    position:absolute;
+}
+
+p2.next
+{
+    position:absolute;
+    right:45%;
 }

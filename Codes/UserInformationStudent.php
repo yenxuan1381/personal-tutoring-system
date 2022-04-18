@@ -79,10 +79,17 @@
 	$remarksquery = mysqli_query($conn, 'SELECT * FROM remarks WHERE `Student Id` = '.$userid) or die('Remarks error');
 	$remarksrows = mysqli_num_rows($remarksquery);
 
-	$query = 'ALTER TABLE students ADD COLUMN `Personal Goals` VARCHAR(145) NULL';
-	if($conn->query($query)) 
-    {
-		echo "It worked";
+	if(isset($_POST['First_Name'])){
+        $fName = $_POST['First_Name'];
+        $lName = $_POST['Last_Name'];
+        $nationality = $_POST['Nationality'];
+        $email = $_POST['Email'];
+        $sql = "UPDATE students SET `First Name`='$fName',`Last Name`='$lName',Nationality='$nationality',`Email Address`='$email' WHERE `Student Id`='$getStudentID' ";
+        if(mysqli_query($conn, $sql)){
+    		header("Location:UserInformationStudent.php?studentID=".$getStudentID);
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
 	}
 ?>
 
@@ -138,20 +145,34 @@
                     <span class="role">Student</span>
                 </div>
             </div>
-            <div class="edit_goal">
-                <button class="edit" onclick="pop()"><ion-icon name="create"></ion-icon></button>
                 <div id="pop-out">
-                    <form method="post">
+                    <form method="post" name="form1">
                         <label for="Personal_Goal">Edit Personal Goal</label><br>
                         <textarea name="Personal_Goal" placeholder="Your Personal Goal.."></textarea><br>
                         <input type="submit" value="Confirm">
                     </form>
                     <button class="edit" onclick="remove()"><ion-icon name="close"></ion-icon></button>
                 </div>
-            </div>
+                <div id="pop-out1">
+                    <form method="post">
+                        <label for="First_Name">First Name:</label><br>
+                        <input type="text" name="First_Name" value="<?php echo $firstName['First Name'] ?>"><br><br>
+                        <label for="Last_Name">Last Name: </label><br>
+                        <input type="text" name="Last_Name" value="<?php echo $lastName['Last Name'] ?>"><br><br>
+                        <label for="Nationality">Nationality:</label><br>
+                        <input type="text" name="Nationality" value="<?php echo $nationality['Nationality'] ?>"><br><br>
+                        <label for="Email">Email:</label><br>
+                        <input type="text" name="Email" value="<?php echo $email['Email Address'] ?>"><br><br>
+                        <input type="submit" value="Confirm">
+                    </form>
+                    <button class="edit" onclick="remove1()"><ion-icon name="close"></ion-icon></button>
+                </div>
             <div class="lower_profile">
                 <div class="info">
                     <p>Personal Information</p>
+                    <div class="edit_goal">
+                            <button class="edit1" onclick="pop1()"><ion-icon name="create"></ion-icon></button>
+                    </div>
 					<strong>Student ID: <br></strong> <?php echo $getStudentID ?> </br>
 					<strong>First Name: <br></strong> <?php echo $firstName['First Name'] ?> </br>
 					<strong>Last Name: <br></strong> <?php echo $lastName['Last Name'] ?> </br>
@@ -169,6 +190,10 @@
                 <div class="goal_and_remark">
                     <div class="personal-goal">
                         <span class="small-title">Personal Goal</span><br>
+                        <div class="edit_goal">
+                            <button class="edit" onclick="pop()"><ion-icon name="create"></ion-icon></button>
+                
+                        </div>
                         <?php echo $personalGoals['Personal Goals'] ?>
                     </div>
                     <div class="remark">
@@ -187,6 +212,15 @@
         function remove() {
             document.getElementById("pop-out").style.visibility = "hidden";
         }
+
+        function pop1() {
+            document.getElementById("pop-out1").style.visibility = "visible";
+        }
+        function remove1() {
+            document.getElementById("pop-out1").style.visibility = "hidden";
+        }
+
+
     </script>
     </body>
 </html>
