@@ -55,13 +55,6 @@
     font-style: italic;
 }
 
-.edit_goal 
-{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
 .edit_goal .edit
 {
     position: absolute;
@@ -74,24 +67,9 @@
     color: var(--blue1);
 }
 
-.edit_goal .edit1
-{
-    position: absolute;
-    right: 30px;
-    bottom: 260px;
-    border: none;
-    background-color: transparent;
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--blue1);
-}
+
 
 .edit_goal .edit:hover
-{
-    font-size:40px;
-}
-
-.edit_goal .edit1:hover
 {
     font-size:40px;
 }
@@ -160,12 +138,6 @@
     font-weight: bold;
 }
 
-
-
-
-
-
-
 .lower_profile
 {
     position: absolute;
@@ -191,12 +163,38 @@
     overflow: auto;
 }
 
-.lower_profile .info p
+.lower-title-1
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sub-title
 {
     font-size: 25px;
     font-weight: bold;
     text-decoration: underline;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+}
+.edit_goal 
+{
+    position: relative;
+}
+
+.edit_goal .edit1
+{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit1:hover
+{
+    font-size:40px;
 }
 
 .lower_profile .academic

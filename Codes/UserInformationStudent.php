@@ -5,12 +5,18 @@
 	include_once('Connection.php'); //to connect the page to the database
 
 	// If haven't login, then change to login page
-	if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Student"))
+	if((!(isset($_SESSION['userid']))) or (($_SESSION['category'] != "Student") and ($_SESSION['category'] != "Tutor")))
 	{
 		header("Location:Loginpage.php");
 	}
-
-	$userid = $_GET['studentID']?? "";
+    if ($_SESSION['category'] == "Student")
+    {
+        $userid = $_GET['studentID']?? "";
+    }
+	if ($_SESSION['category'] == "Tutor")
+    {
+        $userid = $_POST['tuteeid'];
+    }
 
 	// if(!empty($_POST['submit'])){
 	//   $userid = $_POST['studentID'];
@@ -169,9 +175,16 @@
                 </div>
             <div class="lower_profile">
                 <div class="info">
-                    <p>Personal Information</p>
-                    <div class="edit_goal">
-                            <button class="edit1" onclick="pop1()"><ion-icon name="create"></ion-icon></button>
+                    <div class="lower-title-1">
+                        <span class="sub-title">Personal Information</span>
+                        <div class="edit_goal"> 
+                            <?php
+                                if ($_SESSION['category'] == "Student")
+                                {
+                                    echo '<button class="edit1" onclick="pop1()"><ion-icon name="create"></ion-icon></button>';
+                                }
+                            ?>
+                        </div>
                     </div>
 					<strong>Student ID: <br></strong> <?php echo $getStudentID ?> </br>
 					<strong>First Name: <br></strong> <?php echo $firstName['First Name'] ?> </br>
@@ -180,7 +193,17 @@
 					<strong>Email: <br></strong> <?php echo $email['Email Address'] ?> </br>
                 </div>
                 <div class="academic">
-                    <p>Academic Information</p>
+                    <div class="lower-title-1">
+                        <span class="sub-title">Personal Information</span>
+                        <div class="edit_goal"> 
+                            <?php
+                                if ($_SESSION['category'] == "Tutor")
+                                {
+                                    echo '<button class="edit1" onclick="pop1()"><ion-icon name="create"></ion-icon></button>';
+                                }
+                            ?>
+                        </div>
+                    </div>
 					<strong>Academic Plan Code: <br></strong> <?php echo $academicPlanCode['Academic Plan Code'] ?> </br>
 					<strong>Academic Plan: <br></strong> <?php echo $academicPlan['Academic Plan'] ?> </br>
 					<strong>Level: <br></strong> <?php echo $level['Level'] ?> </br>
@@ -189,15 +212,31 @@
                 </div>
                 <div class="goal_and_remark">
                     <div class="personal-goal">
-                        <span class="small-title">Personal Goal</span><br>
-                        <div class="edit_goal">
-                            <button class="edit" onclick="pop()"><ion-icon name="create"></ion-icon></button>
-                
+                        <div class="lower-title-1">
+                            <span class="sub-title">Personal Goal</span>
+                            <div class="edit_goal"> 
+                                <?php
+                                    if ($_SESSION['category'] == "Student")
+                                    {
+                                        echo '<button class="edit1" onclick="pop()"><ion-icon name="create"></ion-icon></button>';
+                                    }
+                                ?>
+                            </div>
                         </div>
                         <?php echo $personalGoals['Personal Goals'] ?>
                     </div>
                     <div class="remark">
-                        <span class="small-title">Remark</span><br>
+                        <div class="lower-title-1">
+                            <span class="sub-title">Remark</span>
+                            <div class="edit_goal"> 
+                                <?php
+                                    if ($_SESSION['category'] == "Tutor")
+                                    {
+                                        echo '<button class="edit1" onclick="pop()"><ion-icon name="create"></ion-icon></button>';
+                                    }
+                                ?>
+                            </div>
+                        </div>
                         <?php echo 'heelo'?>
                     </div>
                 </div>
