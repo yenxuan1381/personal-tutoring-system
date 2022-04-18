@@ -67,7 +67,6 @@
 	$getStudentRegistrationDate = mysqli_query($conn, $registrationDateQuery) or die("Error fetching student's registration date.");
 	$registrationDate = mysqli_fetch_array($getStudentRegistrationDate,MYSQLI_ASSOC);
 
-
     if(isset($_POST['Personal_Goal'])){
         $personalGoals = $_POST['Personal_Goal'];
         $editPersonalGoalsQuery = "UPDATE students SET `Personal Goals` = '$personalGoals' WHERE `Student Id` = '$userid'";
@@ -144,7 +143,14 @@
                         <img src="./image/profile.jpeg" alt="">
                     </div>
                     <div class="profile_name">
-                        <h3>My Profile:</h3>
+                        <?php
+                            if($_SESSION['category'] == "Tutor")
+                            {
+                                echo '<h3>Student Profile:</h3>';
+                            }else{
+                                echo '<h3>My Profile:</h3>';
+                            }
+                        ?>
                         <h1><?php echo $firstName['First Name']?></h1>
                         <h4><?php echo $lastName['Last Name']?></h4>
                     </div>
@@ -152,14 +158,24 @@
                 </div>
             </div>
                 <div id="pop-out">
+                    <div class="lower-title-1">
+                        <span class="sub-title">Edit Personal Goal</span>
+                        <div class="edit_goal"> 
+                            <button class="edit1" onclick="remove()"><ion-icon name="close"></ion-icon></button>
+                        </div>
+                    </div>
                     <form method="post" name="form1">
-                        <label for="Personal_Goal">Edit Personal Goal</label><br>
                         <textarea name="Personal_Goal" placeholder="Your Personal Goal.."></textarea><br>
                         <input type="submit" value="Confirm">
                     </form>
-                    <button class="edit" onclick="remove()"><ion-icon name="close"></ion-icon></button>
                 </div>
                 <div id="pop-out1">
+                    <div class="lower-title-1">
+                        <span class="sub-title">Personal Information</span>
+                        <div class="edit_goal"> 
+                            <button class="edit1" onclick="remove1()"><ion-icon name="close"></ion-icon></button>
+                        </div>
+                    </div>
                     <form method="post">
                         <label for="First_Name">First Name:</label><br>
                         <input type="text" name="First_Name" value="<?php echo $firstName['First Name'] ?>"><br><br>
@@ -171,7 +187,7 @@
                         <input type="text" name="Email" value="<?php echo $email['Email Address'] ?>"><br><br>
                         <input type="submit" value="Confirm">
                     </form>
-                    <button class="edit" onclick="remove1()"><ion-icon name="close"></ion-icon></button>
+                    
                 </div>
             <div class="lower_profile">
                 <div class="info">
@@ -194,7 +210,7 @@
                 </div>
                 <div class="academic">
                     <div class="lower-title-1">
-                        <span class="sub-title">Personal Information</span>
+                        <span class="sub-title">Academic Information</span>
                         <div class="edit_goal"> 
                             <?php
                                 if ($_SESSION['category'] == "Tutor")

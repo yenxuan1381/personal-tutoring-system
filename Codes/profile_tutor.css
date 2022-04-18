@@ -59,7 +59,7 @@
 {
     position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 30px;
     width: 100%;
@@ -90,10 +90,9 @@
 
 .lower_profile .academic
 {
-    position: absolute;
-    left:40%;
-    width: 28.5%;
-    height: 68.5%;
+    position: relative;
+    width: 30%;
+    height: 80%;
     font-size: 20px;
     border: 3px solid var(--blue1);
     padding: 20px;
@@ -110,16 +109,20 @@
     margin-bottom: 5px;
 }
 
-.lower_profile .to-do-list
-{
-    font-size: 25px;
-    font-weight: bold;
-    
-}
-.To-Do-container
+.to-do-list
 {
     position: absolute;
-    top: 100%;
-    height: 100%;
-    width: 100%;
+    right: 40px;
+    top: 30%;
+}
+
+.to-do-list a ion-icon
+{
+    font-size: 100px;
+    color: var(--blue1);
+}
+
+.to-do-list a ion-icon:hover
+{
+    font-size: 120px;
 }

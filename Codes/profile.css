@@ -55,24 +55,6 @@
     font-style: italic;
 }
 
-.edit_goal .edit
-{
-    position: absolute;
-    right: 40px;
-    bottom: 98px;
-    border: none;
-    background-color: transparent;
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--blue1);
-}
-
-
-
-.edit_goal .edit:hover
-{
-    font-size:40px;
-}
 
 #pop-out
 {
@@ -116,7 +98,7 @@
     top: 30%;
     left: 30%;
     width: 40%;
-    height: 60%;
+    max-height: 60%;
     background-color: var(--white);
     border: 3px solid var(--blue1);
     border-radius: 10px;
@@ -124,6 +106,7 @@
     visibility: hidden;
     padding: 20px;
     z-index: 1;
+    overflow: auto;
 }
 
 #pop-out1 form
@@ -131,11 +114,40 @@
     position: relative;
     width: 100%;
     height: 100%;
+    margin-top: 20px;
 }
 #pop-out1 form label
 {
     font-size: 20px;
     font-weight: bold;
+}
+
+#pop-out1 form input[type=text]
+{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#pop-out1 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+
+.edit_goal .edit
+{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit:hover
+{
+    font-size:40px;
 }
 
 .lower_profile

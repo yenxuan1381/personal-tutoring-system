@@ -90,6 +90,9 @@ while($data = mysqli_fetch_array($getSeniorTutors, MYSQLI_NUM)){
                     </div>
                     <span class="role">Tutor</span>
                 </div>
+                <div class="to-do-list">
+                    <a href="ToDoList.php"><ion-icon name="checkmark-done-circle"></ion-icon></a>
+                </div>
             </div>
             <div class="lower_profile">
                 <div class="info">
@@ -103,9 +106,6 @@ while($data = mysqli_fetch_array($getSeniorTutors, MYSQLI_NUM)){
 					<strong>School: </strong> <?php echo $school['School'] ?> </br>
          			<strong>Office Location: </strong> <?php echo $office['office'] ?> </br>
          			<strong>Tutor Position: </strong> <?php echo $tutorPosition ?> </br>
-                </div>
-                <div class="to-do-list">
-                    <a href="ToDoList.php">Click here (To-Do List) TBU</a>
                 </div>
             </div>
 		</div>
