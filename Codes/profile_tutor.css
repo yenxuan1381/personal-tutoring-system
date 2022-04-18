@@ -90,9 +90,10 @@
 
 .lower_profile .academic
 {
-    position: relative;
-    width: 30%;
-    height: 80%;
+    position: absolute;
+    left:40%;
+    width: 28.5%;
+    height: 68.5%;
     font-size: 20px;
     border: 3px solid var(--blue1);
     padding: 20px;
@@ -109,6 +110,12 @@
     margin-bottom: 5px;
 }
 
+.lower_profile .to-do-list
+{
+    font-size: 25px;
+    font-weight: bold;
+    
+}
 .To-Do-container
 {
     position: absolute;

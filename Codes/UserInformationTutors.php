@@ -104,6 +104,9 @@ while($data = mysqli_fetch_array($getSeniorTutors, MYSQLI_NUM)){
          			<strong>Office Location: </strong> <?php echo $office['office'] ?> </br>
          			<strong>Tutor Position: </strong> <?php echo $tutorPosition ?> </br>
                 </div>
+                <div class="to-do-list">
+                    <a href="ToDoList.php">Click here (To-Do List) TBU</a>
+                </div>
             </div>
 		</div>
 			</div>

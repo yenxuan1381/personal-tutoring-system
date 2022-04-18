@@ -34,20 +34,6 @@
 		}
 	}
 
-	// if(isset($_POST['text'])){
-	// 	$title = $_POST['title'];
-	// 	$announcement = $_POST['text'];
-	// }
-	// if(isset($announcement))
-	// {
-	// 	$sql = "INSERT INTO announcement (title,content,tutor_name) VALUES ('$title','$announcement','$tutorname')";
-				
-	// 	if(mysqli_query($conn, $sql)){
-    // 		header("Location:Announcement.php");
-	// 	} else {
-    // 			echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-	// 	}
-	// }
 	
 
 ?>
@@ -73,35 +59,17 @@
                 </div>
             </div>
             <div class="menu">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="person"></ion-icon>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="calendar"></ion-icon>
-                            <span class="title">Appointment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Announcement.php">
-                            <ion-icon name="mail"></ion-icon>
-                            <span class="title">Announcement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="chatbubble-ellipses"></ion-icon>
-                            <span class="title">Message</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                ?>
             </div>
             <div class="logout">
-                <a href="#">
+                <a href="loginpage.php">
                     <span class="title">Logout</span>
                     <ion-icon name="log-out"></ion-icon>
                 </a>

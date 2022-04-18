@@ -76,7 +76,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
-            <div class="menu">
+            
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="logout">
-                <a href="#">
+                <a href="loginpage.php">
                     <span class="title">Logout</span>
                     <ion-icon name="log-out"></ion-icon>
                 </a>

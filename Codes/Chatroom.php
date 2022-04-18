@@ -88,7 +88,7 @@
                 ?>
             </div>
             <div class="logout">
-                <a href="#">
+                <a href="loginpage.php">
                     <span class="title">Logout</span>
                     <ion-icon name="log-out"></ion-icon>
                 </a>

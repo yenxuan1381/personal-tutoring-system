@@ -74,43 +74,14 @@
                 </div>
             </div>
             <div class="menu">
-                <ul>
-                    <li>
-                        <?php if($_SESSION['category']=="Student"){?>
-                            <a href="StudentView.php">
-                        <?php }
-                            elseif($_SESSION['category']=="Tutor"){?>
-                            <a href="Tutorpage.php">
-                        <?php }?>
-                        <ion-icon name="home"></ion-icon>
-                            <span class="title">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
-                            <ion-icon name="person"></ion-icon>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <ion-icon name="calendar"></ion-icon>
-                            <span class="title">Appointment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Announcement.php?studentID=<?php echo $userid ?>">
-                            <ion-icon name="mail"></ion-icon>
-                            <span class="title">Announcement</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ContactTuteepage.php">
-							<ion-icon name="help-circle"></ion-icon>
-                            <span class="title">Contact Us</span>
-                        </a>
-                    </li>
-                </ul>
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }
+                ?>
             </div>
             <div class="logout">
                 <a href="Loginpage.php">
