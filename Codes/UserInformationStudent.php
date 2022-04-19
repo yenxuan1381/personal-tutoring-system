@@ -15,13 +15,12 @@
     }
 	if ($_SESSION['category'] == "Tutor")
     {
-        $userid = $_POST['tuteeid'];
+        if(isset($_GET['tuteeid'])){
+            $userid = $_GET['tuteeid'];
+        }
+        
     }
 
-	// if(!empty($_POST['submit'])){
-	//   $userid = $_POST['studentID'];
-	//   $_SESSION['studentID'] = $userid;
-	// }
 
 	$getStudentID = $userid;
 
@@ -56,7 +55,7 @@
 	$academicPlan = mysqli_fetch_array($getStudentAcademicPlan,MYSQLI_ASSOC);
 
 	$currentYearQuery = 'SELECT students.`Current Year` FROM `students` WHERE `Student Id` = '.$userid.'';
-	$getStudentCurrentYear = mysqli_query($conn, $currentYearQuery) or die("Error fetching student's currnt year.");
+	$getStudentCurrentYear = mysqli_query($conn, $currentYearQuery) or die("Error fetching student's current year.");
 	$currentYear = mysqli_fetch_array($getStudentCurrentYear,MYSQLI_ASSOC);
 
 	$levelQuery = 'SELECT students.`Level` FROM `students` WHERE `Student Id` = '.$userid.'';
@@ -81,8 +80,21 @@
 	$getPersonalGoals = mysqli_query($conn, $personalGoalsQuery) or die("Error fetching student's personal goals.");
 	$personalGoals = mysqli_fetch_array($getPersonalGoals,MYSQLI_ASSOC);
 
-	$remarksquery = mysqli_query($conn, 'SELECT * FROM remarks WHERE `Student Id` = '.$userid) or die('Remarks error');
-	$remarksrows = mysqli_num_rows($remarksquery);
+	
+
+    if(isset($_POST['Remark'])){
+        $remark = $_POST['Remark'];
+        $sql = "UPDATE students SET `Remarks`='$remark' WHERE `Student id` = '$getStudentID'";
+        if(mysqli_query($conn, $sql)){
+    		header("Location:UserInformationStudent.php?tuteeid=".$getStudentID);
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+    }
+
+    $remarksQuery = 'SELECT students.`remarks` FROM `students` WHERE `Student Id` = '.$userid.'';
+	$getRemarks = mysqli_query($conn, $remarksQuery) or die("Error fetching student's personal goals.");
+	$remarks = mysqli_fetch_array($getRemarks,MYSQLI_ASSOC);
 
 	if(isset($_POST['First_Name'])){
         $fName = $_POST['First_Name'];
@@ -96,6 +108,19 @@
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
 	}
+
+    if(isset($_POST['Academic_Plan_Code'])){
+        $code = $_POST['Academic_Plan_Code'];
+        $level = $_POST['Level'];
+        $year = $_POST['Current_Year'];
+        $rDate = $_POST['Registration_Date'];
+        $sql = "UPDATE students SET `Academic Plan Code`='$code', `Level`='$level',`Current Year` = '$year',`Registration Date`='$rDate' WHERE `Student Id`='$getStudentID'";
+        if(mysqli_query($conn, $sql)){
+    		header("Location:UserInformationStudent.php?tuteeid=".$getStudentID);
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+    }
 ?>
 
 <!-- start of the HTML script for the student view page  -->
@@ -187,7 +212,37 @@
                         <input type="text" name="Email" value="<?php echo $email['Email Address'] ?>"><br><br>
                         <input type="submit" value="Confirm">
                     </form>
-                    
+                </div>
+                <div id="pop-out2">
+                <div class="lower-title-1">
+                        <span class="sub-title">Academic Information</span>
+                        <div class="edit_goal"> 
+                            <button class="edit1" onclick="remove2()"><ion-icon name="close"></ion-icon></button>
+                        </div>
+                    </div>
+                    <form method="post">
+                        <label for="Academic_Plan_Code">Academic Plan Code:</label><br>
+                        <input type="text" name="Academic_Plan_Code" value="<?php echo $academicPlanCode['Academic Plan Code'] ?>"><br><br>
+                        <label for="Level">Level:</label><br>
+                        <input type="text" name="Level" value="<?php echo $level['Level'] ?>"><br><br>
+                        <label for="Current_Year">Current Year:</label><br>
+                        <input type="text" name="Current_Year" value="<?php echo $currentYear['Current Year'] ?>"><br><br>
+                        <label for="Registration_Date">Registration Date:</label><br>
+                        <input type="text" name="Registration_Date" value="<?php echo $registrationDate['Registration Date'] ?>"><br><br>
+                        <input type="submit" value="Confirm">
+                    </form>
+                </div>
+                <div id="pop-out3">
+                    <div class="lower-title-1">
+                        <span class="sub-title">Edit Remark</span>
+                        <div class="edit_goal"> 
+                            <button class="edit1" onclick="remove3()"><ion-icon name="close"></ion-icon></button>
+                        </div>
+                    </div>
+                    <form method="post" name="form1">
+                        <textarea name="Remark" placeholder="Add Remarks Here..."></textarea><br>
+                        <input type="submit" value="Confirm">
+                    </form>
                 </div>
             <div class="lower_profile">
                 <div class="info">
@@ -215,7 +270,7 @@
                             <?php
                                 if ($_SESSION['category'] == "Tutor")
                                 {
-                                    echo '<button class="edit1" onclick="pop1()"><ion-icon name="create"></ion-icon></button>';
+                                    echo '<button class="edit1" onclick="pop2()"><ion-icon name="create"></ion-icon></button>';
                                 }
                             ?>
                         </div>
@@ -248,12 +303,12 @@
                                 <?php
                                     if ($_SESSION['category'] == "Tutor")
                                     {
-                                        echo '<button class="edit1" onclick="pop()"><ion-icon name="create"></ion-icon></button>';
+                                        echo '<button class="edit1" onclick="pop3()"><ion-icon name="create"></ion-icon></button>';
                                     }
                                 ?>
                             </div>
                         </div>
-                        <?php echo 'heelo'?>
+                        <?php echo $remarks['remarks']?>
                     </div>
                 </div>
             </div>
@@ -273,6 +328,19 @@
         }
         function remove1() {
             document.getElementById("pop-out1").style.visibility = "hidden";
+        }
+
+        function pop2() {
+            document.getElementById("pop-out2").style.visibility = "visible";
+        }
+        function remove2() {
+            document.getElementById("pop-out2").style.visibility = "hidden";
+        }
+        function pop3() {
+            document.getElementById("pop-out3").style.visibility = "visible";
+        }
+        function remove3() {
+            document.getElementById("pop-out3").style.visibility = "hidden";
         }
 
 

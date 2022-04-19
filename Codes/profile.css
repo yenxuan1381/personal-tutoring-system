@@ -91,7 +91,51 @@
     resize: none;
     font-size: 15px;
 }
+#pop-out form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+#pop-out3
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+}
 
+#pop-out3 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#pop-out3 form label
+{
+    font-size: 25px;
+    font-weight: bold;
+}
+#pop-out3 form textarea
+{
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+    resize: none;
+    font-size: 15px;
+}
+#pop-out3 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
 #pop-out1
 {
     position: absolute;
@@ -136,6 +180,50 @@
     height: 30px;
 }
 
+
+#pop-out2
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    max-height: 70%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+    overflow: auto;
+}
+
+#pop-out2 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+#pop-out2 form label
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#pop-out2 form input[type=text]
+{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#pop-out2 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
 .edit_goal .edit
 {
     border: none;

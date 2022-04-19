@@ -188,7 +188,7 @@ $school = mysqli_fetch_array($getTutorSchool, MYSQLI_ASSOC);
 						</form>
 
 						<!-- form to pass around tutee page info -->
-						<form method="POST" id="tuteedata" action="UserInformationStudent.php">
+						<form method="GET" id="tuteedata" action="UserInformationStudent.php">
 							<input type="hidden" id="tuteeid" name="tuteeid" value="" />
 						</form>
 					</div>
