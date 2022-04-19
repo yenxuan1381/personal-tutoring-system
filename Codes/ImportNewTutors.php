@@ -43,7 +43,7 @@
                         //die(mysqli_error($conn)."\n".$sql); - to check if sql error
                     }
                     fclose($file);
-                    echo '<script>window.confirm("CSV File has been successfully Imported and tutees have been assigned.");</script>';
+                    echo '<script>window.confirm("New Tutors added successfully .");</script>';
             }
 	}
     }	

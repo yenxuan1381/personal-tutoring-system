@@ -14,60 +14,86 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-	<head>
-	<link rel="stylesheet" href="default.css">
-		<title>
-			Add New Tutors
-		</title>
-	</head>
-<!-- Start Menu -->
-<div class="nav-btn">Menu</div>
-	<div class="container">
-		<div class="sidebar">
+<html lang="en">
 
-			<nav>
-				<a href="#">Nottingham <span>Tutor System</span></a>
-				<ul>
-					<li><a href="Modulespage.php">Modules</a></li>
-					<li><a href="Addnewtutors.php">Add New Tutors</a></li>
-					<li><a href="Loginpage.php">Log Out</a></li>
-				</ul>
+    <head>
+        <meta name="vieport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
+        <title>NOTTSTUTOR</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="importpage.css">
+    </head>
+    <body>
+        <aside>
+            <div class="header">
+                <div class="logo">
+                    <img src="./image/logo1.png" alt="" >
+                    <span class="title">NOTTSTUTOR</span>
+                </div>
+                <div class="hidden">
+                    <img src="./image/icon.png" alt="">
+                </div>
+            </div>
+            <div class="menu">
+                <?php 
+                    if($_SESSION['category'] == "Student") {
+                        require_once "sidebar_student.php";
+                    }
+                    else if($_SESSION['category'] == "Tutor"){
+                        require_once "sidebar_tutor.php";
+                    }else{
+						require_once "sidebar_admin.php";
+					} 
+                ?>
+            </div>
+            <div class="logout">
+                <a href="Loginpage.php">
+                    <span class="title">Logout</span>
+                    <ion-icon name="log-out"></ion-icon>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="background">
+                <div class="background-image"></div>
+                <div class="title-container">
+                    <span class="title">Import File</span>
+                </div>
+                <div class="content-container">
+					<form enctype="multipart/form-data" method="post" action="" id="importfile">
+						<div class="drop-zone">
+							<span class="drop-zone__prompt">Drop .csv file here or click to upload</span>
+							<input type="file" name="filename" id="file" class="drop-zone__input">
+						</div>
+						<input type="submit" name="submitfile">
+						<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
+					</form>
+                </div>
 
-			</nav>
-		</div>
-<!-- End Menu -->
-	<div class="main-content">
-			<h3><b>Add New Tutors</b></h3>
-			<br>	
-			<!-- Start Panel -->
-			<div class="panel-wrapper">
-				<div class="panel-head">
-			<!-- Start Table -->
-	
-			<form enctype="multipart/form-data" method="post" action="" id="importfile">
-			<table class="fl-table">
-				<thead>
-					<tr >
-						<th colspan="2"><strong>Import CSV file</strong></th>
-					</tr>
-					<tr>
-						<td	>CSV File:</td><td><input style="margin-right: 10%;" type="file" name="filename" id="file"></td>
-					</tr>
-					<tr >
-						<td colspan="2"><input type="submit" name="submitfile" value="Submit"></td>
-					</tr>
-				</thead>
-			</table>
-			
-		</form>
-
-				<!-- End Table -->
-				</div>
-			</div>
-		<!-- End Panel -->
-		</div>
-
+                <div class="dropdown">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>
+                                <a href = "Importpage.php">
+                                    <span class="channel">Add New Students</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "Addnewtutors.php">
+                                    <span class="channel">Add New Tutors</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+				
+            </div>
+        </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	<script src="import.js"></script>
+    </body>
 </html>
 
 

@@ -69,6 +69,24 @@
 						<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
 					</form>
                 </div>
+
+                <div class="dropdown">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>
+                                <a href = "Importpage.php">
+                                    <span class="channel">Add New Students</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "Addnewtutors.php">
+                                    <span class="channel">Add New Tutors</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 				
             </div>
         </main>
