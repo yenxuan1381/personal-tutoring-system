@@ -14,7 +14,8 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nottingham Tutor 2.0</title>
+        <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
+        <title>NOTTSTUTOR</title>
         <!-- Add jquery to get response from user -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -70,7 +71,7 @@
             <div class="header">
                 <div class="logo">
                     <img src="./image/logo1.png" alt="" >
-                    <span class="title">Nottingham Tutor 2.0</span>
+                    <span class="title">NOTTSTUTOR</span>
                 </div>
                 <div class="hidden">
                     <img src="./image/icon.png" alt="">
@@ -114,10 +115,18 @@
                 <div class="dropdown">
                     <ion-icon name="chatbubbles"></ion-icon>
                     <div class="dropdown-content">
-                    <select name="selectroom" onchange="location = this.value;">
-                        <option value="#">Computer Science Tutors</option>
-                        <option value="ChatRoom.php">General Tutors</option>
-                    </select>
+                        <ul>
+                            <li>
+                                <a href = "Chatroom.php">
+                                    <span class="channel">General Tutors</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "CSChatroom.php">
+                                    <span class="channel">Computer Science Tutors</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="back-button">

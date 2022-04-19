@@ -46,10 +46,8 @@
 .nav 
 {
     position:absolute;
-    display: flex;
     top: 48%;
-    right: 100px;
-    width: 500px;
+    right: 15%;
 }
 
 .nav a

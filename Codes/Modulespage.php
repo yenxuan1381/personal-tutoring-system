@@ -28,7 +28,8 @@
 
 	<head>
 		<meta name="vieport" content="width=device-width, initial-scale=1.0">
-		<title>Nottingham Tutor 2.0</title>
+		<link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
+        <title>NOTTSTUTOR</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="modulespage.css">
 	</head>
@@ -37,7 +38,7 @@
 			<div class="header">
 				<div class="logo">
 					<img src="./image/logo1.png" alt="" >
-					<span class="title">Nottingham Tutor 2.0</span>
+					<span class="title">NOTTSTUTOR</span>
 				</div>
 				<div class="hidden">
 					<img src="./image/icon.png" alt="">
@@ -123,13 +124,11 @@
 					</div>
 				</div>
 				<div class="function-icon">
-                    <a href="AddAnnouncement.php">
-                        <ion-icon name="add-circle"></ion-icon>
-                    </a>
+					<form id="newmodule" action="Newmodulepage.php" method="POST">
+						<input type="hidden" id="modulecode" name="modulecode" value="" />	
+						<button class="add" value="Add new module" onclick="gotomoduleeditpage(null)"><ion-icon name="add-circle"></ion-icon></button>
+					</form>
                 </div>
-				<div id="popup">
-					
-				</div>
 			</div>
 		</main>
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

@@ -178,7 +178,8 @@ margin-left: 50px;
 width: 100%;
 }
 
-a {
+.days a
+{
     all: unset;
 }
 

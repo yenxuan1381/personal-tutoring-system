@@ -37,7 +37,8 @@
 <html lang="en">
     <head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
-        <title>Nottingham Tutor 2.0</title>
+        <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
+        <title>NOTTSTUTOR</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="announcement_new.css">
     </head>
@@ -46,7 +47,7 @@
             <div class="header">
                 <div class="logo">
                     <img src="./image/logo1.png" alt="" >
-                    <span class="title">Nottingham Tutor 2.0</span>
+                    <span class="title">NOTTSTUTOR</span>
                 </div>
                 <div class="hidden">
                     <img src="./image/icon.png" alt="">

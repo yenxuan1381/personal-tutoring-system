@@ -1,0 +1,231 @@
+.background
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.background-image
+{
+    position: fixed;
+    width: calc(100% - 350px);
+    height: 100%;
+    background-image: url(image/background2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title-container
+{
+    position: absolute;
+    width: 100%;
+    padding: 20px 70px;
+}
+
+.title-container .title
+{
+    font-size: 50px;
+    color: var(--white);
+    font-weight: bold;
+    height: 10%;
+}
+
+
+.content-container
+{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 15%;
+    background: rgba(255,255,255,.8);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    padding: 30px;
+}
+
+
+.content-container form
+{
+    position: relative;
+    width: 100%;
+    height: 10%;
+}
+
+.content-container form input[type=text] 
+{
+    width: 85%;
+    padding: 10px;
+    font-size: 20px;
+    height: 50px;
+    z-index: 1;
+}
+
+.content-container form input[type=text].add-task
+{
+    position: relative;
+    border: 1px solid var(--blue1);
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
+}
+
+.content-container .task-button
+{
+    position: relative;
+    height: 50px;
+    width: 15%;
+    border: 1px solid var(--blue3);
+    background-color: var(--blue3);
+    color: white;
+    position: absolute;
+    border-top-right-radius:20px;
+    border-bottom-right-radius:20px;
+    z-index: 1;
+}
+
+.content-container .task-button:hover
+{
+    border: 1px solid var(--blue2);
+    background-color: var(--blue2);
+    color: white;
+    font-size: larger;
+}
+
+.content-container ul
+{
+    position: relative;
+    height: 90%;
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 10px;
+
+}
+
+.content-container ul li 
+{
+    position: relative;
+    list-style: none;
+    border: 2px solid var(--blue1);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+.content-container ul li .Task-info
+{
+    position: absolute;
+    width:100%;
+    height: 50px;
+    
+}
+
+
+.content-container ul li .Task-info .dolist
+{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-size: 20px;
+    color: var(--blue1);
+    overflow: hidden;
+}
+
+
+
+.content-container ul li .Task-info  .detail
+{
+    position: relative;
+    width: 70%;
+    padding-left: 20px;
+}
+
+.content-container ul li .Task-info .task
+{
+    position: absolute;
+    left: 10%;
+    width: 70%;
+    padding-left: 20px;
+}
+
+.content-container ul li .Task-info .status
+{
+    position: absolute;
+    left: 50%;
+    width: 70%;
+    padding-left: 20px;
+}
+
+
+.content-container ul li .delete-task
+{
+    position: absolute;
+    right: 15px;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content-container ul li .complete-task
+{
+    position: absolute;
+    right: 50px;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content-container ul li ion-icon
+{
+    font-size: 1.5rem;
+    color: var(--blue1);
+}
+
+.content-container ul li ion-icon:hover
+{
+    font-size: 2rem;
+    color: var(--white);
+    background: var(--blue1);
+    border-radius: 10px;
+}
+
+.back-button
+	{
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		width: 20%;
+	}
+
+	.back-button ion-icon
+	{
+		color: var(--white);
+		font-size: 4rem;
+	}
+
+
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+
+
+@media only screen and (max-width: 1200px){
+    .background-image{
+        width: calc(100% - 100px);
+    }
+}
