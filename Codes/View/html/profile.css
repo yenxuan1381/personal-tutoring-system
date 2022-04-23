@@ -1,0 +1,363 @@
+/*profile*/
+.upper_profile
+{
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    background-image: url(image/profile_background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 3px solid var(--blue1);
+}
+
+.profile_detail
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_detail .photo
+{
+    position: absolute;
+    width: 40%;
+    height: 100%;
+}
+.profile_detail .photo img
+{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    width: 250px;
+    clip-path: circle();
+    border-radius: 125px;
+    border:5px solid var(--grey);
+    text-align: center;
+}
+
+.profile_name
+{
+    position: absolute;
+    left: 40%;
+    top: 35%;
+    font-size: 30px;
+}
+.profile_detail .role
+{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+#pop-out
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+}
+
+#pop-out form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#pop-out form label
+{
+    font-size: 25px;
+    font-weight: bold;
+}
+#pop-out form textarea
+{
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+    resize: none;
+    font-size: 15px;
+}
+#pop-out form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+#pop-out3
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+}
+
+#pop-out3 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#pop-out3 form label
+{
+    font-size: 25px;
+    font-weight: bold;
+}
+#pop-out3 form textarea
+{
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+    resize: none;
+    font-size: 15px;
+}
+#pop-out3 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+#pop-out1
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    max-height: 60%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+    overflow: auto;
+}
+
+#pop-out1 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+#pop-out1 form label
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#pop-out1 form input[type=text]
+{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#pop-out1 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+
+
+#pop-out2
+{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    max-height: 70%;
+    background-color: var(--white);
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    visibility: hidden;
+    padding: 20px;
+    z-index: 1;
+    overflow: auto;
+}
+
+#pop-out2 form
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+#pop-out2 form label
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#pop-out2 form input[type=text]
+{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#pop-out2 form input[type=submit]
+{
+    width: 100px;
+    height: 30px;
+}
+.edit_goal .edit
+{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit:hover
+{
+    font-size:40px;
+}
+
+.lower_profile
+{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    height: 55%;
+    top: 45%;
+}
+
+.lower_profile .info
+{
+    position: relative;
+    width: 30%;
+    height: 80%;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower-title-1
+{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sub-title
+{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.edit_goal 
+{
+    position: relative;
+}
+
+.edit_goal .edit1
+{
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--blue1);
+}
+
+.edit_goal .edit1:hover
+{
+    font-size:40px;
+}
+
+.lower_profile .academic
+{
+    position: relative;
+    width: 30%;
+    height: 80%;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower_profile .academic p
+{
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.lower_profile .goal_and_remark
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 80%;
+    font-size: 20px;
+}
+
+.lower_profile .goal_and_remark .personal-goal 
+{
+    position: relative;
+    height: 45%;
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+
+.lower_profile .goal_and_remark .remark
+{
+    position: relative;
+    height: 45%;
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    border: 3px solid var(--blue1);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+    overflow: auto;
+}
+.lower_profile .goal_and_remark .small-title
+{
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
