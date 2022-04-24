@@ -6,7 +6,7 @@
         </a>
     </li>
     <li>
-        <a href="UserInformationTutors.php?LectID=<?php echo $userid ?>">
+        <a href="UserInformationTutors.php?LectID=<?php echo $_SESSION['userid'] ?>">
             <ion-icon name="person"></ion-icon>
             <span class="title">Profile</span>
         </a>

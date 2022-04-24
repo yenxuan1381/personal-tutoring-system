@@ -90,7 +90,7 @@ class Student {
         $level = $_POST['Level'];
         $year = $_POST['Current_Year'];
         $rDate = $_POST['Registration_Date'];
-        $sql = "UPDATE students SET `Academic Plan Code`='$code', `Level`='$level',`Current Year` = '$year',`Registration Date`='$rDate' WHERE `Student Id`='$$this->studentid'";
+        $sql = "UPDATE students SET `Academic Plan Code`='$code', `Level`='$level',`Current Year` = '$year',`Registration Date`='$rDate' WHERE `Student Id`='$this->studentid'";
         if(mysqli_query($this->conn, $sql)){
     		header("Location:UserInformationStudent.php?tuteeid=".$this->studentid);
         } else {

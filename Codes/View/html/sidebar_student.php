@@ -6,7 +6,7 @@
         </a>
     </li>
     <li>
-        <a href="UserInformationStudent.php?studentID=<?php echo $userid ?>">
+        <a href="UserInformationStudent.php?studentID=<?php echo $_SESSION['userid'] ?>">
             <ion-icon name="person"></ion-icon>
             <span class="title">Profile</span>
         </a>
@@ -18,7 +18,7 @@
         </a>
     </li>
     <li>
-        <a href="Announcement.php?studentID=<?php echo $userid ?>">
+        <a href="Announcement.php?studentID=<?php echo $_SESSION['userid'] ?>">
             <ion-icon name="mail"></ion-icon>
             <span class="title">Announcement</span>
         </a>
