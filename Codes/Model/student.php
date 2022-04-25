@@ -16,7 +16,7 @@ class Student {
 
         $this->studentid=$userid;
         $this->conn = $conn;
-        $studentQuery = 'SELECT students.`First Name`, students.`Last Name`, students.`Nationality`, students.`Email Address`'
+        $studentQuery = 'SELECT students.`Full Name`, students.`First Name`, students.`Last Name`, students.`Nationality`, students.`Email Address`'
 					.', students.`Academic Plan Code`, students.`Current Year`, students.`Level`'
 					.', students.`Registration Date`, students.`Personal Goals`, students.`remarks` FROM `students` WHERE `Student Id` = '.$userid.'';
 	    $getStudent = mysqli_query($conn, $studentQuery) or die("Error fetching student's info.");

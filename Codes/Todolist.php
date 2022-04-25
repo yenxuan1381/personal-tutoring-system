@@ -9,9 +9,6 @@ if ((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Tutor")) {
 }
 $userid = $_SESSION['userid'];
 
-
-	
-	
 	if(ISSET($_POST['add'])){
 		if($_POST['task'] != ""){
 			$task = $_POST['task'];

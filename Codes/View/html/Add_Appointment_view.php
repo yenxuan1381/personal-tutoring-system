@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+	
     <head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
         <title>NOTTSTUTOR</title>
         <link rel="stylesheet" type="text/css" href="./View/html/style.css">
-        <link rel="stylesheet" type="text/css" href="./View/html/Tutor_profile.css">
-
+        <link rel="stylesheet" type="text/css" href="./View/html/announcement_new.css">
     </head>
     <body>
-	<aside>
+        <aside>
             <div class="header">
                 <div class="logo">
                     <img src="./image/logo1.png" alt="" >
@@ -27,48 +27,47 @@
                     else if($_SESSION['category'] == "Tutor"){
                         require_once "sidebar_tutor.php";
                     }
-                
                 ?>
             </div>
             <div class="logout">
-                <a href="Loginpage.php">
+                <a href="loginpage.php">
                     <span class="title">Logout</span>
                     <ion-icon name="log-out"></ion-icon>
                 </a>
             </div>
         </aside>
         <main>
-            <div class="upper_profile">
-                <div class="profile_detail">
-                    <div class="photo">
-                        <img src="./image/profile.jpeg" alt="">
-                    </div>
-                    <div class="profile_name">
-                        <h3>My Profile:</h3>
-                        <h1><?php echo $tutor_info['Name']?></h1>
-                    </div>
-                    <span class="role">Tutor</span>
+            <div class="background">
+                <div class="background-image"></div>
+                <div class="title-container">
+                    <span class="title">New Appointment</span>
                 </div>
-                <div class="to-do-list">
-                    <a href="ToDoList.php"><ion-icon name="checkmark-done-circle"></ion-icon></a>
+                <div class="content-container">
+                    <form id="appointmentform"  method="POST" >
+                        <label for="student">Student:</label><br>
+						<select id="student" name="student">
+							<?php while($rows = mysqli_fetch_array($tutor_studentlist, MYSQLI_ASSOC))
+							{
+								echo "<option value='",$rows['Full Name'],"'>",$rows['Full Name'],"</option>";
+							}
+							?>
+						</select>
+                        <br></br>
+                        <label for="start">Starting time:</label><br>
+                        <input type="time" id="start" name="start"><br><br>
+						<label for="end">Ending time:</label><br>
+                        <input type="time" id="end" name="end">
+						<input type="submit" value="Make Appointment">
+                    </form>
+                    
+
+                </div>
+                <div class="back-button">
+                    <a href="Appointmentview.php?date=<?php echo"$date" ?>">
+                        <ion-icon name="arrow-back"></ion-icon>
+                    </a>
                 </div>
             </div>
-            <div class="lower_profile">
-                <div class="info">
-                    <p>Personal Information</p>
-					<strong>Lecturer ID: </strong> <?php echo $tutor_info['Lect ID'] ?> </br>
-        			<strong>Name: </strong> <?php echo $tutor_info['Name'] ?> </br>
-        			<strong>Email: </strong> <?php echo $tutor_info['email'] ?> </br>
-                </div>
-                <div class="academic">
-                    <p>Academic Information</p>
-					<strong>School: </strong> <?php echo $tutor_info['School'] ?> </br>
-         			<strong>Office Location: </strong> <?php echo $tutor_info['office'] ?> </br>
-         			<strong>Tutor Position: </strong> <?php if($isSeniorTutor){echo "Senior Tutor";}else{echo "Regular Tutor";}?> </br>
-                </div>
-            </div>
-		</div>
-			</div>
         </main>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

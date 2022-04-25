@@ -8,10 +8,6 @@
 		header("Location:Loginpage.php");
 	}
 
-	
-
-	
-
 	//storing the Lecture ID that the tutor entered at the log in page in the tutorid variable
 	$userid = $_SESSION['userid'];
 	$isSeniorTutor = $_SESSION['st'];
