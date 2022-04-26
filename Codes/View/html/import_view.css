@@ -160,13 +160,19 @@
 {
     background-color: var(--white);
     box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
-    font-size: larger;
 }
 
-.dropdown-content ul li a
+.dropdown-content ul li form
 {
     text-decoration: none;
     color: var(--blue1);
+}
+
+.dropdown-content ul li form button
+{
+    background: none;
+    border: none;
+    font-size: 18px;
 }
 
 .dropdown ion-icon:hover 

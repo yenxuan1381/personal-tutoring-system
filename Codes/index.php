@@ -5,6 +5,6 @@ function myAutoLoader1($className){
     $path = "";
     $extension = ".php";
     $fullPath = $path.$className.$extension;
-    include_once $fullPath;
+    include_once  $fullPath;
 }
 ?>

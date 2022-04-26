@@ -1,7 +1,5 @@
 <?php
 
-    namespace Controller;
-
     use View\View;
     include 'index.php';
 	session_start();

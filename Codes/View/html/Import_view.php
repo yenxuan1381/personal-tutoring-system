@@ -60,14 +60,18 @@
                     <div class="dropdown-content">
                         <ul>
                             <li>
-                                <a href = "Importpage.php">
+                                <form method="POST">
+                                    <input type="hidden" name="student">
+                                    <button type="submit">
                                     <span class="channel">Add New Students</span>
-                                </a>
+                                </form>   
                             </li>
                             <li>
-                                <a href = "Addnewtutors.php">
+                                <form method="POST">
+                                    <input type="hidden" name="tutor">
+                                    <button type="submit">
                                     <span class="channel">Add New Tutors</span>
-                                </a>
+                                </form>   
                             </li>
                         </ul>
                     </div>
