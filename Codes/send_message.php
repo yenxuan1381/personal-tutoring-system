@@ -1,35 +1,32 @@
 <?php
+	use View\View;
+    include 'index.php';
 	include ('Connection.php');
 	session_start();
-	$userid = $_SESSION['userid'];
-	//query to get tutor's name
-	$tutorNameQuery = 'SELECT tutors.`Name` FROM `tutors` WHERE `Lect ID` = '.$userid.'';
-	$getTutorName = mysqli_query($conn, $tutorNameQuery) or die("Error fetching tutor's name.");
-	$name = mysqli_fetch_array($getTutorName, MYSQLI_ASSOC);
-	
-	if(isset($_POST['msg'])){		
-		$msg = addslashes($_POST['msg']);
-		$id = $_POST['id'];
-		mysqli_query($conn,"insert into `general_chat` (chat_room_id, chat_msg, username, chat_date) 
-		values (1, '$msg' , '".$name['Name']."', '$date')") or die(mysqli_error($conn));
+	if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Tutor"))
+	{
+		header("Location:Loginpage.php");
 	}
-?>
-<?php
+
+	$userid = $_SESSION['userid'];
+	$tutor = new Model\Tutor($userid);
+    $tutor_info = $tutor->get_tutor_info();
+	$chatroom = new Model\chatroom();
+	$chatroom->set_room($_SESSION['room']);
+	if(isset($_POST['msg'])){		
+		$chatroom->send_message($tutor_info['Name'],$date);
+	}
+	
 	if(isset($_POST['res'])){
 		$id = 1;
-	?>
-	<?php
-	//Choose Chat Room id and display
-		$query=mysqli_query($conn,"select * from `general_chat` where chat_room_id= 1 order by chat_date asc") or die(mysqli_error($conn));
-		while($row=mysqli_fetch_array($query)){
-	?>	
+		$message = $chatroom->read_message();
+		while($row = mysqli_fetch_array($message, MYSQLI_ASSOC)) {
+		?>
 		<div>
 			<?php echo $row['chat_date']; ?><br>
 			<?php echo $row['username'].': ' ; ?>
-			<?php echo $row['chat_msg']; ?><br>
+			<?php echo $row['chat_msg']; ?><br><br>
 		</div>
-		<br>
-	<?php
-		}
+		<?php } 
 	}	
 ?>

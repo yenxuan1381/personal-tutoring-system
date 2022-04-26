@@ -1,15 +1,3 @@
-<?php
-	session_start();
-
-	include_once('Connection.php');
-
-	// If haven't login, then change to login page
-	if((!(isset($_SESSION['userid']))) or ($_SESSION['category'] != "Tutor"))
-	{
-		header("Location:Loginpage.php");
-	}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,8 +6,8 @@
         <title>NOTTSTUTOR</title>
         <!-- Add jquery to get response from user -->
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="tutorchat.css">
+        <link rel="stylesheet" type="text/css" href="./View/html/style.css">
+        <link rel="stylesheet" type="text/css" href="./View/html/tutorchat.css">
         <script type="text/javascript">
        
         $(document).ready(function() { //using send button
@@ -34,7 +22,7 @@
                     $id = $('#id').val();
                     $.ajax({
                         type: "POST",
-                        url: "SendCSchat.php",
+                        url: "send_message.php",
                         data: {
                             msg: $msg,
                             id: $id,
@@ -52,15 +40,15 @@
         function displayResult() {
             $id = $('#id').val();
             $.ajax({
-                url: 'SendCSchat.php',
+                url: 'send_message.php',
                 type: 'POST',
                 async: false,
                 data: {
                     id: $id,
-                    res: 2,
+                    res: 1,
                 },
                 success: function(response) {
-                    $('#result').html(response);
+                    $('#message').html(response);
                 }
             });
         }
@@ -77,7 +65,6 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
-            
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -86,8 +73,8 @@
                     else if($_SESSION['category'] == "Tutor"){
                         require_once "sidebar_tutor.php";
                     }
+                
                 ?>
-                </div>
             </div>
             <div class="logout">
                 <a href="loginpage.php">
@@ -103,36 +90,35 @@
                     <span class="title">Tutor Messenger</span>
                 </div>
                 <div class="content-container">
-                    <form class="form">
-                        <div id="result"></div>
+                    <div id="message">
                         
+                    </div>
+                    <form class="form">
                         <input type="text" id="msg" name="title" placeholder="Write your message..."><br></br>
-                        <input type="hidden" value="<?php echo $row['chat_room_id']; ?>" id= 2>
+                        <input type="hidden" value="<?php echo $row['chat_room_id']; ?>" id= 1>
                         <button type="button" id="send_msg">Send</button>
                     </form>
-                    
                 </div>
                 <div class="dropdown">
                     <ion-icon name="chatbubbles"></ion-icon>
                     <div class="dropdown-content">
                         <ul>
                             <li>
-                                <a href = "Chatroom.php">
+                                <form method="POST">
+                                    <input type="hidden" name="General">
+                                    <button type="submit">
                                     <span class="channel">General Tutors</span>
-                                </a>
+                                </form>
                             </li>
                             <li>
-                                <a href = "CSChatroom.php">
+                                <form method="POST">
+                                    <input type="hidden" name="CSTutors">
+                                    <button type="submit">
                                     <span class="channel">Computer Science Tutors</span>
-                                </a>
+                                </form>    
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="back-button">
-                    <a href="announcement.php">
-                        <ion-icon name="arrow-back"></ion-icon>
-                    </a>
                 </div>
             </div>
         </main>
@@ -140,5 +126,14 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 

@@ -24,8 +24,8 @@
         </a>
     </li>
     <li>
-        <a href="ContactTuteepage.php">
-                        <ion-icon name="help-circle"></ion-icon>
+        <a href="ContactUs.php">
+            <ion-icon name="help-circle"></ion-icon>
             <span class="title">Contact Us</span>
         </a>
     </li>

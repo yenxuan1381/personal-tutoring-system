@@ -65,24 +65,22 @@
 {
     position: relative;
     width: 100%;
-    height: 100%;
+    margin-top: 10px;
 }
 .content-container label
 {
     font-size: 2rem;
 }
 
-#result
+#message
 {
-    height: 75%;
-    overflow-y:scroll;
+    position: relative;
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    resize: none;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    height: 80%;
+    overflow-y: scroll;
+    font-size: 1.3rem;
 }
+
 
 .content-container input[type=text] 
 {
@@ -96,7 +94,6 @@
 #send_msg {
     /* style for send button */
     position: relative;
-    
     width: 100%;
     height: 40px;
     
@@ -156,15 +153,21 @@
 {
     background-color: var(--white);
     box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
-    font-size: larger;
 }
 
-.dropdown-content ul li a
+.dropdown-content ul li form
 {
     text-decoration: none;
     color: var(--blue1);
 }
 
+.dropdown-content ul li form button
+{
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--blue1);
+}
 .dropdown ion-icon:hover 
 {
     color: var(--blue3);

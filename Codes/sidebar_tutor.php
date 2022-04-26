@@ -30,13 +30,13 @@
         </a>
     </li>
     <li>
-        <a href="Chatroom.php">
+        <a href="chatcontrol.php">
             <ion-icon name="chatbubble-ellipses"></ion-icon>
             <span class="title">Message</span>
         </a>
     </li>
     <li>
-        <a href="ContactTuteepage.php">
+        <a href="ContactUs.php">
             <ion-icon name="help-circle"></ion-icon>
             <span class="title">Contact Us</span>
         </a>

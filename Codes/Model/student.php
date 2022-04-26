@@ -78,7 +78,7 @@ class Student {
         $lName = $_POST['Last_Name'];
         $nationality = $_POST['Nationality'];
         $email = $_POST['Email'];
-        $sql = "UPDATE students SET `First Name`='$fName',`Last Name`='$lName',Nationality='$nationality',`Email Address`='$email' WHERE `Student Id`='$$this->studentid' ";
+        $sql = "UPDATE students SET `First Name`='$fName',`Last Name`='$lName',Nationality='$nationality',`Email Address`='$email' WHERE `Student Id`='$this->studentid' ";
         if(mysqli_query($this->conn, $sql)){
     		header("Location:UserInformationStudent.php?studentID=".$this->studentid);
         } else {

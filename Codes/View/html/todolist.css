@@ -119,9 +119,7 @@
     position: absolute;
     width:100%;
     height: 50px;
-    
 }
-
 
 .content-container ul li .Task-info .dolist
 {
@@ -131,6 +129,7 @@
     display: flex;
     text-decoration: none;
     align-items: center;
+    align-content: space-between;
     font-size: 20px;
     color: var(--blue1);
     overflow: hidden;
@@ -141,46 +140,36 @@
 .content-container ul li .Task-info  .detail
 {
     position: relative;
-    width: 70%;
+    width: 10%;
     padding-left: 20px;
 }
 
 .content-container ul li .Task-info .task
 {
-    position: absolute;
-    left: 10%;
+    position: relative;
     width: 70%;
     padding-left: 20px;
 }
 
 .content-container ul li .Task-info .status
 {
-    position: absolute;
-    left: 50%;
-    width: 70%;
-    padding-left: 20px;
-}
-
-
-.content-container ul li .delete-task
-{
-    position: absolute;
-    right: 15px;
-    width: 5%;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    width: 30%;
     
 }
 
-.content-container ul li .complete-task
+.update-task
 {
-    position: absolute;
-    right: 50px;
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    
+    position: relative;
+    padding-right: 20px;
 }
+
+.delete-task
+{
+    position: relative;
+    padding-right: 20px;
+}
+
 
 .content-container ul li ion-icon
 {
@@ -197,18 +186,18 @@
 }
 
 .back-button
-	{
-		position: absolute;
-		bottom: 20px;
-		left: 20px;
-		width: 20%;
-	}
+{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 20%;
+}
 
-	.back-button ion-icon
-	{
-		color: var(--white);
-		font-size: 4rem;
-	}
+.back-button ion-icon
+{
+    color: var(--white);
+    font-size: 4rem;
+}
 
 
 button, input[type="submit"], input[type="reset"] {
