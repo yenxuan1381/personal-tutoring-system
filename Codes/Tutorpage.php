@@ -23,6 +23,12 @@
 		$tutor->changeList();
 	}
 
+	// Check if changed tutor
+	if(isset($_POST['tutoridfinal']))
+	{
+		$tutor->changeTutor();
+	}
+
 	View::render("Tutor_home",compact(["tutor_info","student_list","all_list","tutor_list","isSeniorTutor","changeList"]));
 
 
