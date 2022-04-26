@@ -1,23 +1,22 @@
 <?php
-
+	use View\View;
+    include 'index.php';
 	include('Connection.php');
 
 	// get required data
 	$search = $_REQUEST["search"];
-	
+	$module = new Model\module();
 	//check if empty, then display all
 	if($search == "")
 	{
 		// Query for all available modules
-		$searchmodule = mysqli_query($conn,'SELECT * FROM `academic plan codes`') or die('all modules error');
+		$displaylist = $module->get_all_module();;
 	}
 	else
 	{
 		// Query to look for searched modules
-		$searchmodule = mysqli_query($conn,'SELECT * FROM `academic plan codes` WHERE `Code` LIKE "%'.$search.'%" OR `Academic Plan` LIKE "%'.$search.'%"') or die('search module error');
+		$displaylist = $module->search_module($search);
 	}
-	
-	$displaylist = $searchmodule;
 	
 	// check number of result from query
 	$count = mysqli_num_rows($displaylist);

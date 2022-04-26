@@ -127,7 +127,7 @@
 								</table>
 							</div>
 
-						<form action="" method="POST" id="changelistview">
+						<form method="POST" id="changelistview">
 							<?php
 							if ($isSeniorTutor) {
 								if ($changeList) {

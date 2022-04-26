@@ -8,6 +8,7 @@ class Tutor{
     private $student_list;
     private $all_student_list;
     private $tutor_list;
+    private $school;
     private $conn;
 
     public function __construct($userid){
@@ -20,14 +21,18 @@ class Tutor{
         $getTutor = mysqli_query($conn, $tutorQuery) or die("Error fetching tutor's info.");
 	    $this->tutor_info = mysqli_fetch_array($getTutor,MYSQLI_ASSOC);
 
+        $schoolQuery = 'SELECT School FROM `tutors` WHERE `Lect ID` = '.$userid. '';
+        $getschool = mysqli_query($conn, $schoolQuery) or die('school error');
+        $school = mysqli_fetch_array($getschool, MYSQLI_ASSOC);
+        $this->school = $school;
+
         $ownStudentQuery = "SELECT * FROM `students` WHERE `Tutor Id` ='$userid'";
         $getOwnStudent = mysqli_query($conn, $ownStudentQuery) or die("Error fetching students' info.");
         $this->student_list = $getOwnStudent;
 
-        $schoolQuery = mysqli_query($conn, 'SELECT School FROM `tutors` WHERE `Lect ID` = ' . $userid) or die('school error');
-        $school = mysqli_fetch_array($schoolQuery, MYSQLI_ASSOC);
-
-        $getAllStudent = mysqli_query($conn, 'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "' . $school['School'] . '"') or die('all tutees error' . mysqli_error($conn));
+        $allstudentQuery = 'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code`'
+                    .' INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "' . $school['School'] . '"';
+        $getAllStudent = mysqli_query($conn, $allstudentQuery) or die('all tutees error' . mysqli_error($conn));
         $this->all_student_list = $getAllStudent;
 
         //List of tutors under the same school
@@ -52,12 +57,17 @@ class Tutor{
         return $this->tutor_list;
     }
 
+    public function get_school(){
+        return $this->school;
+    }
+
     public function changeList(){
         if ($_SESSION['all']) {
 			$_SESSION['all'] = 0;
 		} else {
 			$_SESSION['all'] = 1;
 		}
+        header("Location:Tutorpage.php");
     }
 
     public function changeTutor(){
@@ -68,6 +78,48 @@ class Tutor{
         } else {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
+    }
+    public function get_filterstudentList($filter){
+        $theirtutees = mysqli_query($this->conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$this->tutorid.' '
+                        .'AND `Current Year` = '.$filter) or die('their tutees error');
+        return $theirtutees;
+    }
+    public function get_searchstudentList($search){
+        $theirtutees = mysqli_query($this->conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$this->tutorid.' '
+                        .'AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` '
+                        .'LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%")') or die('their tutees error');
+        return $theirtutees;
+    }
+    public function get_filternsearchstudentList($filter,$search){
+        $theirtutees = mysqli_query($this->conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$this->tutorid.' '
+                        .'AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` '
+                        .'LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%") AND `Current Year` = '.$filter) or die('their tutees error');
+        return $theirtutees;
+    }
+
+    public function get_filterallList($filter){
+        $alltutees = mysqli_query($this->conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` '
+                    .'ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` '
+                    .'ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School '
+                    .'LIKE "'.$this->school['School'].'" AND `Current Year` = '.$filter) or die('all tutees error');
+        return $alltutees;
+    }
+    public function get_searchallList($search){
+        $alltutees = mysqli_query($this->conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` '
+                    .'ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` '
+                    .'ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School '
+                    .'LIKE "'.$this->school['School'].'" AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` '
+                    .'LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%")') or die('all tutees error');;
+        return $alltutees;
+    }
+    public function get_filternsearchallList($filter,$search){
+        $alltutees = mysqli_query($this->conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` '
+                    .'ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` '
+                    .'ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School '
+                    .'LIKE "'.$this->school['School'].'" AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` '
+                    .'LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%") '
+                    .'AND `Current Year` = '.$filter) or die('all tutees error');
+        return $alltutees;
     }
 }
 

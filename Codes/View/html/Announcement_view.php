@@ -4,8 +4,8 @@
 	<head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <title>Nottingham Tutor 2.0</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="Announcement_view.css">
+		<link rel="stylesheet" type="text/css" href="./View/html/style.css">
+        <link rel="stylesheet" type="text/css" href="./View/html/Announcement_view.css">
     </head>
 	
 	<body>

@@ -31,9 +31,4 @@
 
 	View::render("Tutor_home",compact(["tutor_info","student_list","all_list","tutor_list","isSeniorTutor","changeList"]));
 
-
-
-
-
-
 ?>

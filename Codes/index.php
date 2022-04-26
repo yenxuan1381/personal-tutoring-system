@@ -1,7 +1,7 @@
 <?php
-spl_autoload_register('myAutoLoader');
+spl_autoload_register('myAutoLoader1');
 
-function myAutoLoader($className){
+function myAutoLoader1($className){
     $path = "";
     $extension = ".php";
     $fullPath = $path.$className.$extension;

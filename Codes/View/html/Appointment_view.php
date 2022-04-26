@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
@@ -65,7 +64,6 @@
                                                 <span class='time2'>",$row["end_time"],"</span>
                                             </a>
                                         ";
-                                        echo $row["tutor_name"];
                                     }
                                     else if($_SESSION['category']=="Tutor"){
                                         echo"

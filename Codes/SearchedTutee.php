@@ -1,4 +1,6 @@
 <?php
+	use View\View;
+    include 'index.php';
 	session_start();
 
 	include('Connection.php');
@@ -8,10 +10,10 @@
 	$filter = $_REQUEST["filter"];
 	$userid = $_SESSION['userid'];
 	$alltuteeslist = $_SESSION['all'];
-	
+
+	$tutor = new Model\tutor($userid);
 	// Query to look for the current school association
-	$schoolquery = mysqli_query($conn,'SELECT School FROM `tutors` WHERE `Lect ID` = '.$userid) or die('school error');
-	$school = mysqli_fetch_array($schoolquery, MYSQLI_ASSOC);
+	$school = $tutor->get_school();
 	
 	//check if empty, then display all
 	if($search == "")
@@ -19,14 +21,15 @@
 		if($filter == -1)
 		{
 			// Query to look for the tutees of their specific tutees or all tutees under the same school
-			$theirtutees = mysqli_query($conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$userid) or die('their tutees error');
-			$alltutees = mysqli_query($conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "'.$school['School'].'"') or die('all tutees error');
+			$theirtutees = $tutor->get_studentList();
+			$alltutees = $tutor->get_allList();
+			
 		}
 		else
 		{
 			// Query to look for the tutees of their specific tutees or all tutees under the same school
-			$theirtutees = mysqli_query($conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$userid.' AND `Current Year` = '.$filter) or die('their tutees error');
-			$alltutees = mysqli_query($conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "'.$school['School'].'" AND `Current Year` = '.$filter) or die('all tutees error');
+			$theirtutees = $tutor->get_filterstudentList($filter);
+			$alltutees = $tutor->get_filterallList($filter);
 		}
 	}
 	else
@@ -34,14 +37,14 @@
 		if($filter == -1)
 		{
 			// Query to look for the tutees of their specific tutees or all tutees under the same school
-			$theirtutees = mysqli_query($conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$userid.' AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%")') or die('their tutees error');
-			$alltutees = mysqli_query($conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "'.$school['School'].'" AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%")') or die('all tutees error');
+			$theirtutees = $tutor->get_searchstudentList($search);
+			$alltutees = $tutor->get_searchallList($search);
 		}
 		else
 		{
 			// Query to look for the tutees of their specific tutees or all tutees under the same school
-			$theirtutees = mysqli_query($conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$userid.' AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%") AND `Current Year` = '.$filter) or die('their tutees error');
-			$alltutees = mysqli_query($conn,'SELECT * FROM `students` INNER JOIN `academic plan codes` ON `students`.`Academic Plan Code` = `academic plan codes`.`Code` INNER JOIN `tutors` ON `students`.`Tutor Id` = `tutors`.`Lect ID` WHERE `academic plan codes`.School LIKE "'.$school['School'].'" AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` LIKE "%'.$search.'%" OR `Full Name` LIKE "%'.$search.'%") AND `Current Year` = '.$filter) or die('all tutees error');
+			$theirtutees = $tutor->get_filternsearchstudentList($filter,$search);
+			$alltutees = $tutor->get_filternsearchallList($filter,$search);
 		}
 	}
 	
