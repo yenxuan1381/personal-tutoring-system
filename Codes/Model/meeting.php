@@ -31,7 +31,6 @@ class meeting
         $studentname = $_POST['student'];
 		$start = $_POST['start'];
 		$end = $_POST['end'];
-		echo "<script>console.log('$start')</script>";
 
 		$sql2 = "INSERT INTO meeting (date,start_time,end_time,tutor_name,student_name) VALUES ('$date','$start','$end','$user_name','$studentname')";
 		if(mysqli_query($this->conn, $sql2)){

@@ -130,7 +130,7 @@
 						<form action="" method="POST" id="changelistview">
 							<?php
 							if ($isSeniorTutor) {
-								if ($all_list) {
+								if ($changeList) {
 									echo '<input style="height: 30px; width: 140px; margin-top: 10px;" class="button" type="button" value="See Personal Tutees" onclick="changelist()" />';
 								} else {
 									echo '<input style="height: 30px; width: 100px; margin-top: 10px;" class="button" type="button" value="See All Tutees" onclick="changelist()" />';
@@ -202,9 +202,7 @@
 								</tr>
 								<tr>
 									<td colspan="2" align="center">
-										<?php
-										include('TutorChange.php');
-										?>
+										
 										<form id="confirm" action="#" method="POST">
 											<input type="submit" value="Ok" />
 										</form>

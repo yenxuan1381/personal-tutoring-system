@@ -59,6 +59,16 @@ class Tutor{
 			$_SESSION['all'] = 1;
 		}
     }
+
+    public function changeTutor(){
+        $changeTutorQuery = 'UPDATE students set `Tutor Id` = '.$_POST['tutoridfinal'].' WHERE `Student Id` = '.$_POST['studentidfinal'];
+        $changeTutor = 1;
+        if(mysqli_query($this->conn, $changeTutorQuery)){
+    		header("Location:Tutorpage.php");
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+    }
 }
 
 
