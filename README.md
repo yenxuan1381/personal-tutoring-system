@@ -59,8 +59,7 @@ After that, scroll to the bottom of the page and click the `Go` button.
 Extract the 'COMP2019_Group2B_PersonalTutoringSystem' folder and place it inside the htdocs folder. The system is now accessible using local host.
 
 2. Type in `http://localhost/COMP2019_Group2B_PersonalTutoringSystem/Codes/Loginpage.php` in your browser to access the Login screen of NottsTutor 2.0.
-
-![login page](https://i.imgur.com/tqWSNGD.png)
+3. 
 
 ### Accessing the Website
 
