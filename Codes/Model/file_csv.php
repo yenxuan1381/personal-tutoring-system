@@ -2,14 +2,17 @@
 
 namespace Model;
 
+// Class for file_csv model
 class file_csv{
     private $conn;
 
+	// Constructor for file_csv model class
     public function __construct(){
         include('Connection.php');
         $this->conn = $conn;
     }
 
+	// Function to add student csv file into database
     public function submit_file_student(){
         if(mysqli_connect_error())
 		{
@@ -29,13 +32,13 @@ class file_csv{
 				fgetcsv($file);
 				while (($datacol = fgetcsv($file)) !== FALSE)
 				{
-					//if not registered then skip the line
+					// If not registered then skip the line
 					if ($datacol[16] != "Yes")
 					{
 						continue;
 					}
 					
-					//check if module does not exists here, datacol[6]
+					// Check if module does not exists here, datacol[6]
 					$moduleexist = mysqli_query($this->conn,'SELECT * FROM `academic plan codes` WHERE Code LIKE "'.$datacol[6].'"') or die('module check error');
 					if(mysqli_num_rows($moduleexist) == 0)
 					{
@@ -43,7 +46,7 @@ class file_csv{
 						break;
 					}
 					
-					//for any empty column, fill in "Null"
+					// For any empty column, fill in "Null"
 					for ($i = 0; $i < 19; $i++)
 					{
 						$datacol[$i] = Addslashes($datacol[$i]);
@@ -57,7 +60,7 @@ class file_csv{
 						}
 					}
 					
-					// set the year for Foundation, Postgraduates taught and research to 0, 6 & 7 respectively
+					// Set the year for Foundation, Postgraduates taught and research to 0, 6 & 7 respectively
 					if ($datacol[13] == "Foundation")
 					{
 						$datacol[9] = "0";
@@ -73,7 +76,7 @@ class file_csv{
 
 					$sql = "INSERT into temp(`Student ID`,`Full Name`,`First Name`,`Last Name`,`Nationality`,`Gender`,`Academic Plan Code`,`Intake`,`Year of Entry (UG)`,`Fnd 2-sem or 3-sem?`,`New / Progressing`,`Level`,`Email Address`,`Registration Date`,`Registered`,`Remarks`,`Remarks 2`) values($datacol[0],'$datacol[1]','$datacol[2]','$datacol[3]','$datacol[4]','$datacol[5]','$datacol[6]','$datacol[8]',$datacol[9],'$datacol[10]','$datacol[11]','$datacol[13]','$datacol[14]','$datacol[15]','$datacol[16]','$datacol[17]','$datacol[18]')";
 					mysqli_query($this->conn, $sql) or die("Import error");
-					//die(mysqli_error($conn)."\n".$sql); - to check if sql error
+					
 				}
 				fclose($file);
 				if($errorcheck == 1)
@@ -95,7 +98,7 @@ class file_csv{
 			}
 		}
     }
-
+	// Function to add tutor csv file into database
 	public function submit_file_tutor(){
 		if(mysqli_connect_error())
 		{
@@ -116,7 +119,7 @@ class file_csv{
                     while (($datacol = fgetcsv($file)) !== FALSE)
                     {
                         
-                        //for any empty column, fill in "Null"
+                        // For any empty column, fill in "Null"
                         for ($i = 0; $i < 5; $i++)
                         {
                             $datacol[$i] = Addslashes($datacol[$i]);
@@ -132,7 +135,7 @@ class file_csv{
     
                         $sql = "INSERT into tutors(`Lect ID`,`Name`,`School`,`Password`,`email`,`office`) values($datacol[0],'$datacol[1]','$datacol[2]','$datacol[3]','$datacol[4]','$datacol[5]')";
                         mysqli_query($this->conn, $sql) or die("Import error");
-                        //die(mysqli_error($conn)."\n".$sql); - to check if sql error
+                        
                     }
                     fclose($file);
                     echo '<script>window.confirm("New Tutors added successfully .");</script>';

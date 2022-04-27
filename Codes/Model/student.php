@@ -2,6 +2,7 @@
 
 namespace Model;
 
+// Class for Student model
 class Student {
     private $student_info;
     private $academicPlan;
@@ -10,6 +11,7 @@ class Student {
     private $tutor_info;
     private $studentList;
 
+    // Constructor for student model class
 	public function __construct($userid){
 
         include('Connection.php');
@@ -55,6 +57,8 @@ class Student {
     public function get_studentList(){
         return $this->studentList;
     }
+
+    // Function to edit the personal goal after submitting the form
     public function set_personalgoal(){
         $personalGoals = $_POST['Personal_Goal'];
         $editPersonalGoalsQuery = "UPDATE students SET `Personal Goals` = '$personalGoals' WHERE `Student Id` = '$this->studentid'";
@@ -64,6 +68,8 @@ class Student {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }
+
+    // Function to edit the remark after submitting the form
     public function set_remark(){
         $remark = $_POST['Remark'];
         $sql = "UPDATE students SET `Remarks`='$remark' WHERE `Student id` = '$this->studentid'";
@@ -73,6 +79,8 @@ class Student {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }
+
+    // Function to edit the student information after submitting the form
     public function set_studentinfo(){
         $fName = $_POST['First_Name'];
         $lName = $_POST['Last_Name'];
@@ -85,6 +93,8 @@ class Student {
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }
+
+    // Function to edit the academic information after submitting the form
     public function set_academic(){
         $code = $_POST['Academic_Plan_Code'];
         $level = $_POST['Level'];

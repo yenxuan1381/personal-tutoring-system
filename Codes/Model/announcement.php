@@ -2,6 +2,7 @@
 
 namespace Model;
 
+// Class for announcement model
 class announcement{
 
     private $conn;
@@ -12,7 +13,7 @@ class announcement{
     private $comment;
     private $name;
     
-
+    // Constructor for announcement model class
     public function __construct($user_name,$announcement_id){
 
         include('Connection.php');
@@ -44,6 +45,7 @@ class announcement{
         return $this->announcement;
     }
 
+    // Function to add new announcement into the database
     public function add_announcement($user_name){
         $title = $_POST['title'];
         $content = $_POST['text'];
@@ -56,6 +58,7 @@ class announcement{
 		}
     }
 
+    // Function to delete announcement according to the announcement_id
     public function delete_announcement(){
         $id = $_POST['id'];
 		$DeleteQuery = "DELETE FROM announcement WHERE announcement_id='$id'";          
@@ -70,6 +73,7 @@ class announcement{
         return $this->commentList;
     }
 
+    // Function to add comments into the database 
     public function add_comment(){
         $comment = $_POST['text'];
         $sql = "INSERT INTO comment (user_name,announcement_id,content) VALUES ('$this->name','$this->announcementid','$comment')";
@@ -81,6 +85,7 @@ class announcement{
 		}
     }
 
+    // Function to edit existing announcement according to the announcement_id
     public function edit_announcement(){
         $title = $_POST['title'];
 		$content = $_POST['text'];

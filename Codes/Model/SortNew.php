@@ -2,13 +2,16 @@
 
 	namespace Model;
 
+	// Class for sortnew model
 	class sortnew{
 		private $conn;
 
+		// Constructor for sortnew model class
 		public function __construct($conn){
 			$this->conn = $conn;
 		}
 
+		// Function to sort the data in csv file
 		public function sort_data(){
 
 			$schools = mysqli_query($this->conn,'SELECT DISTINCT `School` FROM `academic plan codes`') or die('schools error');

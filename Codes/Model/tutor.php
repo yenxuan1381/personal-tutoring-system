@@ -2,6 +2,7 @@
 
 namespace Model;
 
+// Class for Tutor model
 class Tutor{
     private $tutorid;
     private $tutor_info;
@@ -11,6 +12,7 @@ class Tutor{
     private $school;
     private $conn;
 
+    // Constructor for Tutor model class
     public function __construct($userid){
 
         include('Connection.php');
@@ -61,6 +63,7 @@ class Tutor{
         return $this->school;
     }
 
+    // Function to change the variable controlling the change of student list for senior tutor
     public function changeList(){
         if ($_SESSION['all']) {
 			$_SESSION['all'] = 0;
@@ -70,6 +73,7 @@ class Tutor{
         header("Location:Tutorpage.php");
     }
 
+    // Function to edit the personal tutor for student
     public function changeTutor(){
         $changeTutorQuery = 'UPDATE students set `Tutor Id` = '.$_POST['tutoridfinal'].' WHERE `Student Id` = '.$_POST['studentidfinal'];
         $changeTutor = 1;
@@ -79,11 +83,15 @@ class Tutor{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
         }
     }
+
+// Functions to create the filtered search for student list in tutor home page
     public function get_filterstudentList($filter){
         $theirtutees = mysqli_query($this->conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$this->tutorid.' '
                         .'AND `Current Year` = '.$filter) or die('their tutees error');
         return $theirtutees;
     }
+
+    
     public function get_searchstudentList($search){
         $theirtutees = mysqli_query($this->conn,'SELECT * FROM `students` WHERE `Tutor Id` = '.$this->tutorid.' '
                         .'AND (`Student Id` LIKE "%'.$search.'%" OR `First Name` LIKE "%'.$search.'%" OR `Last Name` '

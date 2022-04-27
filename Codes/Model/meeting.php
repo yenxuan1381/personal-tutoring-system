@@ -2,12 +2,14 @@
 
 namespace Model;
 
+// Class for meeting model
 class meeting
 {
     private $conn;
     private $student_meeting;
     private $tutor_meeting;
     
+    // Constructor for meeting model class
     public function __construct($user_name,$date1){
         include('Connection.php');
         $this->conn = $conn;
@@ -27,6 +29,7 @@ class meeting
         return $this->tutor_meeting;
     }
 
+    // Function to add new appointment meeting into the database
     public function add_appointment($user_name,$date){
         $studentname = $_POST['student'];
 		$start = $_POST['start'];
@@ -39,6 +42,8 @@ class meeting
     		echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 		}
     }
+
+    // Function to delete existing appointment according to the meeting_id
     public function delete_appointment(){
         $id = $_POST['id'];
 		$DeleteQuery = "DELETE FROM meeting WHERE meeting_id='$id'";          
