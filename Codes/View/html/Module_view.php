@@ -47,13 +47,14 @@
 				<div class="content-container">
 					<div class="search-container">
 						<!-- Form to search for module -->
-						<form action="" method="post">
-							Search: <input type="text" id="searchbar" name="search" placeholder="Code or Academic Plan" onkeyup="showRows(this.value)">
-						</form>
+						<div class="search">
+                    		<input type="text" id="myInput" onkeyup="filterSearch()" placeholder="Search Module...">
+                    		<ion-icon name="search-outline"></ion-icon>
+                		</div>
 						<div id="ModulesInfo" class="table-wrapper">
-							<table class="fl-table">
+							<table id="myTable" class="fl-table">
 								<thead>
-									<tr>
+									<tr class="top">
 										<th>Code</th>
 										<th>Academic Plan</th>
 										<?php
@@ -109,46 +110,33 @@
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 	<script>
-		var input = document.getElementById("searchbar");
-		input.addEventListener("keydown", function(event) 
-		{
-		if (event.keyCode === 13) 
-		{
-			event.preventDefault();
-		}
-		});
-		</script>
-
-		<script>
-		function gotomoduleeditpage(id)
-		{
-			if(id == null)
-			{
-				document.getElementById("newmodule").submit();
+	function filterSearch() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTable");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			// td = tr[i].getElementsByTagName("td")[0];
+			alltags = tr[i].getElementsByTagName("td");
+			isFound = false;
+			for(j=0; j< alltags.length; j++) {
+			td = alltags[j];
+			if (td) {
+				txtValue = td.textContent || td.innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+					j = alltags.length;
+					isFound = true;
+				}
+				}       
 			}
-			else
-			{
-				document.getElementById("modulecode").value = id;
-				document.getElementById("newmodule").submit();
+			if(!isFound && tr[i].className !== "top") {
+				tr[i].style.display = "none";
+			}
 			}
 		}
-		</script>
-
-		<script>
-		function showRows(str) 
-		{
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() 
-			{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("ModulesInfo").innerHTML = this.responseText;
-			}
-			};
-			xmlhttp.open("GET", "SearchedModule.php?search=" + str, true);
-			xmlhttp.send();
-		}
-		</script>
+	</script>
 	</body>
 </html>
 
