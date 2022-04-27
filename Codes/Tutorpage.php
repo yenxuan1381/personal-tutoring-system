@@ -8,7 +8,7 @@
 		header("Location:Loginpage.php");
 	}
 
-	//storing the Lecture ID that the tutor entered at the log in page in the tutorid variable
+	// Storing the Lecture ID that the tutor entered at the log in page in the tutorid variable
 	$userid = $_SESSION['userid'];
 	$isSeniorTutor = $_SESSION['st'];
 	$changeList = $_SESSION['all'];
@@ -29,6 +29,7 @@
 		$tutor->changeTutor();
 	}
 
+	// Display "Tutor_home" view
 	View::render("Tutor_home",compact(["tutor_info","student_list","all_list","tutor_list","isSeniorTutor","changeList"]));
 
 ?>

@@ -27,6 +27,7 @@
 	{
 		$oldmodule = $module->get_previous_module($oldcode);
 	}
+	// Run functions according to action
 	if(isset($add))
 	{
 		$module->add_module($code,$acadplan,$school);
@@ -40,6 +41,8 @@
 	{
 		$module->delete_module($codebeforeedit);
 	}
+
+	// Display "Moduleadd_view" view
 	View::render("Moduleadd_view",compact(["oldmodule","add","delete","edit","oldcode"]));
 
 ?>

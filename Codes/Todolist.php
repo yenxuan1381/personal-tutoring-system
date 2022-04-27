@@ -15,6 +15,7 @@
     $todolist = new Model\ToDoList($userid);
     $getlist = $todolist->get_task();
 
+    // Run functions according to the form submitted
 	if(isset($_POST['add'])) {
 		$todolist->add_task();
 	}
@@ -24,6 +25,8 @@
     if(isset($_POST['update'])){
 		$todolist->update_task();
 	}
+
+    // Display "Todolist_view" view
     View::render("Todolist_view",compact(["getlist"]));
 ?>
 

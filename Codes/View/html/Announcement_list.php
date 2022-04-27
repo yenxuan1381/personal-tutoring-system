@@ -5,8 +5,8 @@
         <meta name="vieport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="image/icon.png" sizes="16x16">
         <title>NOTTSTUTOR</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" type="text/css" href="announcement.css">
+        <link rel="stylesheet" type="text/css" href="./View/html/style.css">
+        <link rel="stylesheet" type="text/css" href="./View/html/announcement.css">
     </head>
     <body>
         <aside>

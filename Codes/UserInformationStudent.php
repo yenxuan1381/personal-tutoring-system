@@ -22,6 +22,8 @@
 	$student_info = $student->get_student_info();
 	$academicPlan = $student->get_academicPlan();
 	$StudentID = $student->get_student_id();
+
+    // Run functions when form is submitted
     if(isset($_POST['Personal_Goal']))
     {
         $student->set_personalgoal();
@@ -39,6 +41,7 @@
         $student->set_academic();
     }
 
+    // Display "Student_profile" view
     View::render("Student_profile",compact(["student_info","academicPlan","StudentID"]));
     
 ?>

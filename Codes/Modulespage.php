@@ -14,6 +14,7 @@
 	$allmodule = $module->get_all_module();
 	$specificmodule = $module->get_specific_module($whichschool);
 
+	// Display "Module_view" view
 	View::render("Module_view",compact(["whichschool","school","allmodule","specificmodule"]));
 ?>
 

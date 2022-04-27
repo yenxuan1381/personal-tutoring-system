@@ -9,12 +9,15 @@
 		header("Location:Loginpage.php");
 	}
 
+    // Store date variable obtained from GET method
     if(isset($_GET['date'])){
         $date= $_GET['date'];
     }else{
         $date = 27;
     }
+
 	$userid = $_SESSION['userid'];
+    // Check if the category is student or tutor
 	if($_SESSION['category']=="Student"){
         $student = new Model\Student($userid);
         $student_info = $student->get_student_info();
@@ -28,10 +31,12 @@
         $result = $appointment->get_tutor_appointment();
 	}
 
+    // Run "delete_appointment" function when the form is submitted
 	if(isset($_POST['delete'])){
 		$appointment->delete_appointment();
 	}
 
+    // Display "Appointment_view" view
 	View::render("Appointment_view",compact(["result","date"]));
 ?>
 

@@ -11,16 +11,18 @@
 		header("Location:Loginpage.php");
 	}
 
+	// Store id variable obtained from GET method
     $id = $_GET['id'];
     $announcement = new Model\announcement("NULL",$id);
     $result1 = $announcement->get_announcement();
 
 	
-
+	// Run "edit_announcement" function when the form is submitted
     if(isset($_POST['text'])){
 		$announcement->edit_announcement();
 	}
 	
+	// Display "Announcement_edit" view
 	View::render("Announcement_edit",compact(["result1"]));
 	
 

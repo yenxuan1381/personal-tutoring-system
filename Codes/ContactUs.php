@@ -93,5 +93,7 @@
 
     
   }
+
+  // Display "Contact_edit" view
   View::render("ContactUs_view",compact(["notify","NameError","EmailError"]));
 ?>

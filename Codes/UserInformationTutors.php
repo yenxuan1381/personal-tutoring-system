@@ -8,12 +8,13 @@
         header("Location:Loginpage.php");
     }
 
-    //storing the Lecture ID that the tutor entered at the log in page in the tutorid variable
+    // Storing the Lecture ID that the tutor entered at the log in page in the tutorid variable
 	$userid = $_SESSION['userid'];
     $isSeniorTutor = $_SESSION['st'];
     $tutor = new Model\Tutor($userid);
     $tutor_info = $tutor->get_tutor_info();
 
+    // Display "Tutor_profile" view
     View::render("Tutor_profile",compact(["tutor_info","isSeniorTutor"]));
  ?>
 

@@ -2,6 +2,7 @@
 <?php
 session_start();
 include_once('Connection.php');
+// If form is submitted, send password to the email of student
 if(isset($_POST['submit']))
 {
     $id = $_POST['studentid'];
@@ -51,6 +52,7 @@ if(isset($_POST['submit']))
 				<div class="login-form">
 					<h1>Forgot Password</h1>
 					<p style="color:white;">Enter ID and the password will be sent to the registered email</p>
+					<!-- Form to input student id to get back password-->
 					<form method="post" action="" id="forgotPassword">
 						<input type="text" name="studentid" id="studentid" placeholder="ID" required value="">
 						<input type="submit" name="submit" value="Continue">

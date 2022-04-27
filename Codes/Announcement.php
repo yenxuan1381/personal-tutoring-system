@@ -11,6 +11,7 @@
 
     $userid = $_SESSION['userid'];
     
+    // Check if category is student or tutor
     if($_SESSION['category']=="Student"){
         $student = new Model\Student($userid);
         $tutor_info = $student->get_tutor_info();
@@ -22,10 +23,11 @@
     $announcement = new Model\announcement($tutor_info['Name'],0);
     $result = $announcement->get_announcement_list();
 
+    // Run "delete_announcement" function when the form is submitted
     if(isset($_POST['delete'])){
 		$announcement->delete_announcement();
 	}
-
+    // Display "Announcement_list" view
     View::render("Announcement_list",compact(["result"]));
 ?>
 

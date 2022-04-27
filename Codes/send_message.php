@@ -13,6 +13,7 @@
     $tutor_info = $tutor->get_tutor_info();
 	$chatroom = new Model\chatroom();
 	$chatroom->set_room($_SESSION['room']);
+	// Run "send_message" function when the form is submitted
 	if(isset($_POST['msg'])){		
 		$chatroom->send_message($tutor_info['Name'],$date);
 	}

@@ -15,8 +15,9 @@
 		$_SESSION['announcementid'] = $_POST['id'];
 	}
 
-	
+	// Store announcementid variable obtained from GET method
 	$announcementid = $_GET['announcementid'];
+	// Check if the category is student or tutor
 	if($_SESSION['category']=="Student"){
         $student = new Model\Student($userid);
         $student_info = $student->get_student_info();
@@ -31,6 +32,7 @@
 	$result = $announcement->get_announcement();
 	$result1 = $announcement->get_comment();
 	
+	// Run "add_comment" function when the form is submitted
 	if(isset($_POST['text'])){
 		$announcement->add_comment();
 	}

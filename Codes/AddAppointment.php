@@ -16,10 +16,12 @@
 	$date= $_GET['date'];
     $appointment = new Model\meeting($tutor_info['Name'],$date);
 
+	// Run "add_appointment" function when the form is submitted
 	if(isset($_POST['student'])){
 		$appointment->add_appointment($tutor_info['Name'],$date);
 	}
 
+	// Display "Add_Appointment_view" view
 	View::render("Add_Appointment_view",compact(["tutor_studentlist","date"]));
 
 ?>

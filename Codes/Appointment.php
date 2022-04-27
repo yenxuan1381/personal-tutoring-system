@@ -11,6 +11,7 @@
 	}
     $userid = $_SESSION['userid'];
 
+	// Display "Appointment_calender" view
     View::render("Appointment_calender",compact(["userid"]));
 ?>
 

@@ -2,11 +2,12 @@
 	use View\View;
     include 'index.php';
 	session_start();
-	// echo isset($_SESSION['attempt']) ? $_SESSION['attempt'] : '';
+	
 
 	if(isset($_SESSION['attempt_again']))
     	{
     	    $now = time();
+			// if the time is over, allow user to login again
     	    if($now >= $_SESSION['attempt_again'])
     	    {
     	        unset($_SESSION['attempt']);
@@ -16,6 +17,8 @@
 	$st = -1;
 	
 	include('Login.php');
+
+	// Display "Login_view" view
 	View::render("Login_view",compact(["_SESSION","st"]));
 ?>
 
