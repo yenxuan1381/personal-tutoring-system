@@ -56,13 +56,7 @@ After that, scroll to the bottom of the page and click the `Go` button.
 
 ![htdocs](https://i.imgur.com/8lSZi4M.jpg)
 
-Extract the 'COMP2019_Group2B_PersonalTutoringSystem' folder and place it inside the htdocs folder like in the following image.
-
-![code in htdocs](https://i.imgur.com/gDUZlE0.jpg)
-
-The following files should be present in the `Codes` folder:
-
-![codes folder](https://i.imgur.com/XEpqMHk.jpg)
+Extract the 'COMP2019_Group2B_PersonalTutoringSystem' folder and place it inside the htdocs folder. The system is now accessible using local host.
 
 2. Type in `http://localhost/COMP2019_Group2B_PersonalTutoringSystem/Codes/Loginpage.php` in your browser to access the Login screen of NottsTutor 2.0.
 
@@ -92,9 +86,6 @@ Password: 1234
 ID: 20050927  
 Password: 1234
 
-The privilages for each role is described as follow:
-
-
 
 The system operates as follow:
 1. User logs in as administrator and uploads a .csv file containing all the student's data. 
@@ -103,9 +94,5 @@ The system operates as follow:
 4. Students can then log into the system to view own profile and their assigned tutor's profile.
 
 
-### NottsTutor Website
-
-(insert website link here)
-
-**Refer to final report**
+**Refer to final report for the complete user manual**
 
