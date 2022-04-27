@@ -15,6 +15,7 @@
 			<div class="container">
 				<div class="login-form">
 					<h1>NottsTutor</h1>
+					<!-- Form to retrieve login input -->
 					<form method="post" action="" id="login">
 						<input type="text" name="id" id="id" placeholder="ID">
 						<input type="password" name="password" id="password" placeholder="Password">

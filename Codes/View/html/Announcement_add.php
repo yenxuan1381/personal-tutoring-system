@@ -18,6 +18,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -42,6 +43,7 @@
                     <span class="title">New Announcement</span>
                 </div>
                 <div class="content-container">
+                    <!-- Form to add new announcement -->
                     <form id="announcementform"  method="POST" >
                         <label for="title">Title:</label><br>
                         <input type="text" id="title" name="title"><br></br>

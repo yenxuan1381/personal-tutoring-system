@@ -20,6 +20,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -65,6 +66,7 @@
                             <button class="edit1" onclick="remove()"><ion-icon name="close"></ion-icon></button>
                         </div>
                     </div>
+                    <!-- Form to edit personal goals -->
                     <form method="post" name="form1">
                         <textarea name="Personal_Goal" placeholder="Your Personal Goal.."></textarea><br>
                         <input type="submit" value="Confirm">
@@ -77,6 +79,7 @@
                             <button class="edit1" onclick="remove1()"><ion-icon name="close"></ion-icon></button>
                         </div>
                     </div>
+                    <!-- Form to edit personal information -->
                     <form method="post">
                         <label for="First_Name">First Name:</label><br>
                         <input type="text" name="First_Name" value="<?php echo $student_info['First Name'] ?>"><br><br>
@@ -96,6 +99,7 @@
                             <button class="edit1" onclick="remove2()"><ion-icon name="close"></ion-icon></button>
                         </div>
                     </div>
+                    <!-- Form to edit academic plan information -->
                     <form method="post">
                         <label for="Academic_Plan_Code">Academic Plan Code:</label><br>
                         <input type="text" name="Academic_Plan_Code" value="<?php echo $student_info['Academic Plan Code'] ?>"><br><br>
@@ -115,6 +119,7 @@
                             <button class="edit1" onclick="remove3()"><ion-icon name="close"></ion-icon></button>
                         </div>
                     </div>
+                    <!-- Form to edit remarks -->
                     <form method="post" name="form1">
                         <textarea name="Remark" placeholder="Add Remarks Here..."></textarea><br>
                         <input type="submit" value="Confirm">

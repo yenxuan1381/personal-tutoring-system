@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -45,6 +46,7 @@
                     <span class="title">Import File</span>
                 </div>
                 <div class="content-container">
+                    <!-- Form to retrieve csv file -->
 					<form enctype="multipart/form-data" method="post" action="" id="importfile">
 						<div class="drop-zone">
 							<span class="drop-zone__prompt">Drop .csv file here or click to upload</span>
@@ -54,7 +56,8 @@
 						<input type="hidden" name="AdminID" value="<?php echo $userid; ?>" />
 					</form>
                 </div>
-
+                
+                <!-- Dropdown to change type of files (add student or add tutor) -->
                 <div class="dropdown">
                     <ion-icon name="settings-outline"></ion-icon>
                     <div class="dropdown-content">

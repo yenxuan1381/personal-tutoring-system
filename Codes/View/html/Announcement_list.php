@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -45,6 +46,7 @@
                 </div>
                 <div class="content-container">
                     <ul>
+                        <!-- Display all announcement list -->
                         <?php if($result->num_rows > 0){while($row = $result->fetch_assoc()) { ?>
                         <li>
                             <div class="Announcement-info">
@@ -53,6 +55,7 @@
                                     <span class="from">From: <?php echo $row["tutor_name"] ?></span>
                                 </a>
                             </div>
+                        <!-- Display edit and delete buttons if the category is tutor -->
                         <?php if($_SESSION['category']=="Tutor"){ ?>
                             <div class="edit-announcement">
                                 <a href="announcementedit.php?id=<?php echo $row["announcement_id"]?>">
@@ -75,6 +78,7 @@
                         <?php } } ?>                
                     </ul>
                 </div>
+                <!-- Display add button if the category is tutor -->
                 <?php if($_SESSION['category']=="Tutor"){ ?>
                 <div class="function-icon">
                     <a href="AddAnnouncement.php">

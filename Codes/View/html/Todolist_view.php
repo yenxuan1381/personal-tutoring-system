@@ -18,6 +18,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -43,6 +44,7 @@
                 </div>
             </div>
             <div class="content-container">
+                <!-- Form to add new task -->
                 <form method="POST" action="">
 					<input type="text" class="add-task" name="task" placeholder="Add New Task.." />
 					<button class="task-button" name="add">Add Task</button>	
@@ -59,6 +61,7 @@
                                     <span class="task"><?php echo $fetch['task'] ?></span>
                                     <span class="status"><?php echo $fetch['status'] ?></span>
                                     <div class="update-task">
+                                        <!-- Form to update the status -->
                                         <form method="post">
                                             <input type="hidden" name="update">
                                             <input type="hidden" name="status">

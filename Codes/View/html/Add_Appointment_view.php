@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -43,6 +44,7 @@
                     <span class="title">New Appointment</span>
                 </div>
                 <div class="content-container">
+                    <!-- Form to add new appointment -->
                     <form id="appointmentform"  method="POST" >
                         <label for="student">Student:</label><br>
 						<select id="student" name="student">

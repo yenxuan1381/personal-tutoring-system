@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -53,6 +54,7 @@
                     <a href="ToDoList.php"><ion-icon name="checkmark-done-circle"></ion-icon></a>
                 </div>
             </div>
+            <!-- Show tutor profile information -->
             <div class="lower_profile">
                 <div class="info">
                     <p>Personal Information</p>

@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+			<!-- Navigation Bar -->
             <div class="menu">
 				<?php 
 					if($_SESSION['category'] == "Student") {
@@ -101,11 +102,11 @@
 										?>
 											<tr>
 												<?php
-												// main student's information
+												// Main student's information
 												echo '<td><a onclick="gototuteepage(' . $rows['Student Id'] . ')" style="cursor: pointer">' . $rows['Student Id'] . '</a></td>';
 												echo '<td>' . $rows['Full Name'] . '</td>';
 
-												// if is list of all tutees, display tutors and changing option
+												// If is list of all tutees, display tutors and changing option
 												if ($changeList) {
 													echo '<td>' . $rows['Name'] . '</td>';
 													echo '<td>
@@ -140,7 +141,7 @@
 							<input type="hidden" id="switch" name="switch" value="" />
 						</form>
 
-						<!-- form to pass around tutee page info -->
+						<!-- Form to pass around tutee page info -->
 						<form method="GET" id="tuteedata" action="UserInformationStudent.php">
 							<input type="hidden" id="tuteeid" name="tuteeid" value="" />
 						</form>

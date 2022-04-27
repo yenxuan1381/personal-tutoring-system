@@ -65,6 +65,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -93,12 +94,14 @@
                     <div id="message">
                         
                     </div>
+                    <!-- Form to retrieve message input -->
                     <form class="form">
                         <input type="text" id="msg" name="title" placeholder="Write your message..."><br></br>
                         <input type="hidden" value="<?php echo $row['chat_room_id']; ?>" id= 1>
                         <button type="button" id="send_msg">Send</button>
                     </form>
                 </div>
+                <!-- Drop down to change chat room -->
                 <div class="dropdown">
                     <ion-icon name="chatbubbles"></ion-icon>
                     <div class="dropdown-content">

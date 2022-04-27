@@ -18,6 +18,7 @@
 					<img src="./image/icon.png" alt="">
 				</div>
 			</div>
+			<!-- Navigation Bar -->
 			<div class="menu">
 				<?php 
 					if($_SESSION['category'] == "Student") {
@@ -45,6 +46,7 @@
 				</div>
 				<div class="content-container">
 					<div class="search-container">
+						<!-- Form to search for module -->
 						<form action="" method="post">
 							Search: <input type="text" id="searchbar" name="search" placeholder="Code or Academic Plan" onkeyup="showRows(this.value)">
 						</form>
@@ -77,11 +79,11 @@
 									?>
 									<tr>
 									<?php
-										// main code's information
+										// Main code's information
 										echo '<td><a onclick="gotomoduleeditpage(\''.$rows['Code'].'\')" style="cursor: pointer">'.$rows['Code'].'</a></td>';
 										echo '<td>'.$rows['Academic Plan'].'</td>';
 										
-										// if is list of all school, display school as well
+										// If is list of all school, display school as well
 										if($whichschool == "all")
 										{
 											echo '<td>'.$rows['School'].'</td>';

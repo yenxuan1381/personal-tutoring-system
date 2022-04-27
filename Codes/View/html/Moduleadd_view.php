@@ -18,6 +18,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+			<!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -46,6 +47,7 @@
                 <div class="content-container">
 					<div class="panel-wrapper">
 						<div class="panel-head">	
+							<!-- Form to retrieve input to add new module -->
 							<form id="modulesform" action="" method="POST">
 								<span><b>Code:</b></span><br>
 								<input type="text" id="code" name="code" value="<?php echo $oldmodule['Code'] ?>" placeholder="Code..."/>
@@ -73,7 +75,7 @@
 								?>
 							</form>
 				
-							<!-- form to go back to module page-->
+							<!-- Form to go back to module page-->
 							<form id="alldata" action="Modulespage.php" method="POST"></form>
 						</div>
 						<?php

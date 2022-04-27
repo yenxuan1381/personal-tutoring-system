@@ -17,6 +17,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -44,6 +45,7 @@
 				<?php
 					$rows = $result1
 				?>
+                    <!-- Form to edit the announcement title and content -->
                     <form id="announcementform"  method="POST" >
                         <label for="title">New Title:</label><br>
                         <input type="text" id="title" name="title" value="<?php echo $rows['title'];?>"><br></br>

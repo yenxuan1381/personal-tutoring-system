@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -36,7 +37,7 @@
                 </a>
             </div>
         </aside>
-        <!-- change any thing you want in main -->
+        <!-- Display calendar -->
         <main>
             <div class="content">
             <div class="left">

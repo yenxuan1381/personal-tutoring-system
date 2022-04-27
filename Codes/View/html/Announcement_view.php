@@ -19,6 +19,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+			<!-- Navigation Bar -->
             <div class="menu">
 				<?php 
 					if($_SESSION['category'] == "Student") {
@@ -41,6 +42,7 @@
 		<?php 
             $rows = $result
 		?>
+			<!-- Display announcement information -->
 			<div class="background">
 					<div class="background-image"></div>
 					<div class="title-container">
@@ -59,6 +61,7 @@
 						<div class="comment">
 							<p>
 							<?php
+								// Display comment section
 								while($rows=$result1->fetch_assoc())
 								{   
 									echo "<span style='color:blue;font-weight:bold;font-size:25px'>",$rows['user_name'],"</span>: ",$rows['content'],"<br><br>";	

@@ -18,6 +18,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                 if($_SESSION['category'] == "Student") {
@@ -44,6 +45,7 @@
                 </div>
                 <div class="content-container">
                 <?php echo $notify; ?>
+                <!-- Form to retrieve input for the contact us feature -->
                 <form class="contact" method="post"> 
                     <label for="name">Full Name</label><br>
                     <input type="text" name="name" placeholder="Your Name.." autocomplete="none">

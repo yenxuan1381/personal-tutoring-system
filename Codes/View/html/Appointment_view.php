@@ -18,6 +18,7 @@
                     <img src="./image/icon.png" alt="">
                 </div>
             </div>
+            <!-- Navigation Bar -->
             <div class="menu">
                 <?php 
                     if($_SESSION['category'] == "Student") {
@@ -53,6 +54,7 @@
                     <ul>
                         <?php {while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                         <li>
+                            <!-- Display list of appointment -->
                             <div class="Announcement-info">
                                 <?php 
                                     if($_SESSION['category']=="Student"){
@@ -76,6 +78,7 @@
                                     }
                                 ?>
                             </div>
+                        <!-- If the user is tutor, display delete button -->
                         <?php if($_SESSION['category']=="Tutor"){ ?>
                             <div class="delete-announcement">
                                 <form method="post" onsubmit="return confirm('Are you sure you want to delete this appointment?');">
@@ -93,13 +96,14 @@
                         <?php } }?>                
                     </ul>
                 </div>
-				
+				<!-- If the user is tutor, display the add button -->
                 <?php if($_SESSION['category']=="Tutor"){ ?>
                 <div class="function-icon">
                     <a href="AddAppointment.php?date=<?php echo"$date"?>">
                         <ion-icon name="add-circle"></ion-icon>
                     </a>
                 </div>
+                <!-- If the user is tutor, display the back button for calendar page -->
                 <?php } ?>
                 <?php if($_SESSION['category']=="Tutor"){ ?>
 				<div class="back-button">
