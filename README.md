@@ -6,85 +6,66 @@ The goal of our project is to develop an automated system that will make it easi
 
 ## Project Setup
 
-First, download the COMP2019_Group2B_PersonalTutoringSystem ZIP file and extract the COMP2019_Group2B_PersonalTutoringSystem folder.
-
+1.	Download the COMP2019_Group2B_PersonalTutoringSystem ZIP file and extract the COMP2019_Group2B_PersonalTutoringSystem folder. The extracted file will include files as shown in the picture below
+![download and extract folder](https://i.imgur.com/bcrx7ha.png)
 
 ### XAMPP
 
 #### Install XAMPP
-XAMPP needs to be installed to run the code to access our system. Please follow this link:https://www.wikihow.com/Install-XAMPP-for-Windows to guide you on the installation of XAMPP on your computer.
-
+2.	After that, XAMPP needs to be installed to run the code to access our system. Please follow this link:https://www.wikihow.com/Install-XAMPP-for-Windows to guide you on the installation of XAMPP on your computer.
 
 #### Upload the Database
-1. Run XAMPP
 
-2. Click the start button for Apache and MySQL
-![Apache and MySQL buttons](https://i.imgur.com/hH2ANWs.jpg)
+3.	After completing the installation, run the XAMPP software. Click the two `Start` buttons marked in red in the image  below to run Apache and SQL.
 
-3. Type in `localhost` in your browser and the XAMPP dashboard should be opened.
+![Apache and MySQL](https://i.imgur.com/1bThnaD.png)
 
-4. Click on phpMyAdmin to open the phpMyAdmin dashboard.
+4.	Now click on Admin button in MySQL to open PhpMyAdmin.
+![Admin](https://i.imgur.com/WSOjFTk.png)
 
-![phpMyAdmin](https://i.imgur.com/OM2mY80.jpg)
+5.	Type in `localhost` in your browser and the XAMPP dashboard should be opened.
 
-5. Create a new database by clicking on `Create` on the left side of the panel panel.
+6.	Click on phpMyAdmin to open the phpMyAdmin dashboard.
+![phpMyAdmin](https://i.imgur.com/eVuhh0J.png?1)
 
-![create database](https://user-images.githubusercontent.com/62388054/115763638-57a47f00-a3ad-11eb-9753-931d514a77ba.png)
+7.	Create a new database by clicking on `Create` on the left side of the panel panel.
+![create database](https://i.imgur.com/F2RsUUZ.png)
 
-6. Type in the database name `csv_db 15` and click `Create`.
-
-![csv_db 15](https://user-images.githubusercontent.com/62388054/115763966-ad792700-a3ad-11eb-8ccb-114068351d51.png)
-
+8. Type in the database name `csv_db 15` and click `Create`.
 **Make sure that the name of the database created is csv_db 15 so the SQL file can be imported correctly.**
+![csv_db 15](https://i.imgur.com/f0Z3mLL.png)
 
-7. Click the `Import` button.
+9.	Click the `Import` button.
+![import button](https://i.imgur.com/nlndl00.png)
 
-![import button](https://i.imgur.com/27SMYQb.jpg)
+10.	Click the `Choose File` and choose the SQL file named 'csv_db 15.sql'. The SQL file is in our COMP2019_Group2B_PersonalTutoringSystem-main/Database
+![choose_file_button](https://i.imgur.com/GpIxDyQ.png)
 
-8. Click the `Choose File` and choose the SQL file named 'csv_db 15.sql'.
+11.	You can file the csv_db 15.sql in the Database folder as shown on the picture below.
+![database file](https://i.imgur.com/a6MgqJu.png)
 
-![choose_file_button](https://i.imgur.com/Gr1RKpm.jpg)
+12.	After that, scroll to the bottom of the page and click the `Go` button.
 
-After that, scroll to the bottom of the page and click the `Go` button.
-
-9. The SQL file should be imported successfully and the csv_db 15 database should have the following tables accordingly:
-
-![tables in database](https://i.imgur.com/ATAKNow.jpg)
+13.	The SQL file should be imported successfully and the csv_db 15 database should have the following tables accordingly:
+![tables in database](https://i.imgur.com/PAKJARE.png)
 
 #### Setup the  Website
-1. Inside the XAMPP folder, click into the `htdocs` folder.
+14.	Inside the XAMPP folder, click into the `htdocs` folder and place the extracted folder “COMP2019_Group2B_PersonalTutoringSystem” in there.  
+![htdocs](https://i.imgur.com/OaL1Ef8.png)
 
-![htdocs](https://i.imgur.com/8lSZi4M.jpg)
-
-Extract the 'COMP2019_Group2B_PersonalTutoringSystem' folder and place it inside the htdocs folder. The system is now accessible using local host.
-
-2. Type in `http://localhost/COMP2019_Group2B_PersonalTutoringSystem/Codes/Loginpage.php` in your browser to access the Login screen of NottsTutor 2.0.
-3. 
+15.	The system is now accessible using local host. Type in the following link: `http://localhost/COMP2019_Group2B_PersonalTutoringSystem/Codes/Loginpage.php` 
+You have now entered the login page. Please follow the instructions in the next section to use the function to use the features in the NottsTutor 2.0 website.
 
 ### Accessing the Website
 
-In our system, different users have different privilages. The login credentials for each role has been provided below for demonstration purposes:
+To sign in to your account, key in your student ID and password on the login page. Then, click on the `LOGIN` button .
 
-1. Administrator
-
-ID: 10000001  
-Password: 0000
-
-2. Regular Tutor
-
-ID: 50000033  
-Password: 1234
-
-3. Senior Tutor
-
-ID: 50000031  
-Password: 1234
-
-4. Student
-
-ID: 20050927  
-Password: 1234
-
+|      Role      |       ID      |    Password   |
+| -------------  | ------------- | ------------- |
+| Administrator  |    10000001   |      0000     |
+| Regular Tutor  |    50000033   |      1234     |
+| Senior Tutor   |    50000031   |      1234     |
+| Student        |    20050927   |      1234     |
 
 The system operates as follow:
 1. User logs in as administrator and uploads a .csv file containing all the student's data. 
@@ -94,4 +75,3 @@ The system operates as follow:
 
 
 **Refer to final report for the complete user manual**
-
