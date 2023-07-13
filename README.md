@@ -1,4 +1,4 @@
-# NottsTutor 2.0 by Group 2b
+# NottsTutor 2.0: An Automated Personal Tutoring System
 
 ## Project Description
 
