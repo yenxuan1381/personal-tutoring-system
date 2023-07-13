@@ -84,5 +84,5 @@ The system operates as follow:
 4. Students can then log into the system to view own profile and their assigned tutor's profile.
 
 
-## Protoype Demo
+## Prototype Demo
 [Download PDF](/prototype-demo.pdf)
