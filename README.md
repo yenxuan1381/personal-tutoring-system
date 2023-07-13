@@ -85,4 +85,4 @@ The system operates as follow:
 
 
 ## Prototype Demo
-[Download PDF](/prototype-demo.pdf)
+[View PDF](/prototype-demo.pdf)
