@@ -2,7 +2,17 @@
 
 ## Project Description
 
-The goal of our project is to develop an automated system that will make it easier for personal tutors to complete their responsibilities. The major goal is to develop a system that would assist in automating the process of allocating tutors to students, which is now done by senior tutors manually using an Excel Sheet. Meanwhile, the system would cater to tutors' demands, such as being able to access updated tutee information at all times, keeping records of students' information, and managing their information through the system rather than the manual method of keeping records on an excel sheet. The NottsTutor 2.0 website is being built with the goal of delivering a more functioning, robust system that will help senior tutors minimise their burden.
+NottsTutor 2.0 is an automated system designed to streamline the process of personal tutoring in educational institutions. It is primarily developed to automate the allocation of tutors to students, a task traditionally done manually using Excel sheets by senior tutors.
+
+The system is built using PHP for server-side scripting, MySQL for database management, and HTML/CSS for frontend design. It leverages the XAMPP platform, which provides an easy-to-use control panel for managing Apache, MySQL, and other services.
+
+NottsTutor 2.0 provides real-time access to updated tutee information, maintains records of students' information, and allows tutors to manage this information through the system. This eliminates the need for manual record-keeping, thus increasing efficiency and reducing the likelihood of errors.
+
+In a professional context, NottsTutor 2.0 can be used by educational institutions to manage their tutoring programs. It can help senior tutors minimize their workload by automating routine tasks. Furthermore, it can provide tutors with a more efficient way to manage their tutees and access relevant information.
+
+### Table of Contents  
+- **[Project Setup](#project-setup)**<br> 
+- **[Prototype Demo](#prototype-demo)**<br>
 
 ## Project Setup
 
@@ -74,4 +84,5 @@ The system operates as follow:
 4. Students can then log into the system to view own profile and their assigned tutor's profile.
 
 
-**Refer to final report for the complete user manual**
+## Protoype Demo
+[Download PDF](/prototype-demo.pdf)
