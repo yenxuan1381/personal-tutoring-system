@@ -2,7 +2,7 @@
 
 ## Project Description
 
-NottsTutor 2.0 is an automated system designed to streamline the process of personal tutoring in educational institutions. It is primarily developed to automate the allocation of tutors to students, a task traditionally done manually using Excel sheets by senior tutors.
+NottsTutor 2.0 is an automated system designed to streamline the process of personal tutoring in educational institutions. It is primarily developed to automate the allocation of tutors to students, a task traditionally done manually using Excel sheets by senior tutors. Additional features include automatically update the status of each mentee with their goals and allow users to make online session booking online with each parties' schedule transparent to each other and much more.
 
 The system is built using PHP for server-side scripting, MySQL for database management, and HTML/CSS for frontend design. It leverages the XAMPP platform, which provides an easy-to-use control panel for managing Apache, MySQL, and other services.
 
